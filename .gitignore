@@ -2,6 +2,6 @@
 Pods/
 Podsfile.lock
 TemplateTests/
-*.xcodeproj/xcuserdata/**/*
-*.xcworkspace/xcuserdata/**/*
-*.xcodeproj/project.xcworkspace/xcuserdata/**/*
+Template.xcodeproj/xcuserdata/**/*
+Template.xcworkspace/xcuserdata/**/*
+Template.xcodeproj/project.xcworkspace/xcuserdata/**/*
