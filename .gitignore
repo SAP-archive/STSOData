@@ -1,6 +1,6 @@
 .DS_Store
 Pods/
-Podsfile.lock
+Podfile.lock
 TemplateTests/
 Template.xcodeproj/xcuserdata/**/*
 Template.xcworkspace/xcuserdata/**/*
