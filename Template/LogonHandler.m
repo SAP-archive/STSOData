@@ -58,7 +58,7 @@
         
         [[self.logonManager logonConfigurator] configureManager:self.httpConvManager];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"com.sap.sdk.maf.logon.complete" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLogonFinished object:nil];
         
     } else {
     

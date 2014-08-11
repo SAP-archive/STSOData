@@ -7,15 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class OnlineStore;
-
+#import "OnlineStore.h"
+#import "SODataEntitySetDefault.h"
 
 @interface Client : NSObject
 
 @property (nonatomic, strong) OnlineStore *onlineStore;
 
+@property (nonatomic, strong) SODataEntitySetDefault *bookingsWithExpand;
+
+
 +(instancetype)sharedClient;
+
+-(void)fetchBookingsWithExpand;
+
 
 
 @end

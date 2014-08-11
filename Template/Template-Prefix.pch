@@ -14,3 +14,11 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define kStoreOpenFinished @"com.sap.sdk.store.open.finished"
+#define kStoreOpenDelegateFinished @"com.sap.sdk.store.open.delegate.finished"
+#define kRequestFinished  @"com.sap.sdk.request.finished"
+#define kRequestDelegateFinished  @"com.sap.sdk.request.delegate.finished"
+#define kLogonFinished @"com.sap.sdk.logon.finished"
+
+

@@ -10,8 +10,9 @@
 #import "SODataStore.h"
 #import "SODataStoreSync.h"
 #import "SODataStoreAsync.h"
+#import "SODataRequestDelegate.h"
 
-@interface OnlineStore : SODataOnlineStore <SODataStore, SODataStoreSync, SODataStoreAsync>
+@interface OnlineStore : SODataOnlineStore <SODataStore, SODataStoreSync, SODataStoreAsync, SODataRequestDelegate>
 
 - (void) openStoreWithCompletion:(void(^)(id openStore))completion;
 

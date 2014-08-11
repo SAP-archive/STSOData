@@ -10,6 +10,10 @@
 
 #import "DetailViewController.h"
 
+#import "Client.h"
+
+#import "SODataEntityDefault.h"
+
 @interface MasterViewController () {
     NSMutableArray *_objects;
 }
@@ -28,6 +32,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -35,6 +40,28 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    [[Client sharedClient] addObserver:self forKeyPath:@"bookingsWithExpand" options:(NSKeyValueObservingOptionInitial || NSKeyValueObservingOptionNew) context:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:kStoreOpenFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+    
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+        [[Client sharedClient] fetchBookingsWithExpand];
+        
+    }];
+    
+    
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (!object) return;
+    
+    if ([keyPath isEqual:@"bookingsWithExpand"]) {
+        NSLog(@"object = %@ %s", object, __PRETTY_FUNCTION__);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,14 +89,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return [Client sharedClient].bookingsWithExpand.entities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
+    SODataEntityDefault *object = [Client sharedClient].bookingsWithExpand.entities[indexPath.row];
+    
     cell.textLabel.text = [object description];
     return cell;
 }

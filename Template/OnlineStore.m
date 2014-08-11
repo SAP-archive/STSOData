@@ -16,7 +16,7 @@
 #import "SODataRequestDelegate.h"
 
 
-@interface OnlineStore () <SODataOnlineStoreDelegate, SODataRequestDelegate>
+@interface OnlineStore () <SODataOnlineStoreDelegate>
 
 @property (nonatomic, assign) BOOL isOpen;
 
@@ -28,13 +28,16 @@
 
 - (void) openStoreWithCompletion:(void(^)(id openStore))completion
 {
+
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
     if (self.isOpen) {
     
         completion(self);
         
     } else {
         
-        NSString *openStoreFinished = [NSString stringWithFormat:@"com.sap.odata.store.open.finished.%@", [self description]];
+        NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
         
         [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
             
@@ -42,6 +45,8 @@
         }];
         
         NSError *error;
+        
+        [self setOnlineStoreDelegate:self];
         
         [self openStoreWithError:&error];
         
@@ -56,8 +61,10 @@
 
 - (void) onlineStoreOpenFinished:(SODataOnlineStore *)store
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
     self.isOpen = YES;
-    NSString *openStoreFinished = [NSString stringWithFormat:@"com.sap.odata.store.open.finished.%@", [self description]];
+    NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
     
     // send notification for that openStore is finished
     [[NSNotificationCenter defaultCenter] postNotificationName:openStoreFinished object:self];
@@ -72,9 +79,14 @@
 
 - (void) scheduleRequest:(id<SODataRequestParam>)request completionHandler:(void(^)(id<SODataEntitySet>entities, id<SODataRequestExecution>requestExecution, NSError *error))completion
 {
-    NSString *finishedSubscription = [NSString stringWithFormat:@"com.sap.odata.store.request.finished.%@", request];
+
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    NSString *finishedSubscription = [NSString stringWithFormat:@"%@.%@", kRequestDelegateFinished, request];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:finishedSubscription object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+    
+        NSLog(@"%s", __PRETTY_FUNCTION__);
         
         // this code will handle the <requestExecution> response, and call the completion block.
         id<SODataRequestExecution>requestExecution = note.object;
@@ -172,7 +184,7 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
     // build notification tag for this request
-    NSString *finishedSubscription = [NSString stringWithFormat:@"com.sap.odata.store.request.finished.%@", requestExecution.request];
+    NSString *finishedSubscription = [NSString stringWithFormat:@"%@.%@", kRequestDelegateFinished, requestExecution.request];
 
     // send notification for the finished request
     [[NSNotificationCenter defaultCenter] postNotificationName:finishedSubscription object:requestExecution];

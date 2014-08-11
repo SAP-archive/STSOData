@@ -39,17 +39,67 @@ static NSString * const kServiceRoot = @"https://sapes1.sapdevcenter.com/sap/opu
     return _sharedClient;
 }
 
+
+
 #pragma mark Initialize with BaseURL and HttpConversationManager
 
 -(instancetype)init
 {
     if (self == [super init]) {
-
-        self.onlineStore = [[OnlineStore alloc] initWithURL:[LogonHandler shared].data.baseURL
-                                    httpConversationManager:[LogonHandler shared].httpConvManager];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+            NSLog(@"%s", __PRETTY_FUNCTION__);
+        
+            self.onlineStore = [[OnlineStore alloc] initWithURL:[LogonHandler shared].data.baseURL
+                                        httpConversationManager:[LogonHandler shared].httpConvManager];
+            
+            [self.onlineStore openStoreWithCompletion:^(id openStore) {
+            
+                NSLog(@"%s", __PRETTY_FUNCTION__);
+            
+                [[NSNotificationCenter defaultCenter] postNotificationName:kStoreOpenFinished object:nil userInfo:nil];
+                
+            }];
+        }];
+        return self;
     }
     
     return nil;
+}
+
+- (void)fetchBookingsWithExpand {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    /*
+     Construct the resource path, relative to the baseURL
+     Include any oData filters & query parameters
+     */
+    
+    NSString *resourcePath = @"BookingCollection?$top=5&$expand=bookedFlight";
+    
+    SODataRequestParamSingleDefault *requestParam = [[SODataRequestParamSingleDefault alloc] initWithMode:SODataRequestModeRead resourcePath:resourcePath];
+    
+    /*
+     Schedule the request on the store
+     */
+    [self.onlineStore scheduleRequest:requestParam completionHandler:^(id<SODataEntitySet> entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+        
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+        
+        if (entities) {
+            
+            /*
+             Use setter to the model property, to ensure it is recognized by KVO
+             */
+            [self setBookingsWithExpand:entities];
+            
+        } else {
+            NSLog(@"did not get any entities, with error: %@", error);
+        }
+    }];
+    
 }
 
 
@@ -58,22 +108,23 @@ static NSString * const kServiceRoot = @"https://sapes1.sapdevcenter.com/sap/opu
 -(void)scheduleRequestForResource:(NSString *)resourcePath withMode:(SODataRequestModes)mode withEntity:(id<SODataEntity>)entity withCompletion:(void(^)(NSArray *array))completion
 {
     
-    /// Do this to make sure that the store is open
-    [self.onlineStore openStoreWithCompletion:^(id openStore) {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    SODataRequestParamSingleDefault *myRequest = [[SODataRequestParamSingleDefault alloc] initWithMode:mode resourcePath:resourcePath];
+    
+    [self.onlineStore scheduleRequest:myRequest completionHandler:^(id<SODataEntitySet> entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+    
+        NSLog(@"%s", __PRETTY_FUNCTION__);
         
-        SODataRequestParamSingleDefault *myRequest = [[SODataRequestParamSingleDefault alloc] initWithMode:mode resourcePath:resourcePath];
-        
-        [self.onlineStore scheduleRequest:myRequest completionHandler:^(id<SODataEntitySet> entities, id<SODataRequestExecution> requestExecution, NSError *error) {
-            if (!error) {
-                if ([entities entities]) {
-                    completion([entities entities]);
-                } else {
-                    completion(nil);
-                }
+        if (!error) {
+            if ([entities entities]) {
+                completion([entities entities]);
             } else {
-                NSLog(@"ALERT ERROR %@", error);
+                completion(nil);
             }
-        }];
+        } else {
+            NSLog(@"ALERT ERROR %@", error);
+        }
     }];
 
 }
