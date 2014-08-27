@@ -12,6 +12,9 @@
 #import "MAFLogonNGDelegate.h"
 #import "HttpConversationManager.h"
 #import "MAFLogonRegistrationData.h"
+#import "SODataOfflineStoreOptions.h"
+
+#import "SAPClientLogManager.h"
 
 @interface LogonHandler : NSObject <MAFLogonNGDelegate>
 
@@ -20,6 +23,10 @@
 @property (strong, nonatomic) HttpConversationManager* httpConvManager;
 
 @property (strong, nonatomic) MAFLogonRegistrationData *data;
+- (SODataOfflineStoreOptions *)options;
+
+@property (strong, nonatomic) id<SAPClientLogManager>logManager;
+
 
 +(instancetype)shared;
 

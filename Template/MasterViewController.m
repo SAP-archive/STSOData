@@ -10,7 +10,7 @@
 
 #import "DetailViewController.h"
 
-#import "Client.h"
+#import "DataController+FetchRequests.h"
 
 #import "SODataEntityDefault.h"
 
@@ -41,26 +41,56 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    [[Client sharedClient] addObserver:self forKeyPath:@"bookingsWithExpand" options:(NSKeyValueObservingOptionInitial || NSKeyValueObservingOptionNew) context:nil];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data"];
+    self.refreshControl = refreshControl;
+    [self.refreshControl addTarget:self action:@selector(flushAndRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:kStoreOpenFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-        [[Client sharedClient] fetchBookingsWithExpand];
         
+        [[DataController shared].store openStoreWithCompletion:^(BOOL success) {
+            NSLog(@"%s", __PRETTY_FUNCTION__);
+            [[DataController shared] fetchTravelAgencies];
+        }];
     }];
-    
-    
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[DataController shared] addObserver:self
+                              forKeyPath:@"travelAgencies"
+                                 options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial)
+                                 context:NULL];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[DataController shared] removeObserver:self
+                                 forKeyPath:@"travelAgencies"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (!object) return;
     
-    if ([keyPath isEqual:@"bookingsWithExpand"]) {
+    if ([keyPath isEqual:@"travelAgencies"]) {
         NSLog(@"object = %@ %s", object, __PRETTY_FUNCTION__);
+        [self.tableView reloadData];
+    }
+}
+
+- (void)flushAndRefresh:(id)sender
+{
+    if ([DataController shared].workingMode == WorkingModeOnline) {
+        [[DataController shared] fetchTravelAgencies];
+        [self.refreshControl endRefreshing];
+    } else {
+        [[DataController shared].store flushAndRefresh:^(BOOL success) {
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        }];
     }
 }
 
@@ -89,14 +119,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [Client sharedClient].bookingsWithExpand.entities.count;
+    return [DataController shared].travelAgencies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    SODataEntityDefault *object = [Client sharedClient].bookingsWithExpand.entities[indexPath.row];
+    SODataEntityDefault *object = [DataController shared].travelAgencies[indexPath.row];
     
     cell.textLabel.text = [object description];
     return cell;
