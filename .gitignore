@@ -1,6 +1,6 @@
 .DS_Store
 Pods/
 Podfile.lock
-Template.xcodeproj/xcuserdata/**/*
-Template.xcworkspace/xcuserdata/**/*
-Template.xcodeproj/project.xcworkspace/xcuserdata/**/*
+Template.xcodeproj/xcuserdata/
+Template.xcworkspace/xcuserdata/
+Template.xcodeproj/project.xcworkspace/xcuserdata/

@@ -23,11 +23,15 @@
 		1B408AF2199033310020E000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACE199033310020E000 /* UIKit.framework */; };
 		1B408AFA199033310020E000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B408AF8199033310020E000 /* InfoPlist.strings */; };
 		1B408AFC199033310020E000 /* TemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AFB199033310020E000 /* TemplateTests.m */; };
-		1B408B07199065470020E000 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408B06199065470020E000 /* Client.m */; };
-		1B408B0A199066210020E000 /* OnlineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408B09199066210020E000 /* OnlineStore.m */; };
-		1B408B0D19906A7B0020E000 /* LogonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408B0C19906A7B0020E000 /* LogonHandler.m */; };
-		1B408B10199152C60020E000 /* MAFLogonRegistrationData+Bullio.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408B0F199152C60020E000 /* MAFLogonRegistrationData+Bullio.m */; };
-		1B47730B1991C29800535046 /* Client+Requests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B47730A1991C29800535046 /* Client+Requests.m */; };
+		1B649DB519A41EDE000DA5E9 /* LogonHandler+E2ETrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DA319A41EDE000DA5E9 /* LogonHandler+E2ETrace.m */; };
+		1B649DB619A41EDE000DA5E9 /* LogonHandler+Usage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DA419A41EDE000DA5E9 /* LogonHandler+Usage.m */; };
+		1B649DB719A41EDE000DA5E9 /* OnlineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DA719A41EDE000DA5E9 /* OnlineStore.m */; };
+		1B649DB919A41EDE000DA5E9 /* LogonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DA919A41EDE000DA5E9 /* LogonHandler.m */; };
+		1B649DBA19A41EDE000DA5E9 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DAA19A41EDE000DA5E9 /* DataController.m */; };
+		1B649DBB19A41EDE000DA5E9 /* OfflineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DAC19A41EDE000DA5E9 /* OfflineStore.m */; };
+		1B649DBC19A41EDE000DA5E9 /* DataController+CUDRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DB119A41EDE000DA5E9 /* DataController+CUDRequests.m */; };
+		1B649DBD19A41EDE000DA5E9 /* DataController+FetchRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DB319A41EDE000DA5E9 /* DataController+FetchRequests.m */; };
+		1B649DC119A41FA7000DA5E9 /* LogonHandler+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B649DC019A41FA7000DA5E9 /* LogonHandler+Logging.m */; };
 		B625674DCEC5444D969239AD /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */; };
 /* End PBXBuildFile section */
 
@@ -65,16 +69,27 @@
 		1B408AF7199033310020E000 /* TemplateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TemplateTests-Info.plist"; sourceTree = "<group>"; };
 		1B408AF9199033310020E000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B408AFB199033310020E000 /* TemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateTests.m; sourceTree = "<group>"; };
-		1B408B05199065470020E000 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		1B408B06199065470020E000 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
-		1B408B08199066210020E000 /* OnlineStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineStore.h; sourceTree = "<group>"; };
-		1B408B09199066210020E000 /* OnlineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineStore.m; sourceTree = "<group>"; };
-		1B408B0B19906A7B0020E000 /* LogonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogonHandler.h; sourceTree = "<group>"; };
-		1B408B0C19906A7B0020E000 /* LogonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogonHandler.m; sourceTree = "<group>"; };
-		1B408B0E199152C60020E000 /* MAFLogonRegistrationData+Bullio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MAFLogonRegistrationData+Bullio.h"; sourceTree = "<group>"; };
-		1B408B0F199152C60020E000 /* MAFLogonRegistrationData+Bullio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MAFLogonRegistrationData+Bullio.m"; sourceTree = "<group>"; };
-		1B4773091991C29800535046 /* Client+Requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Client+Requests.h"; sourceTree = "<group>"; };
-		1B47730A1991C29800535046 /* Client+Requests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Client+Requests.m"; sourceTree = "<group>"; };
+		1B649DA319A41EDE000DA5E9 /* LogonHandler+E2ETrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LogonHandler+E2ETrace.m"; sourceTree = "<group>"; };
+		1B649DA419A41EDE000DA5E9 /* LogonHandler+Usage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LogonHandler+Usage.m"; sourceTree = "<group>"; };
+		1B649DA519A41EDE000DA5E9 /* LogonHandler+Usage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LogonHandler+Usage.h"; sourceTree = "<group>"; };
+		1B649DA619A41EDE000DA5E9 /* LogonHandler+E2ETrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LogonHandler+E2ETrace.h"; sourceTree = "<group>"; };
+		1B649DA719A41EDE000DA5E9 /* OnlineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineStore.m; sourceTree = "<group>"; };
+		1B649DA919A41EDE000DA5E9 /* LogonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogonHandler.m; sourceTree = "<group>"; };
+		1B649DAA19A41EDE000DA5E9 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
+		1B649DAB19A41EDE000DA5E9 /* OnlineStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineStore.h; sourceTree = "<group>"; };
+		1B649DAC19A41EDE000DA5E9 /* OfflineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineStore.m; sourceTree = "<group>"; };
+		1B649DAD19A41EDE000DA5E9 /* OfflineStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineStore.h; sourceTree = "<group>"; };
+		1B649DAE19A41EDE000DA5E9 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
+		1B649DAF19A41EDE000DA5E9 /* LogonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogonHandler.h; sourceTree = "<group>"; };
+		1B649DB019A41EDE000DA5E9 /* DataController+CUDRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataController+CUDRequests.h"; sourceTree = "<group>"; };
+		1B649DB119A41EDE000DA5E9 /* DataController+CUDRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataController+CUDRequests.m"; sourceTree = "<group>"; };
+		1B649DB219A41EDE000DA5E9 /* DataController+FetchRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataController+FetchRequests.h"; sourceTree = "<group>"; };
+		1B649DB319A41EDE000DA5E9 /* DataController+FetchRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataController+FetchRequests.m"; sourceTree = "<group>"; };
+		1B649DBF19A41FA7000DA5E9 /* LogonHandler+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LogonHandler+Logging.h"; sourceTree = "<group>"; };
+		1B649DC019A41FA7000DA5E9 /* LogonHandler+Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LogonHandler+Logging.m"; sourceTree = "<group>"; };
+		1B649DC219A42463000DA5E9 /* App-Specific-Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Specific-Constants.h"; sourceTree = "<group>"; };
+		1B649DC319A42605000DA5E9 /* Framework-Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Framework-Constants.h"; sourceTree = "<group>"; };
+		1BAF57D419A5603500DD7789 /* ODataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODataStore.h; sourceTree = "<group>"; };
 		EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,16 +153,9 @@
 		1B408AD0199033310020E000 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				1B649DBE19A41F52000DA5E9 /* Framework */,
 				1B408AD9199033310020E000 /* AppDelegate.h */,
 				1B408ADA199033310020E000 /* AppDelegate.m */,
-				1B408B0B19906A7B0020E000 /* LogonHandler.h */,
-				1B408B0C19906A7B0020E000 /* LogonHandler.m */,
-				1B408B08199066210020E000 /* OnlineStore.h */,
-				1B408B09199066210020E000 /* OnlineStore.m */,
-				1B408B05199065470020E000 /* Client.h */,
-				1B408B06199065470020E000 /* Client.m */,
-				1B4773091991C29800535046 /* Client+Requests.h */,
-				1B47730A1991C29800535046 /* Client+Requests.m */,
 				1B408ADC199033310020E000 /* Main_iPhone.storyboard */,
 				1B408ADF199033310020E000 /* Main_iPad.storyboard */,
 				1B408AE2199033310020E000 /* MasterViewController.h */,
@@ -156,8 +164,6 @@
 				1B408AE6199033310020E000 /* DetailViewController.m */,
 				1B408AE8199033310020E000 /* Images.xcassets */,
 				1B408AD1199033310020E000 /* Supporting Files */,
-				1B408B0E199152C60020E000 /* MAFLogonRegistrationData+Bullio.h */,
-				1B408B0F199152C60020E000 /* MAFLogonRegistrationData+Bullio.m */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 				1B408AD3199033310020E000 /* InfoPlist.strings */,
 				1B408AD6199033310020E000 /* main.m */,
 				1B408AD8199033310020E000 /* Template-Prefix.pch */,
+				1B649DC319A42605000DA5E9 /* Framework-Constants.h */,
+				1B649DC219A42463000DA5E9 /* App-Specific-Constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -189,6 +197,32 @@
 				1B408AF8199033310020E000 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1B649DBE19A41F52000DA5E9 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				1B649DAF19A41EDE000DA5E9 /* LogonHandler.h */,
+				1B649DA919A41EDE000DA5E9 /* LogonHandler.m */,
+				1B649DBF19A41FA7000DA5E9 /* LogonHandler+Logging.h */,
+				1B649DC019A41FA7000DA5E9 /* LogonHandler+Logging.m */,
+				1B649DA319A41EDE000DA5E9 /* LogonHandler+E2ETrace.m */,
+				1B649DA619A41EDE000DA5E9 /* LogonHandler+E2ETrace.h */,
+				1B649DA419A41EDE000DA5E9 /* LogonHandler+Usage.m */,
+				1B649DA519A41EDE000DA5E9 /* LogonHandler+Usage.h */,
+				1B649DAE19A41EDE000DA5E9 /* DataController.h */,
+				1B649DAA19A41EDE000DA5E9 /* DataController.m */,
+				1B649DB019A41EDE000DA5E9 /* DataController+CUDRequests.h */,
+				1B649DB119A41EDE000DA5E9 /* DataController+CUDRequests.m */,
+				1B649DB219A41EDE000DA5E9 /* DataController+FetchRequests.h */,
+				1B649DB319A41EDE000DA5E9 /* DataController+FetchRequests.m */,
+				1B649DAB19A41EDE000DA5E9 /* OnlineStore.h */,
+				1B649DA719A41EDE000DA5E9 /* OnlineStore.m */,
+				1B649DAD19A41EDE000DA5E9 /* OfflineStore.h */,
+				1B649DAC19A41EDE000DA5E9 /* OfflineStore.m */,
+				1BAF57D419A5603500DD7789 /* ODataStore.h */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,15 +358,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B649DC119A41FA7000DA5E9 /* LogonHandler+Logging.m in Sources */,
+				1B649DBC19A41EDE000DA5E9 /* DataController+CUDRequests.m in Sources */,
+				1B649DB519A41EDE000DA5E9 /* LogonHandler+E2ETrace.m in Sources */,
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,
-				1B408B0D19906A7B0020E000 /* LogonHandler.m in Sources */,
-				1B408B10199152C60020E000 /* MAFLogonRegistrationData+Bullio.m in Sources */,
+				1B649DBA19A41EDE000DA5E9 /* DataController.m in Sources */,
+				1B649DB919A41EDE000DA5E9 /* LogonHandler.m in Sources */,
 				1B408AE4199033310020E000 /* MasterViewController.m in Sources */,
-				1B47730B1991C29800535046 /* Client+Requests.m in Sources */,
+				1B649DBD19A41EDE000DA5E9 /* DataController+FetchRequests.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
+				1B649DB619A41EDE000DA5E9 /* LogonHandler+Usage.m in Sources */,
+				1B649DBB19A41EDE000DA5E9 /* OfflineStore.m in Sources */,
+				1B649DB719A41EDE000DA5E9 /* OnlineStore.m in Sources */,
 				1B408AE7199033310020E000 /* DetailViewController.m in Sources */,
-				1B408B07199065470020E000 /* Client.m in Sources */,
-				1B408B0A199066210020E000 /* OnlineStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
