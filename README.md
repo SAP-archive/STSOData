@@ -1,4 +1,5 @@
-sdk-template-ios
-================
+sap-odatasdk-template
+=====================
 
-A template project to bootstrap development with Harmonized API &amp; Logon Manager for SP05
+A template to bootstrap an SAP Mobile SDK app, for my preferred iOS application architecture.
+
