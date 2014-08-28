@@ -98,11 +98,13 @@
 
 - (void) offlineStoreOpenFailed:(SODataOfflineStore *)store error:(NSError *)error{
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    SAPLOGINFO(LOG_OFFLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
 }
 
 -(void)offlineStoreOpenFinished:(SODataOfflineStore *)store {
     
     NSLog(@"Offline Store Open Finished");
+    SAPLOGINFO(LOG_OFFLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
     
     NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
     
