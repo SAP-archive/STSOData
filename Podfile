@@ -2,7 +2,6 @@
 
 target "Template" do
 
-pod 'iOSODataSDK'
 
 end
 
