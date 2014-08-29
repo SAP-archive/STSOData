@@ -3,6 +3,7 @@
 #import "LogonHandler.h"
 #import "LogonHandler+Logging.h"
 #import "LogonHandler+Usage.h"
+#import "MAFUIStyleParser.h"
 #import "DataController.h"
 
 @interface LogonHandler ()
@@ -27,6 +28,7 @@
 
     if(self == [super init]){
         
+        [MAFUIStyleParser loadSAPDefaultStyle];
         self.logonUIViewManager = [[MAFLogonUIViewManager alloc] init];
         self.logonUIViewManager.parentViewController = [[UIApplication sharedApplication] delegate].window.rootViewController;
         

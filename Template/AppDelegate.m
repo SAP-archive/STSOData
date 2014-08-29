@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MAFUIStyleParser.h"
 #import "LogonHandler.h"
 #import "DataController.h"
 #import "SODataOfflineStore.h"
@@ -24,8 +23,7 @@
     }
     
     [SODataOfflineStore GlobalInit];
-//    [Logon bootstrapLogon];
-    [MAFUIStyleParser loadSAPDefaultStyle];
+
     return YES;
 }
 							
