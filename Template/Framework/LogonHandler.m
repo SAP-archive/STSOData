@@ -10,6 +10,16 @@
 
 @end
 
+#define kStoreOpenFinished @"com.sap.sdk.store.open.finished"
+#define kStoreOpenDelegateFinished @"com.sap.sdk.store.open.delegate.finished"
+#define kRequestFinished  @"com.sap.sdk.request.finished"
+#define kRequestDelegateFinished  @"com.sap.sdk.request.delegate.finished"
+#define kLogonFinished @"com.sap.sdk.logon.finished"
+
+#define kFlushDelegateFinished @"com.sap.sdk.store.flush.delegate.finished"
+#define kRefreshDelegateFinished @"com.sap.sdk.store.refresh.delegate.finished"
+#define kFlushDelegateFailed @"com.sap.sdk.store.flush.delegate.failed"
+#define kRefreshDelegateFailed @"com.sap.sdk.store.refresh.delegate.failed"
 
 @implementation LogonHandler
 

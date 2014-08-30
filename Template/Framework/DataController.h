@@ -14,12 +14,12 @@
 
 @interface DataController : NSObject
 
-/* REALLY BAD PRACTICE (WorkingModes)
- * Since the ODataOfflineStore can function in Online Mode also,
- * there is really no case in which it would make sense to write
- * an app that toggles between OnlineStore and OfflineStore.
- * BUT, for this example, use WorkingModes for a terrible hacky workaround:
- */
+typedef NS_ENUM(NSInteger, WorkingModes) {
+    WorkingModeUnset,
+    WorkingModeOnline,
+    WorkingModeOffline
+};
+
 @property (nonatomic, assign) WorkingModes workingMode;
 
 @property (nonatomic, strong) id<ODataStore, SODataStore, SODataStoreAsync, SODataStoreSync>store;

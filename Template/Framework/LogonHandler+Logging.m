@@ -7,7 +7,6 @@
 //
 
 #import "LogonHandler+Logging.h"
-#import "AppDelegate.h"
 #import "HttpConversationManager.h"
 #import "SupportabilityUploader.h"
 #import "SAPSupportabilityFacade.h"

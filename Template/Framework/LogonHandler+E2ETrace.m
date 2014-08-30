@@ -7,7 +7,6 @@
 //
 
 #import "LogonHandler+E2ETrace.h"
-#import "AppDelegate.h"
 #import "SupportabilityUploader.h"
 #import "HTTPConversationManager.h"
 
