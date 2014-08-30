@@ -14,11 +14,6 @@
 
 @interface DataController : NSObject
 
-typedef NS_ENUM(NSInteger, WorkingModes) {
-    WorkingModeUnset,
-    WorkingModeOnline,
-    WorkingModeOffline
-};
 
 @property (nonatomic, assign) WorkingModes workingMode;
 
