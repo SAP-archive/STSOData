@@ -42,9 +42,6 @@
 
 @end
 
-#define kDefiningRequests @"TravelagencyCollection"
-
-
 @implementation DataController
 
 #pragma mark Singleton Init
