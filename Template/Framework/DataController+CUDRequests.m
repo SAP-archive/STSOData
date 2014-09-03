@@ -68,10 +68,10 @@
     }];
 }
 
--(void)createEntity:(id<SODataEntity>) entity withCompletion:(void(^)(BOOL success))completion
+-(void)createEntity:(id<SODataEntity>) entity inCollection:(NSString *)collection withCompletion:(void(^)(BOOL success))completion
 {
     
-    [self scheduleRequestForResource:kTravelAgencyCollection
+    [self scheduleRequestForResource:collection
                             withMode:SODataRequestModeCreate
                           withEntity:entity
                       withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {

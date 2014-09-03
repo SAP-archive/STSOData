@@ -216,14 +216,14 @@
             else if ([respSingle payloadType] == SODataTypeError)
             {
                 id<SODataPayload>p = respSingle.payload;
-                SODataErrorDefault *e = p;
+                SODataErrorDefault *e = (SODataErrorDefault *)p;
                 
                 NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
                 [errorDetail setValue:e.message forKey:NSLocalizedDescriptionKey];
-                NSError *error = [NSError errorWithDomain:@"myDomain" code:e.code userInfo:errorDetail];
+                NSError *error = [NSError errorWithDomain:@"myDomain" code:[e.code integerValue] userInfo:errorDetail];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                message:[NSString stringWithFormat:@"Code: %ld\nMessage: %@", e.code, e.message]
+                                                                message:[NSString stringWithFormat:@"Code: %@\nMessage: %@", e.code, e.message]
                                                                delegate:self
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil, nil];
