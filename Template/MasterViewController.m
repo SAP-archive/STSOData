@@ -10,7 +10,7 @@
 
 #import "DetailViewController.h"
 
-#import "DataController+FetchRequests.h"
+#import "DataController+FetchRequestsSample.h"
 
 #import "SODataEntityDefault.h"
 
@@ -50,7 +50,7 @@
         
         [[DataController shared].store openStoreWithCompletion:^(BOOL success) {
             NSLog(@"%s", __PRETTY_FUNCTION__);
-            [[DataController shared] fetchTravelAgencies];
+            [[DataController shared] fetchTravelAgenciesSample];
         }];
     }];
 }
@@ -58,7 +58,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [[DataController shared] addObserver:self
-                              forKeyPath:@"travelAgencies"
+                              forKeyPath:@"travelAgenciesSample"
                                  options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial)
                                  context:NULL];
 }
@@ -66,14 +66,14 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[DataController shared] removeObserver:self
-                                 forKeyPath:@"travelAgencies"];
+                                 forKeyPath:@"travelAgenciesSample"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (!object) return;
     
-    if ([keyPath isEqual:@"travelAgencies"]) {
+    if ([keyPath isEqual:@"travelAgenciesSample"]) {
         NSLog(@"object = %@ %s", object, __PRETTY_FUNCTION__);
         [self.tableView reloadData];
     }
@@ -82,7 +82,7 @@
 - (void)flushAndRefresh:(id)sender
 {
     if ([DataController shared].workingMode == WorkingModeOnline) {
-        [[DataController shared] fetchTravelAgencies];
+        [[DataController shared] fetchTravelAgenciesSample];
         [self.refreshControl endRefreshing];
     } else {
         [[DataController shared].store flushAndRefresh:^(BOOL success) {
@@ -117,14 +117,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [DataController shared].travelAgencies.count;
+    return [DataController shared].travelAgenciesSample.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    SODataEntityDefault *object = [DataController shared].travelAgencies[indexPath.row];
+    SODataEntityDefault *object = [DataController shared].travelAgenciesSample[indexPath.row];
     
     cell.textLabel.text = [object description];
     return cell;

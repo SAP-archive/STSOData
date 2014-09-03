@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 SAP. All rights reserved.
 //
 
-#import "DataController+FetchRequests.h"
+#import "DataController+FetchRequestsSample.h"
 
 #import "SODataRequestParamSingleDefault.h"
 #import "SODataEntitySet.h"
 
 @implementation DataController (FetchRequests)
 
-- (void)fetchBookingsWithExpand {
+- (void)fetchBookingsWithExpandSample {
     
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
@@ -37,7 +37,7 @@
             /*
              Use setter to the model property, to ensure it is recognized by KVO
              */
-            [self setBookingsWithExpand:entities];
+            [self setBookingsWithExpandSample:entities];
             
         } else {
             
@@ -47,15 +47,15 @@
     
 }
 
-- (void)fetchTravelAgencies {
+- (void)fetchTravelAgenciesSample {
     
-    NSString *resourcePath = kTravelAgencyCollection;
+    NSString *resourcePath = @"TravelagencyCollection";
 
     [self scheduleRequestForResource:resourcePath withMode:SODataRequestModeRead withEntity:nil withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
         
         if (entities) {
             
-            [self setTravelAgencies:entities];
+            [self setTravelAgenciesSample:entities];
             
         } else {
             

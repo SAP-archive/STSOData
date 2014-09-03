@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Stan Stadelman. All rights reserved.
 //
 
-#define kDefiningRequests @"TravelagencyCollection"
+
 
 static NSString * const kTravelAgencyCollection = @"TravelagencyCollection";
 static NSString * const kTravelAgencyID = @"agencynum";

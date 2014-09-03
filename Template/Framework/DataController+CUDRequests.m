@@ -7,7 +7,7 @@
 //
 
 #import "DataController+CUDRequests.h"
-#import "DataController+FetchRequests.h"
+#import "DataController+FetchRequestsSample.h"
 
 #import "SODataEntityDefault.h"
 

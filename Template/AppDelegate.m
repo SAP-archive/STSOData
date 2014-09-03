@@ -11,6 +11,8 @@
 #import "DataController.h"
 #import "SODataOfflineStore.h"
 
+#define kDefiningRequest1 @"TravelagencyCollection"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -49,6 +51,8 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     
+    [DataController shared].workingMode = WorkingModeOffline;
+    [DataController shared].definingRequests = @[kDefiningRequest1];
     
     [[LogonHandler shared].logonManager logon];
     

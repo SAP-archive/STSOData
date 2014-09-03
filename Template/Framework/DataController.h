@@ -24,9 +24,9 @@
 
 /*  ONLY MAKE CHANGES BELOW HERE  */
 
-@property (nonatomic, strong) NSArray *bookingsWithExpand;
+@property (nonatomic, strong) NSArray *bookingsWithExpandSample;
 
-@property (nonatomic, strong) NSArray *travelAgencies;
+@property (nonatomic, strong) NSArray *travelAgenciesSample;
 
 /*  ONLY MAKE CHANGES ABOVE HERE  */
 

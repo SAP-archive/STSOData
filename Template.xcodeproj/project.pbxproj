@@ -24,7 +24,7 @@
 		1B408AFA199033310020E000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B408AF8199033310020E000 /* InfoPlist.strings */; };
 		1B408AFC199033310020E000 /* TemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AFB199033310020E000 /* TemplateTests.m */; };
 		1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */; };
-		1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequests.m */; };
+		1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */; };
 		1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */; };
 		1B7ECC5719B0FFCF001D26AB /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4419B0FFCF001D26AB /* DataController.m */; };
 		1B7ECC5819B0FFCF001D26AB /* LogonHandler+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4619B0FFCF001D26AB /* LogonHandler+Logging.m */; };
@@ -73,12 +73,12 @@
 		1B408AFB199033310020E000 /* TemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateTests.m; sourceTree = "<group>"; };
 		1B649DC219A42463000DA5E9 /* App-Specific-Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Specific-Constants.h"; sourceTree = "<group>"; };
 		1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogonHandler.m; path = Framework/LogonHandler.m; sourceTree = "<group>"; };
-		1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+FetchRequests.m"; path = "Framework/DataController+FetchRequests.m"; sourceTree = "<group>"; };
+		1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+FetchRequestsSample.m"; path = "Framework/DataController+FetchRequestsSample.m"; sourceTree = "<group>"; };
 		1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfflineStore.m; path = Framework/OfflineStore.m; sourceTree = "<group>"; };
 		1B7ECC4419B0FFCF001D26AB /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataController.m; path = Framework/DataController.m; sourceTree = "<group>"; };
 		1B7ECC4519B0FFCF001D26AB /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataController.h; path = Framework/DataController.h; sourceTree = "<group>"; };
 		1B7ECC4619B0FFCF001D26AB /* LogonHandler+Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LogonHandler+Logging.m"; path = "Framework/LogonHandler+Logging.m"; sourceTree = "<group>"; };
-		1B7ECC4719B0FFCF001D26AB /* DataController+FetchRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataController+FetchRequests.h"; path = "Framework/DataController+FetchRequests.h"; sourceTree = "<group>"; };
+		1B7ECC4719B0FFCF001D26AB /* DataController+FetchRequestsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataController+FetchRequestsSample.h"; path = "Framework/DataController+FetchRequestsSample.h"; sourceTree = "<group>"; };
 		1B7ECC4819B0FFCF001D26AB /* DataController+CUDRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+CUDRequests.m"; path = "Framework/DataController+CUDRequests.m"; sourceTree = "<group>"; };
 		1B7ECC4919B0FFCF001D26AB /* OnlineStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineStore.h; path = Framework/OnlineStore.h; sourceTree = "<group>"; };
 		1B7ECC4A19B0FFCF001D26AB /* OnlineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineStore.m; path = Framework/OnlineStore.m; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 				1B7ECC5119B0FFCF001D26AB /* LogonHandler+Usage.m */,
 				1B7ECC4519B0FFCF001D26AB /* DataController.h */,
 				1B7ECC4419B0FFCF001D26AB /* DataController.m */,
-				1B7ECC4719B0FFCF001D26AB /* DataController+FetchRequests.h */,
-				1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequests.m */,
+				1B7ECC4719B0FFCF001D26AB /* DataController+FetchRequestsSample.h */,
+				1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */,
 				1B7ECC5019B0FFCF001D26AB /* DataController+CUDRequests.h */,
 				1B7ECC4819B0FFCF001D26AB /* DataController+CUDRequests.m */,
 				1B7ECC4C19B0FFCF001D26AB /* ODataStore.h */,
@@ -370,7 +370,7 @@
 			files = (
 				1B7ECC5919B0FFCF001D26AB /* DataController+CUDRequests.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
-				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequests.m in Sources */,
+				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
 				1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,

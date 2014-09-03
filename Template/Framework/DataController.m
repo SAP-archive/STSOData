@@ -20,7 +20,7 @@
  */
 
 
-#import "DataController+FetchRequests.h"
+#import "DataController+FetchRequestsSample.h"
 
 #import "OnlineStore.h"
 #import "OfflineStore.h"
@@ -70,6 +70,7 @@
     if (self == [super init]) {
         
             self.definingRequests = [[NSArray alloc] init];
+            self.workingMode = WorkingModeUnset;
             return self;
     }
     
