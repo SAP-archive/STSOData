@@ -14,8 +14,5 @@
 
 @interface OnlineStore : SODataOnlineStore <ODataStore, SODataStore, SODataStoreSync, SODataStoreAsync>
 
-//- (void) openStoreWithCompletion:(void(^)(BOOL success))completion;
-
-
 
 @end

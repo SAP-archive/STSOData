@@ -14,8 +14,5 @@
 
 @interface OfflineStore : SODataOfflineStore <ODataStore, SODataStore, SODataStoreSync, SODataStoreAsync>
 
-//- (void) openStoreWithCompletion:(void(^)(BOOL success))completion;
-//
-//- (void) flushAndRefresh:(void(^)(BOOL success))completion;
 
 @end

@@ -13,6 +13,9 @@
 #import "DataController.h"
 
 @interface OfflineStore() <SODataOfflineStoreDelegate, SODataOfflineStoreRequestErrorDelegate, SODataOfflineStoreRefreshDelegate, SODataOfflineStoreFlushDelegate>
+
+@property (nonatomic, strong) NSArray *definingRequests;
+
 @end
 
 @implementation OfflineStore

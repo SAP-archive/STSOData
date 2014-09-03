@@ -42,6 +42,9 @@
 
 @end
 
+#define kDefiningRequests @"TravelagencyCollection"
+
+
 @implementation DataController
 
 #pragma mark Singleton Init
@@ -66,15 +69,16 @@
 {
     if (self == [super init]) {
         
-                return self;
+            self.definingRequests = [[NSArray alloc] init];
+            return self;
     }
     
     return nil;
 }
 
 /* 
-   NORMALLY you would not need to implement this switch, and you could setup the store in a single  action.
-   But, since this example is testing, here is a functional toggle between Online & Offline modes:
+
+    Here is a functional toggle between Online & Offline modes:
 
     1.  First, remove all listeners on self
     2.  Check if logon is already finished, (i.e. MAFLogonRegistrationData != nil)
@@ -82,29 +86,39 @@
     3b.  If logon is not finished, then listen for kLogonFinished, then initialize and open store
 */
 
--(void)setWorkingMode:(WorkingModes)workingMode
+
+-(void)loadWorkingMode
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    if ([LogonHandler shared].logonManager.logonState.isUserRegistered &&
+        [LogonHandler shared].logonManager.logonState.isSecureStoreOpen) {
+        [self setupStore];
+    } else {
+        [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+            
+            NSLog(@"%s", __PRETTY_FUNCTION__);
+            [self setupStore];
+        }];
+    }
+}
+
+/*
+    This switch: method can be used in the application to toggle between the two modes.
+    This isn't really a typical use case in production, but does allow an application
+    to show that code is reusable in both scenarios.
+*/
+-(void)switchWorkingMode:(WorkingModes)workingMode
 {
     if (self.workingMode != workingMode) {
         
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        
         _workingMode = workingMode;
         
-        if ([LogonHandler shared].logonManager.logonState.isUserRegistered) {
-            [self setupStore];
-        } else {
-            [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
-                
-                NSLog(@"%s", __PRETTY_FUNCTION__);
-                [self setupStore];
-            }];
-        }
+        [self loadWorkingMode];
         
     } else {
         NSLog(@"no change in working mode: %@", @(workingMode));
     }
-    
-
 
 }
 

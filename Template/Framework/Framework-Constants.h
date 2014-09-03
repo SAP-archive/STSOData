@@ -20,8 +20,6 @@
 #define kFlushDelegateFailed @"com.sap.sdk.store.flush.delegate.failed"
 #define kRefreshDelegateFailed @"com.sap.sdk.store.refresh.delegate.failed"
 
-#define kDefiningRequests @"TravelagencyCollection"
-
 #pragma mark - Logger Constants
 #define LOG_ONLINESTORE @"com.sap.sdk.log.store.online"
 #define LOG_OFFLINESTORE @"com.sap.sdk.log.store.offline"

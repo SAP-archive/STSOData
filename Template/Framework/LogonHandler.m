@@ -6,9 +6,10 @@
 #import "MAFUIStyleParser.h"
 #import "DataController.h"
 
-#import "Framework-Constants.h"
 
 @interface LogonHandler ()
+
+@property (nonatomic, strong) NSArray *definingRequests;
 
 @end
 
@@ -84,18 +85,15 @@
         
         [[self.logonManager logonConfigurator] configureManager:self.httpConvManager];
         
+        [[DataController shared] loadWorkingMode];
+        
         /*
         Setup the supporting features
         */
         [self startUsageCollection];
         [self setupLogging];
         
-        /*
-        Pick whether the DataController will operate in 'Online' or 'Offline' mode
-        Remember, when running in Offline mode, any collections not in the scope of the 
-        'defining queries' will be sent over the network  anyway
-        */
-        [[DataController shared] setWorkingMode:WorkingModeOnline];
+        
         
         /*
         Notify the app that logon (and initialization) operations are complete
@@ -153,6 +151,16 @@
     
 }
 
+- (void)setupDefiningRequests:(SODataOfflineStoreOptions *)options
+{
+    NSArray *definingRequests = [DataController shared].definingRequests;
+    [definingRequests enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+        NSString *identifier = [NSString stringWithFormat:@"req%i", [@(idx) intValue] + 1];
+        options.definingRequests[identifier] = obj;
+    }];
+}
+
+
 - (SODataOfflineStoreOptions *)options
 {
     SODataOfflineStoreOptions *options = [[SODataOfflineStoreOptions alloc] init];
@@ -161,7 +169,7 @@
     options.host = self.data.serverHost;
     options.port = self.data.serverPort;
     options.serviceRoot = [NSString stringWithFormat:@"/%@", self.data.applicationId];
-    options.definingRequests[@"req1"] = kDefiningRequests;
+    [self setupDefiningRequests:options];
     options.enableRepeatableRequests = NO;
     
     options.conversationManager = self.httpConvManager;

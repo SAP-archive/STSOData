@@ -30,5 +30,4 @@
 
 +(instancetype)shared;
 
-
 @end
