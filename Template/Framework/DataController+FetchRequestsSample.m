@@ -37,7 +37,7 @@
             /*
              Use setter to the model property, to ensure it is recognized by KVO
              */
-            [self setBookingsWithExpandSample:entities];
+            [[DataController shared] setBookingsWithExpandSample:entities];
             
         } else {
             
@@ -55,7 +55,7 @@
         
         if (entities) {
             
-            [self setTravelAgenciesSample:entities];
+            [[DataController shared] setTravelAgenciesSample:entities];
             
         } else {
             

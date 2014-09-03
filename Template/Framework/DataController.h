@@ -22,14 +22,6 @@
 
 @property (nonatomic, strong) NSArray *definingRequests;
 
-/*  ONLY MAKE CHANGES BELOW HERE  */
-
-@property (nonatomic, strong) NSArray *bookingsWithExpandSample;
-
-@property (nonatomic, strong) NSArray *travelAgenciesSample;
-
-/*  ONLY MAKE CHANGES ABOVE HERE  */
-
 + (instancetype)shared;
 
 - (void) loadWorkingMode;
@@ -38,7 +30,13 @@
 
 - (void) scheduleRequestForResource:(NSString *)resourcePath withMode:(SODataRequestModes)mode withEntity:(id<SODataEntity>)entity withCompletion:(void(^)(NSArray *entities, id<SODataRequestExecution>requestExecution, NSError *error))completion;
 
+/*  MODEL PROPERTIES HERE FOR THE SAMPLE ONLY--IMPLEMENT MODEL PROPERTIES IN YOUR OWN FILE  */
 
+@property (nonatomic, strong) NSArray *bookingsWithExpandSample;
+
+@property (nonatomic, strong) NSArray *travelAgenciesSample;
+
+/*  MODEL PROPERTIES SHOULD BE IN MODEL FILE  */
 
 
 
