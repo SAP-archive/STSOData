@@ -181,10 +181,10 @@
         openStore();
         
     } else {
-    
+        NSLog(@"waiting for kStoreConfigured %s", __PRETTY_FUNCTION__);
         [[NSNotificationCenter defaultCenter] addObserverForName:kStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
-            NSLog(@"waiting for kStoreConfigured %s", __PRETTY_FUNCTION__);
-
+            
+            NSLog(@"%s", __PRETTY_FUNCTION__);
             openStore();
 
         }];
