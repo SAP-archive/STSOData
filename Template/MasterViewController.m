@@ -77,6 +77,7 @@
         NSLog(@"object = %@ %s", object, __PRETTY_FUNCTION__);
         [self.tableView reloadData];
     }
+    
 }
 
 - (void)flushAndRefresh:(id)sender

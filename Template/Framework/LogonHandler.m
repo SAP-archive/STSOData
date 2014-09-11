@@ -51,6 +51,8 @@
 
         // set up the logon delegate
         [self.logonManager setLogonDelegate:self];
+        
+        self.collectUsageData = YES;
 
     }
     return self;
@@ -89,7 +91,8 @@
         /*
         Setup the supporting features
         */
-        [self startUsageCollection];
+        if (self.collectUsageData)[self startUsageCollection];
+        
         [self setupLogging];
         
         

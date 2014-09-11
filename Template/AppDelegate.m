@@ -54,6 +54,15 @@
     [DataController shared].workingMode = WorkingModeOffline;
     [DataController shared].definingRequests = @[kDefiningRequest1];
     
+/*
+    Application is designed to collect information on the device, OS, and application, as well as
+    developer-specified analytic information.  Requires HANA Cloud Platform, Mobile Services.
+
+    Defaults to YES.  Set to NO, to disable usage collection.
+
+    [LogonHandler shared].collectUsageData = NO;
+*/
+
     [[LogonHandler shared].logonManager logon];
     
     }

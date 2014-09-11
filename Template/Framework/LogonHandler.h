@@ -27,7 +27,10 @@
 
 @property (strong, nonatomic) id<SAPClientLogManager>logManager;
 
+@property (nonatomic, assign) BOOL collectUsageData;
 
 +(instancetype)shared;
+
+
 
 @end
