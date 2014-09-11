@@ -14,4 +14,6 @@
 
 -(void)fetchTravelAgenciesSample;
 
+-(void)fetchTravelAgenciesSampleWithCompletion:(void(^)(NSArray *entities))completion;
+
 @end
