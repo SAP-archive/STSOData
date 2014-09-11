@@ -50,7 +50,7 @@
             
         } else {
             
-            [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [[NSNotificationCenter defaultCenter] addObserverForName:kOnlineStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
                 NSLog(@"%s", __PRETTY_FUNCTION__);
                 
                 [self openStore];

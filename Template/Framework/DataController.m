@@ -129,9 +129,13 @@
         self.store = [[OnlineStore alloc] initWithURL:baseURL
                               httpConversationManager:[LogonHandler shared].httpConvManager];
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:kOnlineStoreConfigured object:nil];
+        
     } else if (self.workingMode == WorkingModeOffline) {
     
         self.store = [[OfflineStore alloc] init];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kOfflineStoreConfigured object:nil];
         
     }
 

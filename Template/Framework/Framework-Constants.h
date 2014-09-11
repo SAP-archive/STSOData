@@ -15,6 +15,9 @@
 #define kRequestDelegateFinished  @"com.sap.sdk.request.delegate.finished"
 #define kLogonFinished @"com.sap.sdk.logon.finished"
 
+#define kOnlineStoreConfigured @"com.sap.sdk.store.online.configured"
+#define kOfflineStoreConfigured @"com.sap.sdk.store.offline.configured"
+
 #define kFlushDelegateFinished @"com.sap.sdk.store.flush.delegate.finished"
 #define kRefreshDelegateFinished @"com.sap.sdk.store.refresh.delegate.finished"
 #define kFlushDelegateFailed @"com.sap.sdk.store.flush.delegate.failed"
