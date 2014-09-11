@@ -138,6 +138,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kOfflineStoreConfigured object:nil];
         
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kStoreConfigured object:nil];
 
 }
 
@@ -158,18 +160,36 @@
     SODataRequestParamSingleDefault *myRequest = [[SODataRequestParamSingleDefault alloc] initWithMode:mode resourcePath:resourcePath];
     myRequest.payload = entity ? entity : nil;
     
-    [self.store openStoreWithCompletion:^(BOOL success) {
-        
-        NSLog(@"%s", __PRETTY_FUNCTION__);
-        
-        [self scheduleRequest:myRequest completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+    
+    __block void (^openStore)(void) = ^void() {
+    
+        [self.store openStoreWithCompletion:^(BOOL success) {
             
             NSLog(@"%s", __PRETTY_FUNCTION__);
             
-            completion(entities, requestExecution, error);
+            [self scheduleRequest:myRequest completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+                
+                NSLog(@"%s", __PRETTY_FUNCTION__);
+                
+                completion(entities, requestExecution, error);
+            }];
         }];
-    }];
+    };
     
+    if (self.store != nil) {
+    
+        openStore();
+        
+    } else {
+    
+        [[NSNotificationCenter defaultCenter] addObserverForName:kStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSLog(@"waiting for kStoreConfigured %s", __PRETTY_FUNCTION__);
+
+            openStore();
+
+        }];
+    }
+
 }
 
 /*

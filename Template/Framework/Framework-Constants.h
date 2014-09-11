@@ -17,6 +17,7 @@
 
 #define kOnlineStoreConfigured @"com.sap.sdk.store.online.configured"
 #define kOfflineStoreConfigured @"com.sap.sdk.store.offline.configured"
+#define kStoreConfigured @"com.sap.sdk.store.configured"
 
 #define kFlushDelegateFinished @"com.sap.sdk.store.flush.delegate.finished"
 #define kRefreshDelegateFinished @"com.sap.sdk.store.refresh.delegate.finished"

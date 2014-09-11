@@ -60,7 +60,7 @@
     Requests for OData resources that are outside the scope of the defining requests, when in 
     Offline mode, or all (*) requests when in Online mode, are sent over the network.
 */
-    [DataController shared].workingMode = WorkingModeOnline;
+    [DataController shared].workingMode = WorkingModeOffline;
     [DataController shared].definingRequests = @[kDefiningRequest1];
     
 /*
