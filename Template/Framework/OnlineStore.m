@@ -7,6 +7,7 @@
 //
 
 #import "OnlineStore.h"
+#import "LogonHandler.h"
 
 @interface OnlineStore () <SODataOnlineStoreDelegate>
 
@@ -42,12 +43,32 @@
         
         [self setOnlineStoreDelegate:self];
         
-        [self openStoreWithError:&error];
-        
-        if (error) {
-            NSLog(@"error = %@", error);
+        if ([LogonHandler shared].logonManager.logonState.isUserRegistered &&
+            [LogonHandler shared].logonManager.logonState.isSecureStoreOpen) {
+            
+            [self openStore];
+            
+        } else {
+            
+            [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+                NSLog(@"%s", __PRETTY_FUNCTION__);
+                
+                [self openStore];
+            }];
         }
 
+
+    }
+}
+
+-(void)openStore
+{
+    NSError *error;
+    
+    [self openStoreWithError:&error];
+    
+    if (error) {
+        NSLog(@"error = %@", error);
     }
 }
 

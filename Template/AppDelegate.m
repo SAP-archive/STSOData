@@ -67,7 +67,7 @@
     Set applicationId for the application. This should match the applicationId in the SMP Admin 
     console.  
 */
-    [[LogonHandler shared].logonManager setApplicationId:@"flight"];
+    [[LogonHandler shared].logonManager setApplicationId:@"stan.flight.https"];
 
 /*
     Application is designed to collect information on the device, OS, and application, as well as
