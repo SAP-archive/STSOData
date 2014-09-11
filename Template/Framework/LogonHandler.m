@@ -47,7 +47,6 @@
         
         // save reference to LogonManager for code readability
         self.logonManager = self.logonUIViewManager.logonManager;
-        [self.logonManager setApplicationId:@"flight"];
         
 
         // set up the logon delegate
