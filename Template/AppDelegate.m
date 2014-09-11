@@ -50,10 +50,25 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
+/*
+    Specify whether the DataController should operate in 'Online' or 'Offline' mode.  
     
+    'Offline' mode uses the local database, that is synchronized via Mobilink.  All requests for 
+    OData resources, that are included in the scope of the "defining requests" are read & written 
+    to the local database.
+    
+    Requests for OData resources that are outside the scope of the defining requests, when in 
+    Offline mode, or all (*) requests when in Online mode, are sent over the network.
+*/
     [DataController shared].workingMode = WorkingModeOffline;
     [DataController shared].definingRequests = @[kDefiningRequest1];
     
+/*
+    Set applicationId for the application. This should match the applicationId in the SMP Admin 
+    console.  
+*/
+    [[LogonHandler shared].logonManager setApplicationId:@"flight"];
+
 /*
     Application is designed to collect information on the device, OS, and application, as well as
     developer-specified analytic information.  Requires HANA Cloud Platform, Mobile Services.
@@ -61,6 +76,12 @@
     Defaults to YES.  Set to NO, to disable usage collection.
 
     [LogonHandler shared].collectUsageData = NO;
+*/
+
+/*
+    Always invoke logonManager logon at application launch.  This unlocks the DataVault, executes 
+    registration if necessary, obtains credentials and connection settings, etc.  When logon 
+    completes, the kLogonFinished notification is emitted by LogonHandler.
 */
 
     [[LogonHandler shared].logonManager logon];
