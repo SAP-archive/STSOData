@@ -39,36 +39,35 @@
             completion(YES);
         }];
         
-        NSError *error;
-        
         [self setOnlineStoreDelegate:self];
+        
+        __block void (^openStore)(void) = ^void() {
+        
+            NSError *error;
+            
+            [self openStoreWithError:&error];
+            
+            if (error) {
+                NSLog(@"error = %@", error);
+            }
+        };
+        
         
         if ([LogonHandler shared].logonManager.logonState.isUserRegistered &&
             [LogonHandler shared].logonManager.logonState.isSecureStoreOpen) {
             
-            [self openStore];
+            openStore();
             
         } else {
             
             [[NSNotificationCenter defaultCenter] addObserverForName:kOnlineStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
                 NSLog(@"%s", __PRETTY_FUNCTION__);
                 
-                [self openStore];
+                openStore();
             }];
         }
 
 
-    }
-}
-
--(void)openStore
-{
-    NSError *error;
-    
-    [self openStoreWithError:&error];
-    
-    if (error) {
-        NSLog(@"error = %@", error);
     }
 }
 
