@@ -34,6 +34,12 @@
 		1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC5119B0FFCF001D26AB /* LogonHandler+Usage.m */; };
 		1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */; };
 		1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */; };
+		1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327919C8932F00F6636A /* STSODataEntity.m */; };
+		1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327A19C8932F00F6636A /* STSODataComplex.m */; };
+		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
+		1BA96B7719C8D254000BF0B9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7619C8D254000BF0B9 /* FlightDetailsSample.m */; };
+		1BA96B8019C90532000BF0B9 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7F19C90532000BF0B9 /* PageViewController.m */; };
+		1BA96B8319C906BF000BF0B9 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B8219C906BF000BF0B9 /* Page.m */; };
 		B625674DCEC5444D969239AD /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +102,18 @@
 		1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableTableViewCell.m; sourceTree = "<group>"; };
 		1B9CA80519AEB01F0038BD47 /* CreateEntityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntityViewController.h; sourceTree = "<group>"; };
 		1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntityViewController.m; sourceTree = "<group>"; };
+		1B9D327719C8932F00F6636A /* STSODataComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSODataComplex.h; path = Framework/STSODataComplex.h; sourceTree = "<group>"; };
+		1B9D327819C8932F00F6636A /* STSODataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSODataEntity.h; path = Framework/STSODataEntity.h; sourceTree = "<group>"; };
+		1B9D327919C8932F00F6636A /* STSODataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSODataEntity.m; path = Framework/STSODataEntity.m; sourceTree = "<group>"; };
+		1B9D327A19C8932F00F6636A /* STSODataComplex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSODataComplex.m; path = Framework/STSODataComplex.m; sourceTree = "<group>"; };
+		1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/FlightSample.h; sourceTree = "<group>"; };
+		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
+		1BA96B7519C8D254000BF0B9 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsSample.h; sourceTree = "<group>"; };
+		1BA96B7619C8D254000BF0B9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsSample.m; sourceTree = "<group>"; };
+		1BA96B7E19C90532000BF0B9 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		1BA96B7F19C90532000BF0B9 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		1BA96B8119C906BF000BF0B9 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		1BA96B8219C906BF000BF0B9 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +180,10 @@
 				1B649DBE19A41F52000DA5E9 /* Framework */,
 				1B408AD9199033310020E000 /* AppDelegate.h */,
 				1B408ADA199033310020E000 /* AppDelegate.m */,
+				1BA96B7E19C90532000BF0B9 /* PageViewController.h */,
+				1BA96B7F19C90532000BF0B9 /* PageViewController.m */,
+				1BA96B8119C906BF000BF0B9 /* Page.h */,
+				1BA96B8219C906BF000BF0B9 /* Page.m */,
 				1B408ADC199033310020E000 /* Main_iPhone.storyboard */,
 				1B408ADF199033310020E000 /* Main_iPad.storyboard */,
 				1B408AE2199033310020E000 /* MasterViewController.h */,
@@ -230,7 +252,15 @@
 				1B7ECC4A19B0FFCF001D26AB /* OnlineStore.m */,
 				1B7ECC4B19B0FFCF001D26AB /* OfflineStore.h */,
 				1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */,
+				1B9D327819C8932F00F6636A /* STSODataEntity.h */,
+				1B9D327919C8932F00F6636A /* STSODataEntity.m */,
+				1B9D327719C8932F00F6636A /* STSODataComplex.h */,
+				1B9D327A19C8932F00F6636A /* STSODataComplex.m */,
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
+				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
+				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
+				1BA96B7519C8D254000BF0B9 /* FlightDetailsSample.h */,
+				1BA96B7619C8D254000BF0B9 /* FlightDetailsSample.m */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -369,7 +399,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7ECC5919B0FFCF001D26AB /* DataController+CUDRequests.m in Sources */,
+				1BA96B7719C8D254000BF0B9 /* FlightDetailsSample.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
+				1BA96B8019C90532000BF0B9 /* PageViewController.m in Sources */,
+				1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
 				1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
@@ -379,8 +412,11 @@
 				1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
 				1B408AE7199033310020E000 /* DetailViewController.m in Sources */,
+				1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */,
+				1BA96B8319C906BF000BF0B9 /* Page.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
 				1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */,
+				1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */,
 				1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */,
 				1B7ECC5819B0FFCF001D26AB /* LogonHandler+Logging.m in Sources */,
 			);

@@ -8,6 +8,8 @@
 
 #import "CreateEntityViewController.h"
 
+#import "DataController+FetchRequestsSample.h"
+
 @interface CreateEntityViewController ()
 
 @end
@@ -22,6 +24,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [[DataController shared] fetchAvailableFlightsSampleWithParameters:nil WithCompletion:^(NSArray *entities) {
+        NSLog([entities description]);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

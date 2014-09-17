@@ -45,14 +45,16 @@
     [self.refreshControl addTarget:self action:@selector(flushAndRefresh:) forControlEvents:UIControlEventValueChanged];
     
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"%s", __PRETTY_FUNCTION__);
-        
-        [[DataController shared].store openStoreWithCompletion:^(BOOL success) {
-            NSLog(@"%s", __PRETTY_FUNCTION__);
-            [[DataController shared] fetchTravelAgenciesSample];
-        }];
-    }];
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+//        NSLog(@"%s", __PRETTY_FUNCTION__);
+//        
+//        [[DataController shared].store openStoreWithCompletion:^(BOOL success) {
+//            NSLog(@"%s", __PRETTY_FUNCTION__);
+//            [[DataController shared] fetchTravelAgenciesSample];
+//        }];
+//    }];
+
+    [[DataController shared] fetchTravelAgenciesSample];
 }
 
 - (void)viewWillAppear:(BOOL)animated

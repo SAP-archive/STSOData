@@ -18,8 +18,6 @@
 
 @property (nonatomic, assign) WorkingModes workingMode;
 
-@property (nonatomic, strong) id<ODataStore, SODataStore, SODataStoreAsync, SODataStoreSync>store;
-
 @property (nonatomic, strong) id<ODataStore, SODataStore, SODataStoreAsync, SODataStoreSync>localStore;
 
 @property (nonatomic, strong) id<ODataStore, SODataStore, SODataStoreAsync, SODataStoreSync>networkStore;

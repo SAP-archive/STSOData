@@ -10,4 +10,17 @@
 
 @implementation FlightDetailsSample
 
+@dynamic countryFrom;
+@dynamic cityFrom;
+@dynamic airportFrom;
+@dynamic countryTo;
+@dynamic airportTo;
+@dynamic flightTime;
+//@dynamic departureTime;
+//@dynamic arrivalTime;
+@dynamic distance;
+@dynamic distanceUnit;
+@dynamic flightType;
+@dynamic period;
+
 @end

@@ -124,29 +124,6 @@
 
 }
 
-//- (void)setupStore
-//{
-//    if (self.workingMode == WorkingModeOnline) {
-//        
-//        NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
-//        
-//        self.store = [[OnlineStore alloc] initWithURL:baseURL
-//                              httpConversationManager:[LogonHandler shared].httpConvManager];
-//        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kOnlineStoreConfigured object:nil];
-//        
-//    } else if (self.workingMode == WorkingModeOffline) {
-//    
-//        self.store = [[OfflineStore alloc] init];
-//        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kOfflineStoreConfigured object:nil];
-//        
-//    }
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kStoreConfigured object:nil];
-//
-//}
-
 - (void)setupStores
 {
     __block void (^setupNetworkStore)(void) = ^void() {

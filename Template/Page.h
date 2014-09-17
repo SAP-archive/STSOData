@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface Page : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *foregroundImageView;
 
 @end

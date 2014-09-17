@@ -10,4 +10,17 @@
 
 @interface FlightDetailsSample : STSODataComplex
 
+@property (nonatomic, strong) NSString *countryFrom;
+@property (nonatomic, strong) NSString *cityFrom;
+@property (nonatomic, strong) NSString *airportFrom;
+@property (nonatomic, strong) NSString *countryTo;
+@property (nonatomic, strong) NSString *airportTo;
+@property (nonatomic, assign) NSNumber *flightTime;
+//@property (nonatomic, strong) SODataDuration *departureTime;
+//@property (nonatomic, strong) SODataDuration *arrivalTime;
+@property (nonatomic, strong) NSNumber *distance;
+@property (nonatomic, strong) NSNumber *distanceUnit;
+@property (nonatomic, strong) NSNumber *flightType;
+@property (nonatomic, strong) NSNumber *period;
+
 @end
