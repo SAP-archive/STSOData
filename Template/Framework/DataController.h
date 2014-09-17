@@ -1,6 +1,6 @@
 //
 //  DataController.h
-//  Usage Prototype
+//  Template
 //
 //  Created by Stadelman, Stan on 3/7/14.
 //  Copyright (c) 2014 Stan Stadelman. All rights reserved.
@@ -28,7 +28,7 @@
 
 - (void) loadWorkingMode;
 
-- (void) switchWorkingMode:(WorkingModes)workingMode;
+//- (void) switchWorkingMode:(WorkingModes)workingMode;
 
 - (void) scheduleRequestForResource:(NSString *)resourcePath withMode:(SODataRequestModes)mode withEntity:(id<SODataEntity>)entity withCompletion:(void(^)(NSArray *entities, id<SODataRequestExecution>requestExecution, NSError *error))completion;
 

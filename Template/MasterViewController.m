@@ -88,7 +88,7 @@
         [[DataController shared] fetchTravelAgenciesSample];
         [self.refreshControl endRefreshing];
     } else {
-        [[DataController shared].store flushAndRefresh:^(BOOL success) {
+        [[DataController shared].localStore flushAndRefresh:^(BOOL success) {
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
         }];

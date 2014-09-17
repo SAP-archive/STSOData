@@ -67,7 +67,6 @@
     if (self == [super init]) {
         
             self.definingRequests = [[NSArray alloc] init];
-//            self.workingMode = WorkingModeUnset;
             self.workingMode = WorkingModeMixed;
             return self;
     }
@@ -77,7 +76,13 @@
 
 /* 
 
-    Here is a functional toggle between Online & Offline modes:
+    Here is where we setup the Online and Offline stores.  
+    
+    By default, the DataController works in 'Mixed' mode, meaning that both an Online and Offline
+    store are initialized and configured.  
+    
+    For the sake of slimming down the application, the developer can also set 'Online' or 'Offline'
+    mode directly.
 
     1.  First, remove all listeners on self
     2.  Check if logon is already finished, (i.e. MAFLogonRegistrationData != nil)
@@ -92,13 +97,13 @@
     
     if ([LogonHandler shared].logonManager.logonState.isUserRegistered &&
         [LogonHandler shared].logonManager.logonState.isSecureStoreOpen) {
-//        [self setupStore];
+        
         [self setupStores];
+        
     } else {
         [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
             
             NSLog(@"%s", __PRETTY_FUNCTION__);
-//            [self setupStore];
             
             [self setupStores];
         }];
@@ -110,19 +115,19 @@
     This isn't really a typical use case in production, but does allow an application
     to show that code is reusable in both scenarios.
 */
--(void)switchWorkingMode:(WorkingModes)workingMode
-{
-    if (self.workingMode != workingMode) {
-        
-        _workingMode = workingMode;
-        
-        [self loadWorkingMode];
-        
-    } else {
-        NSLog(@"no change in working mode: %@", @(workingMode));
-    }
-
-}
+//-(void)switchWorkingMode:(WorkingModes)workingMode
+//{
+//    if (self.workingMode != workingMode) {
+//        
+//        _workingMode = workingMode;
+//        
+//        [self loadWorkingMode];
+//        
+//    } else {
+//        NSLog(@"no change in working mode: %@", @(workingMode));
+//    }
+//
+//}
 
 - (void)setupStores
 {
@@ -169,11 +174,17 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
     /*
-    First, test if mode is online only anyway.
+    First, test if mode is online- or offline-only anyway.
     */
     if (self.workingMode == WorkingModeOnline) {
+    
         NSLog(@"Store %@ picked for resourcePath:  %@", [self.networkStore description], resourcePath);
         return self.networkStore;
+        
+    } else if (self.workingMode == WorkingModeOffline) {
+    
+        NSLog(@"Store %@ picked for resourcePath:  %@", [self.localStore description], resourcePath);
+        return self.localStore;
     }
     
     /*
