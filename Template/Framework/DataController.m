@@ -67,7 +67,8 @@
     if (self == [super init]) {
         
             self.definingRequests = [[NSArray alloc] init];
-            self.workingMode = WorkingModeUnset;
+//            self.workingMode = WorkingModeUnset;
+            self.workingMode = WorkingModeMixed;
             return self;
     }
     
@@ -91,12 +92,15 @@
     
     if ([LogonHandler shared].logonManager.logonState.isUserRegistered &&
         [LogonHandler shared].logonManager.logonState.isSecureStoreOpen) {
-        [self setupStore];
+//        [self setupStore];
+        [self setupStores];
     } else {
         [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
             
             NSLog(@"%s", __PRETTY_FUNCTION__);
-            [self setupStore];
+//            [self setupStore];
+            
+            [self setupStores];
         }];
     }
 }
@@ -120,27 +124,123 @@
 
 }
 
-- (void)setupStore
+//- (void)setupStore
+//{
+//    if (self.workingMode == WorkingModeOnline) {
+//        
+//        NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
+//        
+//        self.store = [[OnlineStore alloc] initWithURL:baseURL
+//                              httpConversationManager:[LogonHandler shared].httpConvManager];
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kOnlineStoreConfigured object:nil];
+//        
+//    } else if (self.workingMode == WorkingModeOffline) {
+//    
+//        self.store = [[OfflineStore alloc] init];
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kOfflineStoreConfigured object:nil];
+//        
+//    }
+//    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kStoreConfigured object:nil];
+//
+//}
+
+- (void)setupStores
 {
-    if (self.workingMode == WorkingModeOnline) {
+    __block void (^setupNetworkStore)(void) = ^void() {
         
         NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
         
-        self.store = [[OnlineStore alloc] initWithURL:baseURL
+        self.networkStore = [[OnlineStore alloc] initWithURL:baseURL
                               httpConversationManager:[LogonHandler shared].httpConvManager];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kOnlineStoreConfigured object:nil];
-        
-    } else if (self.workingMode == WorkingModeOffline) {
+    };
     
-        self.store = [[OfflineStore alloc] init];
+    __block void (^setupLocalStore)(void) = ^void() {
+        
+        self.localStore = [[OfflineStore alloc] init];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kOfflineStoreConfigured object:nil];
-        
+    };
+    
+    switch (self.workingMode) {
+    
+        case WorkingModeMixed:
+            setupLocalStore();
+            setupNetworkStore();
+            break;
+            
+        case WorkingModeOnline:
+            setupNetworkStore();
+            break;
+            
+        case WorkingModeOffline:
+            setupLocalStore();
+            
+        default:
+            break;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kStoreConfigured object:nil];
+}
 
+-(id<ODataStore>)storeForRequestToResourcePath:(NSString *)resourcePath
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    /*
+    First, test if mode is online only anyway.
+    */
+    if (self.workingMode == WorkingModeOnline) {
+        NSLog(@"Store %@ picked for resourcePath:  %@", [self.networkStore description], resourcePath);
+        return self.networkStore;
+    }
+    
+    /*
+    And if there are any defining requests to test anyway
+    */
+    if (self.definingRequests.count < 1) {
+        NSLog(@"Store %@ picked for resourcePath:  %@", [self.networkStore description], resourcePath);
+        return self.networkStore;
+    }
+    
+    /*
+    Second, do a compare to see if the collection of the request matches the collection
+    of the defining requests.  The principle here is that you can offline a collection,
+    or filter of a collection, and all requests will be executed against the db for that
+    collection.  You should adjust the filters of your defining requests to support the
+    expected scope of requests for the user.
+    */
+    __block NSString * (^collectionName)(NSString *) = ^NSString * (NSString *string){
+    
+        return [string rangeOfString:@"?"].location != NSNotFound ? [string substringToIndex:[string rangeOfString:@"?"].location] : string;
+    };
+    
+    NSString *resourcePathCollectionName = collectionName(resourcePath);
+    
+    for (NSString *request in self.definingRequests) {
+        
+        NSString *definingRequestCollectionName = collectionName(request);
+        
+        if ((resourcePathCollectionName && definingRequestCollectionName) && [resourcePathCollectionName isEqualToString:definingRequestCollectionName]) {
+            
+            NSLog(@"Store %@ picked for resourcePath:  %@", [self.localStore description], resourcePath);
+
+            return self.localStore;
+        }
+    }
+    
+    /*
+    Last, the default will always be to fall back to the network store (online request).
+    This should cover Function Imports, and any requests which are not within the scope
+    of the defining request collections
+    */
+    
+    NSLog(@"Store %@ picked for resourcePath:  %@", [self.networkStore description], resourcePath);
+    return self.networkStore;
 }
 
 
@@ -160,14 +260,13 @@
     SODataRequestParamSingleDefault *myRequest = [[SODataRequestParamSingleDefault alloc] initWithMode:mode resourcePath:resourcePath];
     myRequest.payload = entity ? entity : nil;
     
+    __block void (^openStore)(id<ODataStore>) = ^void(id<ODataStore>store) {
     
-    __block void (^openStore)(void) = ^void() {
-    
-        [self.store openStoreWithCompletion:^(BOOL success) {
+        [store openStoreWithCompletion:^(BOOL success) {
             
             NSLog(@"%s", __PRETTY_FUNCTION__);
             
-            [self scheduleRequest:myRequest completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+            [self scheduleRequest:myRequest onStore:store completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
                 
                 NSLog(@"%s", __PRETTY_FUNCTION__);
                 
@@ -176,16 +275,18 @@
         }];
     };
     
-    if (self.store != nil) {
+    id<ODataStore>storeForRequest = [self storeForRequestToResourcePath:resourcePath];
     
-        openStore();
+    if (storeForRequest != nil) {
+    
+        openStore(storeForRequest);
         
     } else {
         NSLog(@"waiting for kStoreConfigured %s", __PRETTY_FUNCTION__);
         [[NSNotificationCenter defaultCenter] addObserverForName:kStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
             
             NSLog(@"%s", __PRETTY_FUNCTION__);
-            openStore();
+            openStore([self storeForRequestToResourcePath:resourcePath]);
 
         }];
     }
@@ -198,7 +299,7 @@
  *
  */
 
-- (void) scheduleRequest:(id<SODataRequestParam>)request completionHandler:(void(^)(NSArray *entities, id<SODataRequestExecution>requestExecution, NSError *error))completion
+- (void) scheduleRequest:(id<SODataRequestParam>)request onStore:(id<SODataStoreAsync>)store completionHandler:(void(^)(NSArray *entities, id<SODataRequestExecution>requestExecution, NSError *error))completion
 {
     
     NSLog(@"%s", __PRETTY_FUNCTION__);
@@ -282,7 +383,7 @@
     }];
     // then, the original SODataAsynch API is called
     
-    [self.store scheduleRequest:request delegate:self];
+    [store scheduleRequest:request delegate:self];
     
     
 }

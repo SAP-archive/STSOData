@@ -16,4 +16,6 @@
 
 -(void)fetchTravelAgenciesSampleWithCompletion:(void(^)(NSArray *entities))completion;
 
+-(void)fetchAvailableFlightsSampleWithParameters:(NSDictionary *)parameters WithCompletion:(void(^)(NSArray *entities))completion;
+
 @end

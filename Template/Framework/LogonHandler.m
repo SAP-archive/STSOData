@@ -71,7 +71,7 @@
         NSError *err;
         self.data = [self.logonManager registrationDataWithError:&err];
         if (err) {
-            NSLog(@"%@ %s", err, __PRETTY_FUNCTION__);
+            NSLog(@"%@ %s", err, __PRETTY_FUNCTION__); 
         }
         
         /*
@@ -86,7 +86,7 @@
         
         [[self.logonManager logonConfigurator] configureManager:self.httpConvManager];
         
-        [[DataController shared] loadWorkingMode];
+        [[DataController shared] loadWorkingMode]; 
         
         /*
         Setup the supporting features

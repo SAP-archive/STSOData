@@ -10,6 +10,9 @@
 
 #import "SODataRequestParamSingleDefault.h"
 #import "SODataEntitySet.h"
+#import "SODataEntity.h"
+
+#import "FlightSample.h"
 
 @implementation DataController (FetchRequests)
 
@@ -105,6 +108,44 @@ Example of Option #1, with $expand in the resource path
         } else {
             
             NSLog(@"did not get any entities, with error: %@", error);
+        }
+    }];
+    
+}
+
+/*
+Example of Option #2, using a model implementation for the SODataEntity, using STSODataEntity and STSODataComplex subclasses
+*/
+-(void)fetchAvailableFlightsSampleWithParameters:(NSDictionary *)parameters WithCompletion:(void(^)(NSArray *entities))completion {
+    
+    // use mock data for the example; use parameters dictionary in practice
+    NSString *mockMinDate = @"2013-04-18T00:00";
+    NSString *mockMaxDate = @"2014-12-18T00:00";
+    NSString *mockDepartCity = @"new york";
+    NSString *mockDestinationCity = @"frankfurt";
+    
+    NSString *findFlights = [NSString stringWithFormat:@"FlightCollection?$filter=fldate gt datetime'2013-09-16T00:00'"];
+    
+    [self scheduleRequestForResource:findFlights withMode:SODataRequestModeRead withEntity:nil withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+        
+        if (entities) {
+        
+            NSMutableArray *typedEntities = [[NSMutableArray alloc] init];
+            
+            for (id<SODataEntity>obj in entities) {
+            
+                FlightSample *entity = [[FlightSample alloc] initWithEntity:obj];
+                
+                [typedEntities addObject:entity];
+            }
+            
+            completion(typedEntities);
+            
+        } else {
+            
+            NSLog(@"did not get any entities, with error: %@", error);
+            
+            completion(nil);
         }
     }];
     

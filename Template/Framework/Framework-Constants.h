@@ -33,7 +33,8 @@
 typedef NS_ENUM(NSInteger, WorkingModes) {
     WorkingModeUnset,
     WorkingModeOnline,
-    WorkingModeOffline
+    WorkingModeOffline,
+    WorkingModeMixed
 };
 
 #endif
