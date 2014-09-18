@@ -24,6 +24,10 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
+/*
+    If application will support offline OData, you must initialize SODataOfflineStore here in
+    -didFinishLaunchingWithOptions.  Also, call 'finish' method in -applicationWillTerminate:.
+*/
     [SODataOfflineStore GlobalInit];
 
     return YES;
@@ -31,27 +35,24 @@
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
 /*
-    Specify whether the DataController should operate in 'Online' or 'Offline' mode.  
+    Specify whether the DataController should operate in 'Mixed' (Online + Offline) mode, or
+    specifically 'Online' or 'Offline' mode.  Defaults to 'Mixed'.
     
     'Offline' mode uses the local database, that is synchronized via Mobilink.  All requests for 
     OData resources, that are included in the scope of the "defining requests" are read & written 
@@ -59,8 +60,11 @@
     
     Requests for OData resources that are outside the scope of the defining requests, when in 
     Offline mode, or all (*) requests when in Online mode, are sent over the network.
+    
+    See additional explanation here:  http://sstadelman.bull.io/blog/Should-I-use-Online-or-Offline-store/ 
+ 
+    [DataController shared].workingMode = WorkingModeOnline;
 */
-//    [DataController shared].workingMode = WorkingModeOnline;
     [DataController shared].definingRequests = @[kDefiningRequest1];
     
 /*
@@ -74,9 +78,8 @@
     developer-specified analytic information.  Requires HANA Cloud Platform, Mobile Services.
 
     Defaults to YES.  Set to NO, to disable usage collection.
-
-    [LogonHandler shared].collectUsageData = NO;
 */
+    [LogonHandler shared].collectUsageData = NO;
 
 /*
     Always invoke logonManager logon at application launch.  This unlocks the DataVault, executes 
@@ -90,8 +93,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    
+/*
+    If application is supporting offline OData, you must break-down the store, here in 
+    -applicationWillTerminate:.
+*/
     [SODataOfflineStore GlobalFini];
 }
 

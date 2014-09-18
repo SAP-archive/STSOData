@@ -34,6 +34,12 @@
         
     /*
      Log upload endpoint is constant for all applications on a host:port
+     
+     You MUST have logging enabled for a particular application connection through the Admin UI, 
+     or uploaded logs will be rejected.
+     
+     You ALSO MUST have SAP Solution Manager propery integrated with SAP SMP Server, or uploaded
+     logs will be rejected.
      */
     NSString *logUploadURL = [NSString stringWithFormat:@"%@://%@:%i/clientlogs", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort];
     

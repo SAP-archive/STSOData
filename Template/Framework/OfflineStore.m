@@ -89,6 +89,7 @@
     switch (newState)
     {
         case SODataOfflineStoreOpening:
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             NSLog(@"SODataOfflineStoreOpening: The store has started to open\n");
             break;
             
@@ -118,12 +119,14 @@
 
 - (void) offlineStoreOpenFailed:(SODataOfflineStore *)store error:(NSError *)error{
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     SAPLOGINFO(LOG_OFFLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
 }
 
 -(void)offlineStoreOpenFinished:(SODataOfflineStore *)store {
     
     NSLog(@"Offline Store Open Finished");
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     SAPLOGINFO(LOG_OFFLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
     
     NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];

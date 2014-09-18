@@ -160,20 +160,24 @@
         case WorkingModeMixed:
             setupLocalStore();
             setupNetworkStore();
+            
+            NSAssert(onlineStoreConfig == YES && offlineStoreConfig == YES, @"both stores configured");
             break;
             
         case WorkingModeOnline:
             setupNetworkStore();
+            
+            NSAssert(onlineStoreConfig == YES, @"online store configured");
             break;
             
         case WorkingModeOffline:
             setupLocalStore();
             
+            NSAssert(offlineStoreConfig == YES, @"offline store configured");
+            break;
         default:
             break;
     }
-    
-    NSAssert(onlineStoreConfig == YES && offlineStoreConfig == YES, @"both stores configured");
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kStoreConfigured object:nil];
 }
@@ -394,7 +398,7 @@
     NSLog(@"%s\n%@", __PRETTY_FUNCTION__, error);
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Request failed"
-                                                    message:[NSString stringWithFormat:@"Error updating entity %@", [error description]]
+                                                    message:[NSString stringWithFormat:@"Error with request %@", [error description]]
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil, nil];
