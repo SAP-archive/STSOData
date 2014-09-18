@@ -131,6 +131,9 @@
 
 - (void)setupStores
 {
+    __block BOOL onlineStoreConfig = NO;
+    __block BOOL offlineStoreConfig = NO;
+    
     __block void (^setupNetworkStore)(void) = ^void() {
         
         NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
@@ -138,12 +141,16 @@
         self.networkStore = [[OnlineStore alloc] initWithURL:baseURL
                               httpConversationManager:[LogonHandler shared].httpConvManager];
         
+        onlineStoreConfig = YES;
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:kOnlineStoreConfigured object:nil];
     };
     
     __block void (^setupLocalStore)(void) = ^void() {
         
         self.localStore = [[OfflineStore alloc] init];
+        
+        offlineStoreConfig = YES;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kOfflineStoreConfigured object:nil];
     };
@@ -165,6 +172,8 @@
         default:
             break;
     }
+    
+    NSAssert(onlineStoreConfig == YES && offlineStoreConfig == YES, @"both stores configured");
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kStoreConfigured object:nil];
 }
@@ -274,7 +283,9 @@
         [[NSNotificationCenter defaultCenter] addObserverForName:kStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
             
             NSLog(@"%s", __PRETTY_FUNCTION__);
-            openStore([self storeForRequestToResourcePath:resourcePath]);
+            
+            id<ODataStore>storeForRequest = [self storeForRequestToResourcePath:resourcePath];
+            openStore(storeForRequest);
 
         }];
     }
