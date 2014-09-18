@@ -1,5 +1,3 @@
-sap-odatasdk-template
-=====================
+#STSOData
 
-A template to bootstrap an SAP Mobile SDK app, for my preferred iOS application architecture.
-
+A template and reusable MVC framework for the native iOS OData SAP Mobile SDK 
