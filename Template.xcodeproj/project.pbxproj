@@ -37,7 +37,7 @@
 		1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327919C8932F00F6636A /* STSODataEntity.m */; };
 		1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327A19C8932F00F6636A /* STSODataComplex.m */; };
 		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
-		1BA96B7719C8D254000BF0B9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7619C8D254000BF0B9 /* FlightDetailsSample.m */; };
+		1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */; };
 		B625674DCEC5444D969239AD /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */; };
 /* End PBXBuildFile section */
 
@@ -106,8 +106,8 @@
 		1B9D327A19C8932F00F6636A /* STSODataComplex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSODataComplex.m; path = Framework/STSODataComplex.m; sourceTree = "<group>"; };
 		1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/FlightSample.h; sourceTree = "<group>"; };
 		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
-		1BA96B7519C8D254000BF0B9 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsSample.h; sourceTree = "<group>"; };
-		1BA96B7619C8D254000BF0B9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsSample.m; sourceTree = "<group>"; };
+		1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/FlightDetailsSample.m; sourceTree = "<group>"; };
+		1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightDetailsSample.h; path = Framework/FlightDetailsSample.h; sourceTree = "<group>"; };
 		EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -249,8 +249,8 @@
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
 				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
 				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
-				1BA96B7519C8D254000BF0B9 /* FlightDetailsSample.h */,
-				1BA96B7619C8D254000BF0B9 /* FlightDetailsSample.m */,
+				1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */,
+				1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7ECC5919B0FFCF001D26AB /* DataController+CUDRequests.m in Sources */,
-				1BA96B7719C8D254000BF0B9 /* FlightDetailsSample.m in Sources */,
+				1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
 				1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,

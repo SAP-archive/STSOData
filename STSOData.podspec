@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "STSOData"
-  s.version      = "0.0.1"
+  s.version      = "0.0.9"
   s.summary      = "A template to bootstrap an SAP Mobile SDK app, for my preferred iOS application architecture."
 
   s.description  = <<-DESC
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "https://github.com/sstadelman/sap-odatasdk-template"
+  s.homepage     = "https://github.wdf.sap.corp/i826181/sap-odatasdk-template"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -78,8 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.wdf.sap.corp/i826181/sap-odatasdk-template.git
-    ", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/SAP/STSOData.git", :tag => "0.0.9" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -94,7 +93,7 @@ Pod::Spec.new do |s|
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
-
+  s.prefix_header_contents = '#import "Framework-Constants.h"', '#import "SAPSupportabilityFacade.h"', '#import "SAPClientLogger.h"', '#import "Usage.h"'
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -132,6 +131,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
 
 end
