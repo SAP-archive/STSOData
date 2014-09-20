@@ -16,8 +16,8 @@
 @dynamic countryTo;
 @dynamic airportTo;
 @dynamic flightTime;
-//@dynamic departureTime;
-//@dynamic arrivalTime;
+@dynamic departureTime;
+@dynamic arrivalTime;
 @dynamic distance;
 @dynamic distanceUnit;
 @dynamic flightType;

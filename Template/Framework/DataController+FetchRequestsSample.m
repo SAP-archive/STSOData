@@ -88,7 +88,7 @@ Example of Option #1, with $expand in the resource path
      Include any oData filters & query parameters
      */
     
-    NSString *resourcePath = @"BookingCollection?$top=5&$expand=bookedFlight";
+    NSString *resourcePath = @"BookingCollection?$top=1&$expand=bookedFlight";
     
     /*
      Schedule the request on the store
@@ -114,19 +114,25 @@ Example of Option #1, with $expand in the resource path
 }
 
 /*
-Example of Option #2, using a model implementation for the SODataEntity, using STSODataEntity and STSODataComplex subclasses
+    Example of Option #2, using a model implementation for the SODataEntity, using STSODataEntity and STSODataComplex subclasses
+
+    Note that this request invokes a Function Import.  This MUST go over the 'SODataOnline' store internally.  
+    
+    The DataController implementation handles this automatically, but be aware of this limitation on the
+    SODataOfflineStore, if you choose to build your own implementation.
 */
 -(void)fetchAvailableFlightsSampleWithParameters:(NSDictionary *)parameters WithCompletion:(void(^)(NSArray *entities))completion {
     
-    // use mock data for the example; use parameters dictionary in practice
-    NSString *mockMinDate = @"2013-04-18T00:00";
-    NSString *mockMaxDate = @"2014-12-18T00:00";
-    NSString *mockDepartCity = @"new york";
-    NSString *mockDestinationCity = @"frankfurt";
+    NSAssert(!!parameters[@"fromdate"], @"no fromdate");
+    NSAssert(!!parameters[@"todate"], @"no todate");
+    NSAssert(!!parameters[@"cityfrom"], @"no cityfrom");
+    NSAssert(!!parameters[@"cityto"], @"no cityto");
     
-    NSString *findFlights = [NSString stringWithFormat:@"FlightCollection?$filter=fldate gt datetime'2013-09-16T00:00'"];
+//    NSString *findFlights = [NSString stringWithFormat:@"FlightCollection?$filter=fldate gt datetime'2013-09-16T00:00'"];
     
-    [self scheduleRequestForResource:findFlights withMode:SODataRequestModeRead withEntity:nil withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+    NSString *resourceString = [NSString stringWithFormat:@"GetAvailableFlights?fromdate=datetime'%@'&todate=datetime'%@'&cityfrom='%@'&cityto='%@'", parameters[@"fromdate"], parameters[@"todate"], [parameters[@"cityfrom"] uppercaseString], [parameters[@"cityto"] uppercaseString]];
+    
+    [self scheduleRequestForResource:resourceString withMode:SODataRequestModeRead withEntity:nil withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
         
         if (entities) {
         

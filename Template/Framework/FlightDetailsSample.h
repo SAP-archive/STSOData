@@ -7,6 +7,7 @@
 //
 
 #import "STSODataComplex.h"
+#import "SODataDuration.h"
 
 @interface FlightDetailsSample : STSODataComplex
 
@@ -16,8 +17,8 @@
 @property (nonatomic, strong) NSString *countryTo;
 @property (nonatomic, strong) NSString *airportTo;
 @property (nonatomic, assign) NSNumber *flightTime;
-//@property (nonatomic, strong) SODataDuration *departureTime;
-//@property (nonatomic, strong) SODataDuration *arrivalTime;
+@property (nonatomic, strong) SODataDuration *departureTime;
+@property (nonatomic, strong) SODataDuration *arrivalTime;
 @property (nonatomic, strong) NSNumber *distance;
 @property (nonatomic, strong) NSNumber *distanceUnit;
 @property (nonatomic, strong) NSNumber *flightType;

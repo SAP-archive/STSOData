@@ -38,6 +38,16 @@
 		1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327A19C8932F00F6636A /* STSODataComplex.m */; };
 		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
 		1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */; };
+		1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */; };
+		1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5219CCA37E00AA7BF9 /* HomeScreen.m */; };
+		1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5519CCA61600AA7BF9 /* FlightSearchForm.m */; };
+		1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5819CCC74600AA7BF9 /* FlightSearchResults.m */; };
+		1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5B19CCCAC700AA7BF9 /* FlightSearchResultsCell.m */; };
+		1BB5EA5F19CCDFD800AA7BF9 /* NSDate+STSOData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */; };
+		1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6119CCEED200AA7BF9 /* ReviewItinerary.m */; };
+		1BB5EA6519CCF2D200AA7BF9 /* TravelDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6419CCF2D200AA7BF9 /* TravelDetailsCell.m */; };
+		1BB5EA6819CCF2EA00AA7BF9 /* TotalPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */; };
+		1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */; };
 		B625674DCEC5444D969239AD /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +118,26 @@
 		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
 		1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/FlightDetailsSample.m; sourceTree = "<group>"; };
 		1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightDetailsSample.h; path = Framework/FlightDetailsSample.h; sourceTree = "<group>"; };
+		1BB5EA4E19CBB89600AA7BF9 /* FlightDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsCell.h; sourceTree = "<group>"; };
+		1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsCell.m; sourceTree = "<group>"; };
+		1BB5EA5119CCA37E00AA7BF9 /* HomeScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreen.h; sourceTree = "<group>"; };
+		1BB5EA5219CCA37E00AA7BF9 /* HomeScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScreen.m; sourceTree = "<group>"; };
+		1BB5EA5419CCA61600AA7BF9 /* FlightSearchForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchForm.h; sourceTree = "<group>"; };
+		1BB5EA5519CCA61600AA7BF9 /* FlightSearchForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchForm.m; sourceTree = "<group>"; };
+		1BB5EA5719CCC74600AA7BF9 /* FlightSearchResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchResults.h; sourceTree = "<group>"; };
+		1BB5EA5819CCC74600AA7BF9 /* FlightSearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchResults.m; sourceTree = "<group>"; };
+		1BB5EA5A19CCCAC700AA7BF9 /* FlightSearchResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchResultsCell.h; sourceTree = "<group>"; };
+		1BB5EA5B19CCCAC700AA7BF9 /* FlightSearchResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchResultsCell.m; sourceTree = "<group>"; };
+		1BB5EA5D19CCDFD800AA7BF9 /* NSDate+STSOData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+STSOData.h"; sourceTree = "<group>"; };
+		1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+STSOData.m"; sourceTree = "<group>"; };
+		1BB5EA6019CCEED200AA7BF9 /* ReviewItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewItinerary.h; sourceTree = "<group>"; };
+		1BB5EA6119CCEED200AA7BF9 /* ReviewItinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewItinerary.m; sourceTree = "<group>"; };
+		1BB5EA6319CCF2D200AA7BF9 /* TravelDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelDetailsCell.h; sourceTree = "<group>"; };
+		1BB5EA6419CCF2D200AA7BF9 /* TravelDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelDetailsCell.m; sourceTree = "<group>"; };
+		1BB5EA6619CCF2EA00AA7BF9 /* TotalPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalPriceCell.h; sourceTree = "<group>"; };
+		1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalPriceCell.m; sourceTree = "<group>"; };
+		1BB5EA6919CCF2FB00AA7BF9 /* MilesExplanationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilesExplanationCell.h; sourceTree = "<group>"; };
+		1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilesExplanationCell.m; sourceTree = "<group>"; };
 		EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -176,6 +206,10 @@
 				1B408ADA199033310020E000 /* AppDelegate.m */,
 				1B408ADC199033310020E000 /* Main_iPhone.storyboard */,
 				1B408ADF199033310020E000 /* Main_iPad.storyboard */,
+				1BB5EA6F19CCF37C00AA7BF9 /* HomeScreen */,
+				1BB5EA6E19CCF37100AA7BF9 /* FlightSearchForm */,
+				1BB5EA6D19CCF35700AA7BF9 /* FlightSearch */,
+				1BB5EA6C19CCF32C00AA7BF9 /* ReviewItinerary */,
 				1B408AE2199033310020E000 /* MasterViewController.h */,
 				1B408AE3199033310020E000 /* MasterViewController.m */,
 				1B408AE5199033310020E000 /* DetailViewController.h */,
@@ -249,10 +283,58 @@
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
 				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
 				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
-				1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */,
 				1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */,
+				1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */,
+				1BB5EA5D19CCDFD800AA7BF9 /* NSDate+STSOData.h */,
+				1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		1BB5EA6C19CCF32C00AA7BF9 /* ReviewItinerary */ = {
+			isa = PBXGroup;
+			children = (
+				1BB5EA6019CCEED200AA7BF9 /* ReviewItinerary.h */,
+				1BB5EA6119CCEED200AA7BF9 /* ReviewItinerary.m */,
+				1BB5EA4E19CBB89600AA7BF9 /* FlightDetailsCell.h */,
+				1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */,
+				1BB5EA6319CCF2D200AA7BF9 /* TravelDetailsCell.h */,
+				1BB5EA6419CCF2D200AA7BF9 /* TravelDetailsCell.m */,
+				1BB5EA6619CCF2EA00AA7BF9 /* TotalPriceCell.h */,
+				1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */,
+				1BB5EA6919CCF2FB00AA7BF9 /* MilesExplanationCell.h */,
+				1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */,
+			);
+			name = ReviewItinerary;
+			sourceTree = "<group>";
+		};
+		1BB5EA6D19CCF35700AA7BF9 /* FlightSearch */ = {
+			isa = PBXGroup;
+			children = (
+				1BB5EA5719CCC74600AA7BF9 /* FlightSearchResults.h */,
+				1BB5EA5819CCC74600AA7BF9 /* FlightSearchResults.m */,
+				1BB5EA5A19CCCAC700AA7BF9 /* FlightSearchResultsCell.h */,
+				1BB5EA5B19CCCAC700AA7BF9 /* FlightSearchResultsCell.m */,
+			);
+			name = FlightSearch;
+			sourceTree = "<group>";
+		};
+		1BB5EA6E19CCF37100AA7BF9 /* FlightSearchForm */ = {
+			isa = PBXGroup;
+			children = (
+				1BB5EA5419CCA61600AA7BF9 /* FlightSearchForm.h */,
+				1BB5EA5519CCA61600AA7BF9 /* FlightSearchForm.m */,
+			);
+			name = FlightSearchForm;
+			sourceTree = "<group>";
+		};
+		1BB5EA6F19CCF37C00AA7BF9 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1BB5EA5119CCA37E00AA7BF9 /* HomeScreen.h */,
+				1BB5EA5219CCA37E00AA7BF9 /* HomeScreen.m */,
+			);
+			name = HomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,9 +470,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB5EA5F19CCDFD800AA7BF9 /* NSDate+STSOData.m in Sources */,
 				1B7ECC5919B0FFCF001D26AB /* DataController+CUDRequests.m in Sources */,
 				1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */,
+				1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
+				1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */,
 				1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
 				1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */,
@@ -398,15 +483,22 @@
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,
 				1B7ECC5719B0FFCF001D26AB /* DataController.m in Sources */,
 				1B408AE4199033310020E000 /* MasterViewController.m in Sources */,
+				1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */,
 				1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */,
+				1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
 				1B408AE7199033310020E000 /* DetailViewController.m in Sources */,
+				1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */,
+				1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */,
 				1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */,
+				1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
 				1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */,
 				1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */,
 				1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */,
 				1B7ECC5819B0FFCF001D26AB /* LogonHandler+Logging.m in Sources */,
+				1BB5EA6519CCF2D200AA7BF9 /* TravelDetailsCell.m in Sources */,
+				1BB5EA6819CCF2EA00AA7BF9 /* TotalPriceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

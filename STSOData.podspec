@@ -16,16 +16,15 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "STSOData"
-  s.version      = "0.0.9"
+  s.version      = "0.1.0"
   s.summary      = "A template to bootstrap an SAP Mobile SDK app, for my preferred iOS application architecture."
 
   s.description  = <<-DESC
-                   A longer description of STSOData in Markdown format.
+                   STSOData is a reusable MVC framework, for use with the SAP Mobile SDK, Native iOS OData framework.
 
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
+                   It is totally optional when programming with the SDK, and is not an official SAP product.  But I hope that it improves your productivity, and gives you a great interface for bootstrapping your applications and OData requests.
+
+                   The STSOData repository ships with a sample application that uses the framework.  You may feel free to fork the sample, or use it to jumpstart your own project.  However, the artwork in the project is used under license, so you MAY NOT reuse the artwork without licensing from the owner.
                    DESC
 
   s.homepage     = "https://github.wdf.sap.corp/i826181/sap-odatasdk-template"
@@ -78,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/SAP/STSOData.git", :tag => "0.0.9" }
+  s.source       = { :git => "https://github.com/SAP/STSOData.git", :tag => "0.1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -93,7 +92,7 @@ Pod::Spec.new do |s|
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
-  s.prefix_header_contents = '#import "Framework-Constants.h"', '#import "SAPSupportabilityFacade.h"', '#import "SAPClientLogger.h"', '#import "Usage.h"'
+  s.prefix_header_contents = '#import "Framework-Constants.h"', '#import "SAPSupportabilityFacade.h"', '#import "SAPClientLogger.h"', '#import "Usage.h"', '#import "NSDate+STSOData.h"'
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
