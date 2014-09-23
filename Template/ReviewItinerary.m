@@ -22,6 +22,12 @@
 
 #import "MilesExplanationCell.h"
 
+#import "BookingSample.h"
+
+#import "DataController+CUDRequests.h"
+
+#import "SODataEntityDefault.h"
+
 
 @implementation ReviewItinerary
 
@@ -40,7 +46,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return 7;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -145,7 +151,40 @@
                 return cell;
             }
             break;
-
+        case 6:
+            {
+                UITableViewCell *cell = [[UITableViewCell alloc] init];
+                
+                UIImageView *searchButtonView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SearchBar"] highlightedImage:[UIImage imageNamed:@"SearchBarSelected"]];
+                
+                indexPath.row == 0 ? (searchButtonView.image = [UIImage imageNamed:@"SearchBar"]) : (searchButtonView.image = [UIImage imageNamed:@"CancelSearchBar"]);
+                
+                [cell addSubview:searchButtonView];
+                
+                searchButtonView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+                searchButtonView.layer.position = CGPointMake(cell.frame.size.width / 2,kButtonCellHeight / 2);
+                
+                UILabel *searchLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+                searchLabel.text = indexPath.row == 0 ? @"Confirm and continue" : @"Cancel";
+                searchLabel.font = [UIFont systemFontOfSize:16];
+                searchLabel.textColor = [UIColor whiteColor];
+                [cell addSubview:searchLabel];
+                
+                NSDictionary *attributes = @{NSFontAttributeName: searchLabel.font};
+                CGSize correctSize = [searchLabel.text sizeWithAttributes:attributes];
+                
+                CGRect titleFrame = searchLabel.frame;
+                titleFrame.size.height = correctSize.height;
+                titleFrame.size.width = correctSize.width;
+                searchLabel.frame = titleFrame;
+                
+                searchLabel.layer.anchorPoint = CGPointMake(0.5, 0.5);
+                searchLabel.layer.position = CGPointMake(cell.frame.size.width / 2,kButtonCellHeight / 2);
+                
+                cell.backgroundColor = [UIColor clearColor];
+                
+                return cell;
+            }
         default:
             return [[UITableViewCell alloc] init];
             break;
@@ -223,6 +262,75 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 6 && indexPath.row == 0) {
+    
+        // post create booking
+        
+        
+        BookingSample *booking = [[BookingSample alloc] initWithEntity:[[SODataEntityDefault alloc] initWithType:@"RMTSAMPLEFLIGHT.Booking"]];
+        
+        booking.carrid = @"AA";
+        booking.connid = @"0017";
+        booking.fldate = [NSDate dateFromODataString:@"2014-11-15T00:00:00"];
+        NSLog(@"flightdate = %@", booking.fldate);
+        booking.CUSTOMID = @"00003983";
+        booking.CUSTTYPE = @"P";
+        booking.WUNIT = @"KGM";
+        booking.LUGGWEIGHT = @(17);
+        booking.FORCURAM = @(921);
+        booking.FORCURKEY = @"EUR";
+        booking.LOCCURAM = @(1298);
+        booking.LOCCURKEY = @"USD";
+        booking.ORDER_DATE = [NSDate dateFromODataString:@"2014-11-22T00:00:00"];
+        booking.COUNTER = @"00000000";
+        booking.AGENCYNUM = @"00000114";
+        booking.PASSNAME = @"David Stadelman";
+        booking.PASSBIRTH = [NSDate dateFromODataString:@"1984-04-20T00:00:00"];
+        
+        [[DataController shared] createEntity:booking inCollection:@"BookingCollection" withCompletion:^(BOOL success) {
+            if (success) {
+                NSLog(@"booyah");
+            };
+        }];
+//        NSMutableArray *properties = [NSMutableArray alloc];
+//        
+//        id<SODataProperty> prop = [[SODataPropertyDefault alloc] initWithName:@"agencynum"];
+//        prop.value = self.agencyIDInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"NAME"];
+//        prop.value = self.nameInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"CITY"];
+//        prop.value = self.cityInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"STREET"];
+//        prop.value = self.streetInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"REGION"];
+//        prop.value = self.regionInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"POSTCODE"];
+//        prop.value = self.zipInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"COUNTRY"];
+//        prop.value = self.countryInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"TELEPHONE"];
+//        prop.value = self.telephoneInput.text;
+//        [self.properties addObject:prop];
+//        prop = [[SODataPropertyDefault alloc] initWithName:@"URL"];
+//        prop.value = self.urlInput.text;
+//        [self.properties addObject:prop];
+
+        
+    } else if (indexPath.section == 6 && indexPath.row == 1) {
+        
+        // cancel and return to search form
+        [self.navigationController popToViewController:self.searchForm animated:YES];
+    }
+}
 
 #pragma mark Number Formatters
 -(NSNumberFormatter *)currrencyFormatter

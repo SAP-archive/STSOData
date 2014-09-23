@@ -54,8 +54,8 @@
 
 - (void)searchFlights
 {
-    NSDictionary *searchParameters = @{@"fromdate" : [self.departureDate oDataDateTime],
-                                       @"todate" : [self.returnDate oDataDateTime],
+    NSDictionary *searchParameters = @{@"fromdate" : [self.departureDate dateToODataString],
+                                       @"todate" : [self.returnDate dateToODataString],
                                        @"cityfrom" : self.departureAirportCity,
                                        @"cityto" : self.returnAirportCity };
     

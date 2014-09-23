@@ -9,6 +9,8 @@
 #import "DataController+CUDRequests.h"
 #import "DataController+FetchRequestsSample.h"
 
+#import "LogonHandler+E2ETrace.h"
+
 #import "SODataEntityDefault.h"
 
 
@@ -77,7 +79,6 @@
                       withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
                           
                           NSLog(@"%s", __PRETTY_FUNCTION__);
-                          
                           if (error) {
                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Creating Entity"
                                                                               message:[NSString stringWithFormat:@"Error creating entity %@", [entity description]]

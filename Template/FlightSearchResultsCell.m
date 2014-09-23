@@ -10,10 +10,5 @@
 
 @implementation FlightSearchResultsCell
 
--(void)layoutSubviews
-{
-    NSLog(@"laying out subviews");
-}
-
 
 @end

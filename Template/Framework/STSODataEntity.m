@@ -19,12 +19,13 @@
 
 @implementation STSODataEntity
 
+
 -(instancetype)initWithEntity:(id<SODataEntity>)entity
 {
     if (self == [super init]) {
         
         self->_entity = entity;
-        
+//        self.properties = [[NSMutableDictionary alloc] init];
         return self;
     }
     
@@ -48,13 +49,19 @@
         key = [[key substringWithRange:NSMakeRange(3, [key length]-4)] lowercaseString];
         NSObject *obj;
         [invocation getArgument:&obj atIndex:2];
+        
+//        self.properties[key] = (id<SODataProperty>)obj;
+        
         [(id<SODataProperty>)[self.properties objectForKey:key] setValue:obj];
+        NSLog(@"self.properties = %@", [self.properties objectForKey:key]);
+
+        
     } else {
         // GET
         
         objc_property_t p = class_getProperty([self class], [key UTF8String]);
         
-        NSLog(@"Prop info: %s %s", property_getName(p), property_getAttributes(p));
+//        NSLog(@"Prop info: %s %s", property_getName(p), property_getAttributes(p));
         
         NSString *atts = [NSString stringWithFormat:@"%s", property_getAttributes(p)];
         
@@ -91,7 +98,7 @@
                 NSMutableArray *entities = [[NSMutableArray alloc] init];
                 
                 for (id<SODataEntity> e in es.entities) {
-                    STSODataEntity *be = [STSODataEntity createFromEntity:e];
+                    STSODataEntity *be = [[NSClassFromString(className) alloc] initWithEntity:e];
                     [entities addObject:be];
                 }
                 

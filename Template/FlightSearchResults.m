@@ -135,8 +135,8 @@
         
         Search from departure day +1.
 */
-        NSDictionary *returnSearchParameters = @{@"fromdate" : [[self.searchForm.departureDate dateByAddingTimeInterval:87600] oDataDateTime],
-                                                 @"todate" : [self.searchForm.returnDate oDataDateTime],
+        NSDictionary *returnSearchParameters = @{@"fromdate" : [[self.searchForm.departureDate dateByAddingTimeInterval:87600] dateToODataString],
+                                                 @"todate" : [self.searchForm.returnDate dateToODataString],
                                                  @"cityfrom" : self.searchForm.returnAirportCity,
                                                  @"cityto" : self.searchForm.departureAirportCity };
         

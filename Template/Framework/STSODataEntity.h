@@ -16,6 +16,6 @@
 
 -(instancetype)initWithEntity:(id<SODataEntity>)entity;
 
-+ (STSODataEntity *) createFromEntity:(id<SODataEntity>)entity;
+//+ (STSODataEntity *) createFromEntity:(id<SODataEntity>)entity;
 
 @end

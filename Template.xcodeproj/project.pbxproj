@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1BF39819D0C69600C6CC69 /* BookingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF39719D0C69600C6CC69 /* BookingSample.m */; };
 		1B408ACB199033310020E000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACA199033310020E000 /* Foundation.framework */; };
 		1B408ACD199033310020E000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACC199033310020E000 /* CoreGraphics.framework */; };
 		1B408ACF199033310020E000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACE199033310020E000 /* UIKit.framework */; };
@@ -63,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		1637AB4D33984401AE09C489 /* Pods-Template.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template.xcconfig"; path = "Pods/Pods-Template.xcconfig"; sourceTree = "<group>"; };
+		1B1BF39619D0C69600C6CC69 /* BookingSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingSample.h; sourceTree = "<group>"; };
+		1B1BF39719D0C69600C6CC69 /* BookingSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingSample.m; sourceTree = "<group>"; };
 		1B408AC7199033310020E000 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B408ACA199033310020E000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B408ACC199033310020E000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -281,6 +284,8 @@
 				1B9D327719C8932F00F6636A /* STSODataComplex.h */,
 				1B9D327A19C8932F00F6636A /* STSODataComplex.m */,
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
+				1B1BF39619D0C69600C6CC69 /* BookingSample.h */,
+				1B1BF39719D0C69600C6CC69 /* BookingSample.m */,
 				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
 				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
 				1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */,
@@ -491,6 +496,7 @@
 				1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */,
 				1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */,
 				1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */,
+				1B1BF39819D0C69600C6CC69 /* BookingSample.m in Sources */,
 				1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
 				1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */,
