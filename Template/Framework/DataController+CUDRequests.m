@@ -70,7 +70,7 @@
     }];
 }
 
--(void)createEntity:(id<SODataEntity>) entity inCollection:(NSString *)collection withCompletion:(void(^)(BOOL success))completion
+-(void)createEntity:(id<SODataEntity>) entity inCollection:(NSString *)collection withCompletion:(void(^)(BOOL success, SODataEntityDefault *newEntity))completion
 {
     
     [self scheduleRequestForResource:collection
@@ -86,9 +86,9 @@
                                                                     cancelButtonTitle:@"OK"
                                                                     otherButtonTitles:nil, nil];
                               [alert show];
-                              completion(NO);
+                              completion(NO, nil);
                           } else {
-                              completion(YES);
+                              completion(YES, entities[0]);
                           }
                           
                       }];

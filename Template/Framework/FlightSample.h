@@ -6,11 +6,9 @@
 //  Copyright (c) 2014 Stan Stadelman. All rights reserved.
 //
 
-#import "STSODataEntity.h"
-
 @class FlightDetailsSample;
 
-@interface FlightSample : STSODataEntity
+@interface FlightSample : NSObject
 
 @property (nonatomic, strong) NSString *carrid;
 @property (nonatomic, strong) NSString *connid;
@@ -26,8 +24,6 @@
 @property (nonatomic, strong) NSNumber *SEATSOCC_B;
 @property (nonatomic, strong) NSNumber *SEATSMAX_F;
 @property (nonatomic, strong) NSNumber *SEATSOCC_F;
-@property (nonatomic, strong) NSString *flightbooking;
-@property (nonatomic, strong) NSString *flightBookings;
-@property (nonatomic, strong) NSString *FlightCarrier;
+
 
 @end

@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Stan Stadelman. All rights reserved.
 //
 
-#import "STSODataComplex.h"
-#import "SODataDuration.h"
+@class SODataDuration;
 
-@interface FlightDetailsSample : STSODataComplex
+@interface FlightDetailsSample : NSObject
 
 @property (nonatomic, strong) NSString *countryFrom;
 @property (nonatomic, strong) NSString *cityFrom;

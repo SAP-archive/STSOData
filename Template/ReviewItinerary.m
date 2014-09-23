@@ -26,7 +26,11 @@
 
 #import "DataController+CUDRequests.h"
 
+#import "DataController+ConfigureModelsSample.h"
+
 #import "SODataEntityDefault.h"
+
+#import "SODataPropertyDefault.h"
 
 
 @implementation ReviewItinerary
@@ -268,61 +272,58 @@
     
         // post create booking
         
+        SODataEntityDefault *booking = [[SODataEntityDefault alloc] initWithType:@"RMTSAMPLEFLIGHT.Booking"];
         
-        BookingSample *booking = [[BookingSample alloc] initWithEntity:[[SODataEntityDefault alloc] initWithType:@"RMTSAMPLEFLIGHT.Booking"]];
+        NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
+
+        properties[@"carrid"] = @"AA";
+        properties[@"connid"] = @"0017";
+        properties[@"fldate"] = [NSDate dateFromODataString:@"2014-11-15T00:00:00"];
+        properties[@"CUSTOMID"] = @"00003984";
+        properties[@"CUSTTYPE"] = @"P";
+        properties[@"WUNIT"] = @"KGM";
+        properties[@"LUGGWEIGHT"] = [NSDecimalNumber numberWithDouble:17.4];
+        properties[@"FORCURAM"] = [NSDecimalNumber numberWithDouble:921.18];
+        properties[@"FORCURKEY"] = @"EUR";
+        properties[@"LOCCURAM"] = [NSDecimalNumber numberWithDouble:1298.38];
+        properties[@"LOCCURKEY"] = @"USD";
+        properties[@"ORDER_DATE"] = [NSDate dateFromODataString:@"2014-11-22T00:00:00"];
+        properties[@"COUNTER"] = @"00000000";
+        properties[@"AGENCYNUM"] = @"00000114";
+        properties[@"PASSNAME"] = @"Megan Kummer";
+        properties[@"PASSBIRTH"] = [NSDate dateFromODataString:@"1988-02-08T00:00:00"];
         
-        booking.carrid = @"AA";
-        booking.connid = @"0017";
-        booking.fldate = [NSDate dateFromODataString:@"2014-11-15T00:00:00"];
-        NSLog(@"flightdate = %@", booking.fldate);
-        booking.CUSTOMID = @"00003983";
-        booking.CUSTTYPE = @"P";
-        booking.WUNIT = @"KGM";
-        booking.LUGGWEIGHT = @(17);
-        booking.FORCURAM = @(921);
-        booking.FORCURKEY = @"EUR";
-        booking.LOCCURAM = @(1298);
-        booking.LOCCURKEY = @"USD";
-        booking.ORDER_DATE = [NSDate dateFromODataString:@"2014-11-22T00:00:00"];
-        booking.COUNTER = @"00000000";
-        booking.AGENCYNUM = @"00000114";
-        booking.PASSNAME = @"David Stadelman";
-        booking.PASSBIRTH = [NSDate dateFromODataString:@"1984-04-20T00:00:00"];
+        __block SODataEntityDefault * (^setProperties)(SODataEntityDefault *, NSMutableDictionary *) = ^SODataEntityDefault * (SODataEntityDefault *entity, NSMutableDictionary *properties){
+            
+            [[properties allKeys] enumerateObjectsUsingBlock:^(NSString *keyName, NSUInteger idx, BOOL *stop) {
+                SODataPropertyDefault *prop = [[SODataPropertyDefault alloc] initWithName:keyName];
+                prop.value = properties[keyName];
+                [entity.properties setObject:prop forKey:keyName];
+            }];
+            
+            return entity;
+        };
         
-        [[DataController shared] createEntity:booking inCollection:@"BookingCollection" withCompletion:^(BOOL success) {
+        setProperties(booking, properties);
+
+
+        [[DataController shared] createEntity:booking inCollection:@"BookingCollection" withCompletion:^(BOOL success, SODataEntityDefault *newEntity) {
             if (success) {
-                NSLog(@"booyah");
+            
+                BookingSample *newBooking = [BookingSample new];
+                
+                [DataController configureBookingSampleModel:newBooking withDictionary:newEntity.properties];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Booking Success"
+                                                                message:[NSString stringWithFormat:@"Thank you for booking for %@", newBooking.PASSNAME]
+                                                                delegate:self.searchForm
+                                                                cancelButtonTitle:@"OK"
+                                                                otherButtonTitles:nil, nil];
+                [alert show];
+                [self.navigationController popToViewController:self.searchForm animated:YES];
+
             };
         }];
-//        NSMutableArray *properties = [NSMutableArray alloc];
-//        
-//        id<SODataProperty> prop = [[SODataPropertyDefault alloc] initWithName:@"agencynum"];
-//        prop.value = self.agencyIDInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"NAME"];
-//        prop.value = self.nameInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"CITY"];
-//        prop.value = self.cityInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"STREET"];
-//        prop.value = self.streetInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"REGION"];
-//        prop.value = self.regionInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"POSTCODE"];
-//        prop.value = self.zipInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"COUNTRY"];
-//        prop.value = self.countryInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"TELEPHONE"];
-//        prop.value = self.telephoneInput.text;
-//        [self.properties addObject:prop];
-//        prop = [[SODataPropertyDefault alloc] initWithName:@"URL"];
-//        prop.value = self.urlInput.text;
-//        [self.properties addObject:prop];
 
         
     } else if (indexPath.section == 6 && indexPath.row == 1) {

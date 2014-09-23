@@ -10,22 +10,20 @@
 
 @implementation FlightSample
 
-@dynamic carrid;
-@dynamic connid;
-@dynamic fldate;
-@dynamic flightDetails;
-@dynamic PRICE;
-@dynamic CURRENCY;
-@dynamic PLANETYPE;
-@dynamic SEATSMAX;
-@dynamic SEATSOCC;
-@dynamic PAYMENTSUM;
-@dynamic SEATSMAX_B;
-@dynamic SEATSOCC_B;
-@dynamic SEATSMAX_F;
-@dynamic SEATSOCC_F;
-@dynamic flightbooking;
-@dynamic flightBookings;
-@dynamic FlightCarrier;
+//@dynamic carrid;
+//@dynamic connid;
+//@dynamic fldate;
+//@dynamic flightDetails;
+//@dynamic PRICE;
+//@dynamic CURRENCY;
+//@dynamic PLANETYPE;
+//@dynamic SEATSMAX;
+//@dynamic SEATSOCC;
+//@dynamic PAYMENTSUM;
+//@dynamic SEATSMAX_B;
+//@dynamic SEATSOCC_B;
+//@dynamic SEATSMAX_F;
+//@dynamic SEATSOCC_F;
+
 
 @end

@@ -6,11 +6,9 @@
 //  Copyright (c) 2014 Stan Stadelman. All rights reserved.
 //
 
-#import "STSODataEntity.h"
-
 @class FlightSample;
 
-@interface BookingSample : STSODataEntity
+@interface BookingSample : NSObject
 
 @property (nonatomic, strong) NSString *carrid;
 @property (nonatomic, strong) NSString *connid;
@@ -35,7 +33,7 @@
 @property (nonatomic, strong) NSString *PASSNAME;
 @property (nonatomic, strong) NSString *PASSFORM;
 @property (nonatomic, strong) NSDate *PASSBIRTH;
-//@property (nonatomic, strong) FlightSample *bookedFlight;
+@property (nonatomic, strong) FlightSample *bookedFlight;
 
 
 @end

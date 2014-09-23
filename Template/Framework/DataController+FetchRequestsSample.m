@@ -7,8 +7,10 @@
 //
 
 #import "DataController+FetchRequestsSample.h"
+#import "DataController+ConfigureModelsSample.h"
 
 #import "SODataRequestParamSingleDefault.h"
+#import "SODataEntityDefault.h"
 #import "SODataEntitySet.h"
 #import "SODataEntity.h"
 
@@ -138,9 +140,10 @@ Example of Option #1, with $expand in the resource path
         
             NSMutableArray *typedEntities = [[NSMutableArray alloc] init];
             
-            for (id<SODataEntity>obj in entities) {
+            for (SODataEntityDefault *obj in entities) {
             
-                FlightSample *entity = [[FlightSample alloc] initWithEntity:obj];
+                FlightSample *entity = [FlightSample new];
+                [DataController configureFlightSampleModel:entity withDictionary:obj.properties];
                 
                 [typedEntities addObject:entity];
             }

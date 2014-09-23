@@ -24,6 +24,7 @@
 		1B408AF2199033310020E000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACE199033310020E000 /* UIKit.framework */; };
 		1B408AFA199033310020E000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B408AF8199033310020E000 /* InfoPlist.strings */; };
 		1B408AFC199033310020E000 /* TemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AFB199033310020E000 /* TemplateTests.m */; };
+		1B7AAE5019D1EE720028B0A4 /* DataController+ConfigureModelsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7AAE4F19D1EE720028B0A4 /* DataController+ConfigureModelsSample.m */; };
 		1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */; };
 		1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */; };
 		1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */; };
@@ -35,8 +36,6 @@
 		1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC5119B0FFCF001D26AB /* LogonHandler+Usage.m */; };
 		1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */; };
 		1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */; };
-		1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327919C8932F00F6636A /* STSODataEntity.m */; };
-		1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D327A19C8932F00F6636A /* STSODataComplex.m */; };
 		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
 		1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */; };
 		1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */; };
@@ -89,6 +88,8 @@
 		1B408AF9199033310020E000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B408AFB199033310020E000 /* TemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateTests.m; sourceTree = "<group>"; };
 		1B649DC219A42463000DA5E9 /* App-Specific-Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Specific-Constants.h"; sourceTree = "<group>"; };
+		1B7AAE4E19D1EE720028B0A4 /* DataController+ConfigureModelsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataController+ConfigureModelsSample.h"; sourceTree = "<group>"; };
+		1B7AAE4F19D1EE720028B0A4 /* DataController+ConfigureModelsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataController+ConfigureModelsSample.m"; sourceTree = "<group>"; };
 		1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogonHandler.m; path = Framework/LogonHandler.m; sourceTree = "<group>"; };
 		1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+FetchRequestsSample.m"; path = "Framework/DataController+FetchRequestsSample.m"; sourceTree = "<group>"; };
 		1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfflineStore.m; path = Framework/OfflineStore.m; sourceTree = "<group>"; };
@@ -113,10 +114,6 @@
 		1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableTableViewCell.m; sourceTree = "<group>"; };
 		1B9CA80519AEB01F0038BD47 /* CreateEntityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntityViewController.h; sourceTree = "<group>"; };
 		1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntityViewController.m; sourceTree = "<group>"; };
-		1B9D327719C8932F00F6636A /* STSODataComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSODataComplex.h; path = Framework/STSODataComplex.h; sourceTree = "<group>"; };
-		1B9D327819C8932F00F6636A /* STSODataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSODataEntity.h; path = Framework/STSODataEntity.h; sourceTree = "<group>"; };
-		1B9D327919C8932F00F6636A /* STSODataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSODataEntity.m; path = Framework/STSODataEntity.m; sourceTree = "<group>"; };
-		1B9D327A19C8932F00F6636A /* STSODataComplex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSODataComplex.m; path = Framework/STSODataComplex.m; sourceTree = "<group>"; };
 		1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/FlightSample.h; sourceTree = "<group>"; };
 		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
 		1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/FlightDetailsSample.m; sourceTree = "<group>"; };
@@ -274,15 +271,13 @@
 				1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */,
 				1B7ECC5019B0FFCF001D26AB /* DataController+CUDRequests.h */,
 				1B7ECC4819B0FFCF001D26AB /* DataController+CUDRequests.m */,
+				1B7AAE4E19D1EE720028B0A4 /* DataController+ConfigureModelsSample.h */,
+				1B7AAE4F19D1EE720028B0A4 /* DataController+ConfigureModelsSample.m */,
 				1B7ECC4C19B0FFCF001D26AB /* ODataStore.h */,
 				1B7ECC4919B0FFCF001D26AB /* OnlineStore.h */,
 				1B7ECC4A19B0FFCF001D26AB /* OnlineStore.m */,
 				1B7ECC4B19B0FFCF001D26AB /* OfflineStore.h */,
 				1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */,
-				1B9D327819C8932F00F6636A /* STSODataEntity.h */,
-				1B9D327919C8932F00F6636A /* STSODataEntity.m */,
-				1B9D327719C8932F00F6636A /* STSODataComplex.h */,
-				1B9D327A19C8932F00F6636A /* STSODataComplex.m */,
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
 				1B1BF39619D0C69600C6CC69 /* BookingSample.h */,
 				1B1BF39719D0C69600C6CC69 /* BookingSample.m */,
@@ -481,7 +476,6 @@
 				1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
 				1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */,
-				1B9D327C19C8932F00F6636A /* STSODataComplex.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
 				1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
@@ -491,11 +485,11 @@
 				1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */,
 				1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */,
 				1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */,
+				1B7AAE5019D1EE720028B0A4 /* DataController+ConfigureModelsSample.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
 				1B408AE7199033310020E000 /* DetailViewController.m in Sources */,
 				1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */,
 				1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */,
-				1B9D327B19C8932F00F6636A /* STSODataEntity.m in Sources */,
 				1B1BF39819D0C69600C6CC69 /* BookingSample.m in Sources */,
 				1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
