@@ -318,7 +318,7 @@
                 [DataController configureBookingSampleModel:newBooking withDictionary:newEntity.properties];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Booking Success"
-                                                                message:[NSString stringWithFormat:@"Thank you for booking, \n%@\nPresident, High-Fives\n& SVP of Good Times", newBooking.PASSNAME]
+                                                                message:[NSString stringWithFormat:@"Thank you for booking, \n%@\nPresident, Fist-Bumps\n& CEO of Good Times", newBooking.PASSNAME]
                                                                 delegate:self.searchForm
                                                                 cancelButtonTitle:@"OK"
                                                                 otherButtonTitles:nil, nil];
@@ -365,6 +365,7 @@
     if (timeZone) {
         formatter.timeZone = [NSTimeZone timeZoneWithName:timeZone];
     }
+
     return formatter;
 }
 

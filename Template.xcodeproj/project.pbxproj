@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B1BF39819D0C69600C6CC69 /* BookingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF39719D0C69600C6CC69 /* BookingSample.m */; };
 		1B408ACB199033310020E000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACA199033310020E000 /* Foundation.framework */; };
 		1B408ACD199033310020E000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACC199033310020E000 /* CoreGraphics.framework */; };
 		1B408ACF199033310020E000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACE199033310020E000 /* UIKit.framework */; };
@@ -22,7 +21,6 @@
 		1B408AF2199033310020E000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACE199033310020E000 /* UIKit.framework */; };
 		1B408AFA199033310020E000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B408AF8199033310020E000 /* InfoPlist.strings */; };
 		1B408AFC199033310020E000 /* TemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AFB199033310020E000 /* TemplateTests.m */; };
-		1B7AAE5019D1EE720028B0A4 /* DataController+ConfigureModelsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7AAE4F19D1EE720028B0A4 /* DataController+ConfigureModelsSample.m */; };
 		1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */; };
 		1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */; };
 		1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */; };
@@ -33,13 +31,15 @@
 		1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4D19B0FFCF001D26AB /* LogonHandler+E2ETrace.m */; };
 		1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC5119B0FFCF001D26AB /* LogonHandler+Usage.m */; };
 		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
+		1BADA29119D36C77003F9E61 /* NSDate+STSOData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA28C19D36C77003F9E61 /* NSDate+STSOData.m */; };
+		1BADA29219D36C77003F9E61 /* DataController+ConfigureModelsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA28D19D36C77003F9E61 /* DataController+ConfigureModelsSample.m */; };
+		1BADA29319D36C77003F9E61 /* BookingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA28F19D36C77003F9E61 /* BookingSample.m */; };
 		1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */; };
 		1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */; };
 		1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5219CCA37E00AA7BF9 /* HomeScreen.m */; };
 		1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5519CCA61600AA7BF9 /* FlightSearchForm.m */; };
 		1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5819CCC74600AA7BF9 /* FlightSearchResults.m */; };
 		1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5B19CCCAC700AA7BF9 /* FlightSearchResultsCell.m */; };
-		1BB5EA5F19CCDFD800AA7BF9 /* NSDate+STSOData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */; };
 		1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6119CCEED200AA7BF9 /* ReviewItinerary.m */; };
 		1BB5EA6519CCF2D200AA7BF9 /* TravelDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6419CCF2D200AA7BF9 /* TravelDetailsCell.m */; };
 		1BB5EA6819CCF2EA00AA7BF9 /* TotalPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */; };
@@ -59,8 +59,6 @@
 
 /* Begin PBXFileReference section */
 		1637AB4D33984401AE09C489 /* Pods-Template.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template.xcconfig"; path = "Pods/Pods-Template.xcconfig"; sourceTree = "<group>"; };
-		1B1BF39619D0C69600C6CC69 /* BookingSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingSample.h; sourceTree = "<group>"; };
-		1B1BF39719D0C69600C6CC69 /* BookingSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingSample.m; sourceTree = "<group>"; };
 		1B408AC7199033310020E000 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B408ACA199033310020E000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B408ACC199033310020E000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,8 +78,6 @@
 		1B408AF9199033310020E000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B408AFB199033310020E000 /* TemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateTests.m; sourceTree = "<group>"; };
 		1B649DC219A42463000DA5E9 /* App-Specific-Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Specific-Constants.h"; sourceTree = "<group>"; };
-		1B7AAE4E19D1EE720028B0A4 /* DataController+ConfigureModelsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataController+ConfigureModelsSample.h"; sourceTree = "<group>"; };
-		1B7AAE4F19D1EE720028B0A4 /* DataController+ConfigureModelsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataController+ConfigureModelsSample.m"; sourceTree = "<group>"; };
 		1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogonHandler.m; path = Framework/LogonHandler.m; sourceTree = "<group>"; };
 		1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+FetchRequestsSample.m"; path = "Framework/DataController+FetchRequestsSample.m"; sourceTree = "<group>"; };
 		1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfflineStore.m; path = Framework/OfflineStore.m; sourceTree = "<group>"; };
@@ -104,6 +100,12 @@
 		1B7ECC5D19B10080001D26AB /* Framework-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Framework-Constants.h"; path = "Framework/Framework-Constants.h"; sourceTree = "<group>"; };
 		1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/FlightSample.h; sourceTree = "<group>"; };
 		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
+		1BADA28B19D36C77003F9E61 /* NSDate+STSOData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+STSOData.h"; path = "Framework/NSDate+STSOData.h"; sourceTree = "<group>"; };
+		1BADA28C19D36C77003F9E61 /* NSDate+STSOData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+STSOData.m"; path = "Framework/NSDate+STSOData.m"; sourceTree = "<group>"; };
+		1BADA28D19D36C77003F9E61 /* DataController+ConfigureModelsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+ConfigureModelsSample.m"; path = "Framework/DataController+ConfigureModelsSample.m"; sourceTree = "<group>"; };
+		1BADA28E19D36C77003F9E61 /* BookingSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingSample.h; path = Framework/BookingSample.h; sourceTree = "<group>"; };
+		1BADA28F19D36C77003F9E61 /* BookingSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingSample.m; path = Framework/BookingSample.m; sourceTree = "<group>"; };
+		1BADA29019D36C77003F9E61 /* DataController+ConfigureModelsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataController+ConfigureModelsSample.h"; path = "Framework/DataController+ConfigureModelsSample.h"; sourceTree = "<group>"; };
 		1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/FlightDetailsSample.m; sourceTree = "<group>"; };
 		1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightDetailsSample.h; path = Framework/FlightDetailsSample.h; sourceTree = "<group>"; };
 		1BB5EA4E19CBB89600AA7BF9 /* FlightDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsCell.h; sourceTree = "<group>"; };
@@ -116,8 +118,6 @@
 		1BB5EA5819CCC74600AA7BF9 /* FlightSearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchResults.m; sourceTree = "<group>"; };
 		1BB5EA5A19CCCAC700AA7BF9 /* FlightSearchResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchResultsCell.h; sourceTree = "<group>"; };
 		1BB5EA5B19CCCAC700AA7BF9 /* FlightSearchResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchResultsCell.m; sourceTree = "<group>"; };
-		1BB5EA5D19CCDFD800AA7BF9 /* NSDate+STSOData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+STSOData.h"; sourceTree = "<group>"; };
-		1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+STSOData.m"; sourceTree = "<group>"; };
 		1BB5EA6019CCEED200AA7BF9 /* ReviewItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewItinerary.h; sourceTree = "<group>"; };
 		1BB5EA6119CCEED200AA7BF9 /* ReviewItinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewItinerary.m; sourceTree = "<group>"; };
 		1BB5EA6319CCF2D200AA7BF9 /* TravelDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelDetailsCell.h; sourceTree = "<group>"; };
@@ -251,17 +251,17 @@
 				1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */,
 				1B7ECC5019B0FFCF001D26AB /* DataController+CUDRequests.h */,
 				1B7ECC4819B0FFCF001D26AB /* DataController+CUDRequests.m */,
-				1B7AAE4E19D1EE720028B0A4 /* DataController+ConfigureModelsSample.h */,
-				1B7AAE4F19D1EE720028B0A4 /* DataController+ConfigureModelsSample.m */,
+				1BADA29019D36C77003F9E61 /* DataController+ConfigureModelsSample.h */,
+				1BADA28D19D36C77003F9E61 /* DataController+ConfigureModelsSample.m */,
 				1B7ECC4C19B0FFCF001D26AB /* ODataStore.h */,
 				1B7ECC4919B0FFCF001D26AB /* OnlineStore.h */,
 				1B7ECC4A19B0FFCF001D26AB /* OnlineStore.m */,
 				1B7ECC4B19B0FFCF001D26AB /* OfflineStore.h */,
 				1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */,
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
+				1BADA28B19D36C77003F9E61 /* NSDate+STSOData.h */,
+				1BADA28C19D36C77003F9E61 /* NSDate+STSOData.m */,
 				1B7AAE5119D212990028B0A4 /* Sample Model Classes */,
-				1BB5EA5D19CCDFD800AA7BF9 /* NSDate+STSOData.h */,
-				1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -269,12 +269,12 @@
 		1B7AAE5119D212990028B0A4 /* Sample Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1B1BF39619D0C69600C6CC69 /* BookingSample.h */,
-				1B1BF39719D0C69600C6CC69 /* BookingSample.m */,
 				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
 				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
 				1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */,
 				1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */,
+				1BADA28E19D36C77003F9E61 /* BookingSample.h */,
+				1BADA28F19D36C77003F9E61 /* BookingSample.m */,
 			);
 			name = "Sample Model Classes";
 			sourceTree = "<group>";
@@ -458,26 +458,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB5EA5F19CCDFD800AA7BF9 /* NSDate+STSOData.m in Sources */,
 				1B7ECC5919B0FFCF001D26AB /* DataController+CUDRequests.m in Sources */,
 				1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */,
 				1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
 				1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */,
+				1BADA29119D36C77003F9E61 /* NSDate+STSOData.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,
 				1B7ECC5719B0FFCF001D26AB /* DataController.m in Sources */,
 				1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */,
+				1BADA29319D36C77003F9E61 /* BookingSample.m in Sources */,
 				1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */,
 				1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */,
-				1B7AAE5019D1EE720028B0A4 /* DataController+ConfigureModelsSample.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
 				1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */,
 				1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */,
-				1B1BF39819D0C69600C6CC69 /* BookingSample.m in Sources */,
 				1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
+				1BADA29219D36C77003F9E61 /* DataController+ConfigureModelsSample.m in Sources */,
 				1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */,
 				1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */,
 				1B7ECC5819B0FFCF001D26AB /* LogonHandler+Logging.m in Sources */,
