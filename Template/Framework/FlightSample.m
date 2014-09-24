@@ -7,23 +7,60 @@
 //
 
 #import "FlightSample.h"
+#import "FlightDetailsSample.h"
+
+@interface FlightSample () {
+    
+    NSDate *_departureDate;
+}
+
+@end
 
 @implementation FlightSample
 
-//@dynamic carrid;
-//@dynamic connid;
-//@dynamic fldate;
-//@dynamic flightDetails;
-//@dynamic PRICE;
-//@dynamic CURRENCY;
-//@dynamic PLANETYPE;
-//@dynamic SEATSMAX;
-//@dynamic SEATSOCC;
-//@dynamic PAYMENTSUM;
-//@dynamic SEATSMAX_B;
-//@dynamic SEATSOCC_B;
-//@dynamic SEATSMAX_F;
-//@dynamic SEATSOCC_F;
+-(NSDate *)timeZoneAccurateDepartureDate
+{
+    if (!_departureDate) {
 
+        NSString *fromTimeZone = [self.flightDetails.cityFrom isEqualToString:@"new york"] ? @"America/New_York" : @"Europe/Berlin";
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        
+        NSDate *departDate = self.fldate;
+        NSDate *departTime = [NSDate dateFromODataDurationComponents:self.flightDetails.departureTime inTimeZone:[NSTimeZone timeZoneWithName:fromTimeZone]];
+        
+        NSDateComponents *departDateComponents = [[NSDateComponents alloc] init];
+        departDateComponents = [cal componentsInTimeZone:[NSTimeZone timeZoneWithName:fromTimeZone] fromDate:departDate];
+        
+        NSDateComponents *departTimeComponents = [[NSDateComponents alloc] init];
+        departTimeComponents = [cal componentsInTimeZone:[NSTimeZone timeZoneWithName:fromTimeZone] fromDate:departTime];
+        
+        _departureDate = combineDateAndTime(cal, departDateComponents, departTimeComponents);
+        
+        return _departureDate;
+    }
+    return _departureDate;
+}
+
+-(NSDate *)timeZoneVariableArrivalDate
+{
+//    NSString *toTimeZone = [self.flightDetails.cityFrom isEqualToString:@"new york"] ? @"Europe/Berlin" : @"America/New_York";
+    
+    NSInteger flightDuration = [self.flightDetails.flightTime integerValue];
+    
+    return [NSDate dateWithTimeInterval:(flightDuration * 60) sinceDate:[self timeZoneAccurateDepartureDate]];
+}
+
+NSDate * (^combineDateAndTime)(NSCalendar *, NSDateComponents *, NSDateComponents *) = ^NSDate * (NSCalendar *cal, NSDateComponents *date, NSDateComponents *time){
+    
+    NSDateComponents *outputComponents = [[NSDateComponents alloc] init];
+    [outputComponents setYear:date.year];
+    [outputComponents setMonth:date.month];
+    [outputComponents setDay:date.day];
+    [outputComponents setHour:time.hour];
+    [outputComponents setMinute:time.minute];
+    
+    return [cal dateFromComponents:outputComponents];
+};
 
 @end

@@ -29,19 +29,20 @@
     return [dateFormatter dateFromString:oDataString];
 }
 
-+(NSDate *)dateFromODataDurationComponents:(SODataDuration *)durationComponents
++(NSDate *)dateFromODataDurationComponents:(SODataDuration *)durationComponents inTimeZone:(NSTimeZone *)timeZone
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    [cal setTimeZone:[NSTimeZone localTimeZone]];
     [cal setLocale:[NSLocale currentLocale]];
+    cal.timeZone = !!timeZone ? timeZone : [NSTimeZone localTimeZone];
+    
     NSDateComponents *components = [[NSDateComponents alloc] init];
     
-    components.year = [durationComponents.years integerValue];
-    components.month = [durationComponents.months integerValue];
-    components.day = [durationComponents.days integerValue];
-    components.hour = [durationComponents.hours integerValue];
-    components.minute = [durationComponents.minutes integerValue];
-    components.second = [durationComponents.seconds integerValue];
+    components.year = 1990; // garbage year, avoids the 7 min 2 second issue documented here:  http://stackoverflow.com/questions/13596358/setting-nsdatecomponents-results-in-incorrect-nsdate
+    
+    components.day = !!durationComponents.days ? [durationComponents.days integerValue] : 0;
+    components.hour = !!durationComponents.hours ? [durationComponents.hours integerValue] : 0;
+    components.minute = !!durationComponents.minutes ? [durationComponents.minutes integerValue] : 0;
+    components.second = !!durationComponents.seconds ? [durationComponents.seconds integerValue] : 0;
 
     NSDate *output = [cal dateFromComponents:components];
 

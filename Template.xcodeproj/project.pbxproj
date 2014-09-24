@@ -16,8 +16,6 @@
 		1B408ADB199033310020E000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408ADA199033310020E000 /* AppDelegate.m */; };
 		1B408ADE199033310020E000 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B408ADC199033310020E000 /* Main_iPhone.storyboard */; };
 		1B408AE1199033310020E000 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B408ADF199033310020E000 /* Main_iPad.storyboard */; };
-		1B408AE4199033310020E000 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AE3199033310020E000 /* MasterViewController.m */; };
-		1B408AE7199033310020E000 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AE6199033310020E000 /* DetailViewController.m */; };
 		1B408AE9199033310020E000 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B408AE8199033310020E000 /* Images.xcassets */; };
 		1B408AF0199033310020E000 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408AEF199033310020E000 /* XCTest.framework */; };
 		1B408AF1199033310020E000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACA199033310020E000 /* Foundation.framework */; };
@@ -34,8 +32,6 @@
 		1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4A19B0FFCF001D26AB /* OnlineStore.m */; };
 		1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4D19B0FFCF001D26AB /* LogonHandler+E2ETrace.m */; };
 		1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC5119B0FFCF001D26AB /* LogonHandler+Usage.m */; };
-		1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */; };
-		1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */; };
 		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
 		1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */; };
 		1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */; };
@@ -77,10 +73,6 @@
 		1B408ADA199033310020E000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1B408ADD199033310020E000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1B408AE0199033310020E000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		1B408AE2199033310020E000 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		1B408AE3199033310020E000 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		1B408AE5199033310020E000 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		1B408AE6199033310020E000 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		1B408AE8199033310020E000 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1B408AEE199033310020E000 /* TemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B408AEF199033310020E000 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -110,10 +102,6 @@
 		1B7ECC5219B0FFCF001D26AB /* LogonHandler+Usage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogonHandler+Usage.h"; path = "Framework/LogonHandler+Usage.h"; sourceTree = "<group>"; };
 		1B7ECC5319B0FFCF001D26AB /* LogonHandler+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogonHandler+Logging.h"; path = "Framework/LogonHandler+Logging.h"; sourceTree = "<group>"; };
 		1B7ECC5D19B10080001D26AB /* Framework-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Framework-Constants.h"; path = "Framework/Framework-Constants.h"; sourceTree = "<group>"; };
-		1B9CA80219AEAA710038BD47 /* EditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableTableViewCell.h; sourceTree = "<group>"; };
-		1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableTableViewCell.m; sourceTree = "<group>"; };
-		1B9CA80519AEB01F0038BD47 /* CreateEntityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEntityViewController.h; sourceTree = "<group>"; };
-		1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEntityViewController.m; sourceTree = "<group>"; };
 		1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/FlightSample.h; sourceTree = "<group>"; };
 		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
 		1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/FlightDetailsSample.m; sourceTree = "<group>"; };
@@ -210,14 +198,6 @@
 				1BB5EA6E19CCF37100AA7BF9 /* FlightSearchForm */,
 				1BB5EA6D19CCF35700AA7BF9 /* FlightSearch */,
 				1BB5EA6C19CCF32C00AA7BF9 /* ReviewItinerary */,
-				1B408AE2199033310020E000 /* MasterViewController.h */,
-				1B408AE3199033310020E000 /* MasterViewController.m */,
-				1B408AE5199033310020E000 /* DetailViewController.h */,
-				1B408AE6199033310020E000 /* DetailViewController.m */,
-				1B9CA80519AEB01F0038BD47 /* CreateEntityViewController.h */,
-				1B9CA80619AEB01F0038BD47 /* CreateEntityViewController.m */,
-				1B9CA80219AEAA710038BD47 /* EditableTableViewCell.h */,
-				1B9CA80319AEAA710038BD47 /* EditableTableViewCell.m */,
 				1B408AE8199033310020E000 /* Images.xcassets */,
 				1B408AD1199033310020E000 /* Supporting Files */,
 			);
@@ -279,16 +259,24 @@
 				1B7ECC4B19B0FFCF001D26AB /* OfflineStore.h */,
 				1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */,
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
+				1B7AAE5119D212990028B0A4 /* Sample Model Classes */,
+				1BB5EA5D19CCDFD800AA7BF9 /* NSDate+STSOData.h */,
+				1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		1B7AAE5119D212990028B0A4 /* Sample Model Classes */ = {
+			isa = PBXGroup;
+			children = (
 				1B1BF39619D0C69600C6CC69 /* BookingSample.h */,
 				1B1BF39719D0C69600C6CC69 /* BookingSample.m */,
 				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
 				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
 				1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */,
 				1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */,
-				1BB5EA5D19CCDFD800AA7BF9 /* NSDate+STSOData.h */,
-				1BB5EA5E19CCDFD800AA7BF9 /* NSDate+STSOData.m */,
 			);
-			name = Framework;
+			name = "Sample Model Classes";
 			sourceTree = "<group>";
 		};
 		1BB5EA6C19CCF32C00AA7BF9 /* ReviewItinerary */ = {
@@ -477,23 +465,19 @@
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
 				1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
-				1B9CA80719AEB01F0038BD47 /* CreateEntityViewController.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,
 				1B7ECC5719B0FFCF001D26AB /* DataController.m in Sources */,
-				1B408AE4199033310020E000 /* MasterViewController.m in Sources */,
 				1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */,
 				1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */,
 				1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */,
 				1B7AAE5019D1EE720028B0A4 /* DataController+ConfigureModelsSample.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
-				1B408AE7199033310020E000 /* DetailViewController.m in Sources */,
 				1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */,
 				1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */,
 				1B1BF39819D0C69600C6CC69 /* BookingSample.m in Sources */,
 				1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
-				1B9CA80419AEAA710038BD47 /* EditableTableViewCell.m in Sources */,
 				1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */,
 				1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */,
 				1B7ECC5819B0FFCF001D26AB /* LogonHandler+Logging.m in Sources */,

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GRP-8s-HK3">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -20,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-1" y="64"/>
         </scene>
-        <!--Home Screen-->
+        <!--My Flights-->
         <scene sceneID="bKx-lo-nAk">
             <objects>
                 <viewController storyboardIdentifier="HomeScreenID" id="cFb-d8-kyS" customClass="HomeScreen" sceneMemberID="viewController">
@@ -46,23 +47,14 @@
                                     <outletCollection property="gestureRecognizers" destination="Azk-WC-wAd" appends="YES" id="Oac-HE-h8P"/>
                                 </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Flight" translatesAutoresizingMaskIntoConstraints="NO" id="AGD-dl-6w3">
-                                <rect key="frame" x="199" y="201" width="105" height="106"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="118" image="Color 3" translatesAutoresizingMaskIntoConstraints="NO" id="73E-fC-Rf3">
                                 <rect key="frame" x="8" y="322" width="304" height="116"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="118" image="Color 4" translatesAutoresizingMaskIntoConstraints="NO" id="SBq-lY-ird">
                                 <rect key="frame" x="8" y="448" width="304" height="116"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-ul-XXE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book Flights" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-ul-XXE">
                                 <rect key="frame" x="16" y="106" width="175" height="48"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book Flights" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivr-DH-bHX">
-                                <rect key="frame" x="16" y="230" width="175" height="48"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -70,6 +62,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BookAFlight" translatesAutoresizingMaskIntoConstraints="NO" id="J7o-a5-HZM">
                                 <rect key="frame" x="199" y="77" width="105" height="106"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="READ and CREATE on OData service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lc-Ci-hs1">
+                                <rect key="frame" x="16" y="169" width="285" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -85,17 +83,17 @@
                             <constraint firstItem="XlM-oM-Fxs" firstAttribute="width" secondItem="73E-fC-Rf3" secondAttribute="width" id="xWB-aT-hRb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="frh-R0-RvM"/>
+                    <navigationItem key="navigationItem" title="My Flights" id="frh-R0-RvM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaC-rs-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="JYZ-ur-lcA">
                     <connections>
-                        <action selector="myAccounts:" destination="cFb-d8-kyS" id="2Os-Hn-vQF"/>
+                        <action selector="bookFlights:" destination="cFb-d8-kyS" id="3sp-d8-7XH"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Azk-WC-wAd">
                     <connections>
-                        <action selector="bookFlights:" destination="cFb-d8-kyS" id="M6g-PN-4Hf"/>
+                        <action selector="myAccounts:" destination="cFb-d8-kyS" id="w3h-2k-vfP"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -105,10 +103,10 @@
         <scene sceneID="KU6-Lo-YpW">
             <objects>
                 <tableViewController storyboardIdentifier="FlightSearchResults" id="aVc-d0-mmQ" customClass="FlightSearchResults" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IjS-QS-vZB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="IjS-QS-vZB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FSRC" rowHeight="58" id="vcv-Hy-XVb" customClass="FlightSearchResultsCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -133,11 +131,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pricebackground" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-cv-xNB">
+                                        <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pricebackground" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-cv-xNB">
                                             <rect key="frame" x="8" y="5" width="78" height="47"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="grayplane" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-ox-y0S">
-                                            <rect key="frame" x="165" y="10" width="22" height="22"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvc-Ux-EO2">
                                             <rect key="frame" x="16" y="18" width="63" height="21"/>
@@ -145,6 +140,9 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="grayplane" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-ox-y0S">
+                                            <rect key="frame" x="165" y="5" width="22" height="22"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="nfS-kM-Xcu" firstAttribute="leading" secondItem="9qE-ox-y0S" secondAttribute="trailing" constant="28" id="3pD-V9-Ump"/>
@@ -179,91 +177,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDS-CO-gKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868" y="789"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="lJI-AO-mrR">
-            <objects>
-                <tableViewController id="Ioi-A1-Ltg" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sJW-mH-PnG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFlightsCell" rowHeight="108" id="x9g-85-Qh9" customClass="FlightDetailsCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x9g-85-Qh9" id="6Sf-ho-Rbm">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="UA824" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6g-5L-4BU">
-                                            <rect key="frame" x="30" y="10" width="47" height="18"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="San Francisco, CA (SFO) to New York, NY (JFK)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-a7-9J5">
-                                            <rect key="frame" x="30" y="31" width="256" height="14"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Thu., Jun. 5, 2014" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-Ls-z83">
-                                            <rect key="frame" x="170" y="81" width="121" height="17"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10:24pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-aM-uV2">
-                                            <rect key="frame" x="29" y="48" width="109" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10:24pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4g-ib-WKg">
-                                            <rect key="frame" x="192" y="50" width="94" height="29"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SmallGrayPlane" translatesAutoresizingMaskIntoConstraints="NO" id="HJP-V1-bQG">
-                                            <rect key="frame" x="143" y="53" width="31" height="31"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Thu., Jun. 5, 2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOx-tm-eSH">
-                                            <rect key="frame" x="29" y="81" width="121" height="17"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="p4g-ib-WKg" firstAttribute="leading" secondItem="yFc-aM-uV2" secondAttribute="trailing" constant="54" id="HpZ-dr-oEI"/>
-                                        <constraint firstItem="HJP-V1-bQG" firstAttribute="top" secondItem="dgF-a7-9J5" secondAttribute="bottom" constant="4" id="Sr3-Mj-uHf"/>
-                                        <constraint firstItem="iOx-tm-eSH" firstAttribute="top" secondItem="yFc-aM-uV2" secondAttribute="bottom" constant="-1" id="VVB-op-DSG"/>
-                                        <constraint firstItem="HJP-V1-bQG" firstAttribute="leading" secondItem="yFc-aM-uV2" secondAttribute="trailing" constant="4" id="afQ-pY-EpF"/>
-                                        <constraint firstItem="iOx-tm-eSH" firstAttribute="top" secondItem="XLp-Ls-z83" secondAttribute="top" id="efY-Qx-zcj"/>
-                                        <constraint firstItem="yFc-aM-uV2" firstAttribute="top" secondItem="dgF-a7-9J5" secondAttribute="bottom" constant="3" id="o52-0u-Ozz"/>
-                                        <constraint firstItem="dgF-a7-9J5" firstAttribute="top" secondItem="h6g-5L-4BU" secondAttribute="bottom" constant="3" id="uDm-Cr-EnM"/>
-                                        <constraint firstItem="XLp-Ls-z83" firstAttribute="leading" secondItem="iOx-tm-eSH" secondAttribute="trailing" constant="20" id="zGx-Ew-EcD"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="arrivalDateLabel" destination="XLp-Ls-z83" id="ox2-S3-mKg"/>
-                                    <outlet property="arrivalTimeLabel" destination="p4g-ib-WKg" id="ZDu-dc-a4H"/>
-                                    <outlet property="departureDateLabel" destination="iOx-tm-eSH" id="n2x-28-QYp"/>
-                                    <outlet property="departureTimeLabel" destination="yFc-aM-uV2" id="Vv3-KP-zgP"/>
-                                    <outlet property="descriptionLabel" destination="dgF-a7-9J5" id="pcs-aQ-ywd"/>
-                                    <outlet property="flightNumberLabel" destination="h6g-5L-4BU" id="Itg-rf-3Ek"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ioi-A1-Ltg" id="cj8-AL-p0Q"/>
-                            <outlet property="delegate" destination="Ioi-A1-Ltg" id="UXX-wV-lCU"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rh1-VP-1LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2142" y="1068"/>
         </scene>
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -637,7 +550,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Xpo-vM-Jmy">
                                             <rect key="frame" x="20" y="0.0" width="280" height="101"/>
-                                            <string key="text">*Miles shown are the actual miles flown for this segment.  Mileage accrued will vary depending on the terms and conditions of your frequent flyer program.  SAP MyFlight mileage accrual is subject to the rules of the MyFlight program.</string>
+                                            <string key="text">*Miles shown are the actual miles between destinations; loyalty miles accrued may vary, according to the terms of your frequent flyer program.  Check with your Flights Concierge for the terms of your specific program.</string>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -666,8 +579,6 @@
         <image name="Color 2" width="304" height="116"/>
         <image name="Color 3" width="304" height="116"/>
         <image name="Color 4" width="304" height="116"/>
-        <image name="Flight" width="256" height="254"/>
-        <image name="SmallGrayPlane" width="288" height="528"/>
         <image name="grayplane" width="30" height="31"/>
         <image name="pricebackground" width="78" height="47"/>
     </resources>

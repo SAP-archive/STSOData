@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, FlightDirection) {
 
 @property (nonatomic, assign) FlightDirection direction;
 
-@property (nonatomic, strong) NSArray *searchResults;
+@property (nonatomic, strong) NSMutableDictionary *searchResults;
 
 - (void)searchAvailableFlights:(NSDictionary *)searchParameters;
 

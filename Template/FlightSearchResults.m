@@ -22,6 +22,11 @@
 
 #import "ReviewItinerary.h"
 
+@interface FlightSearchResults () {
+    NSArray *sectionHeaders;
+}
+
+@end
 @implementation FlightSearchResults
 
 #pragma mark - Table View data source
@@ -32,7 +37,7 @@
     
     [self.tableView registerClass:[FlightSearchResultsCell class] forCellReuseIdentifier:@"FlightSearchResultsCell"];
     
-    self.searchResults = [[NSArray alloc]init];
+    self.searchResults = [[NSMutableDictionary alloc] init];
 
 }
 
@@ -47,24 +52,59 @@
      in which it is intended.
 */
     [[DataController shared] fetchAvailableFlightsSampleWithParameters:searchParameters WithCompletion:^(NSArray *entities) {
-        self.searchResults = entities;
+    
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+        dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    
+        NSMutableDictionary *groupedRecords = [[NSMutableDictionary alloc] init];
+        
+        NSArray *sortedRecords = [entities sortedArrayUsingComparator:^NSComparisonResult(FlightSample *obj1, FlightSample *obj2) {
+            return [obj1.fldate compare:obj2.fldate];
+        }];
+        
+        [sortedRecords enumerateObjectsUsingBlock:^(FlightSample *obj, NSUInteger idx, BOOL *stop) {
+        
+            NSString *dateString = [dateFormatter stringFromDate:obj.fldate];
+            
+            if (!groupedRecords[dateString]) {
+                NSMutableArray *recordsForDate = [[NSMutableArray alloc] initWithObjects:obj, nil];
+                groupedRecords[dateString] = recordsForDate;
+            } else {
+                [groupedRecords[dateString] insertObject:obj atIndex:0];
+            }
+        }];
+        
+        sectionHeaders = [[groupedRecords allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+            return [obj1 compare:obj2];
+        }];
+        
+        self.searchResults = groupedRecords;
         [self.tableView reloadData];
     }];
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return sectionHeaders.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.searchResults.count;
+    NSString *key = sectionHeaders[section];
+    
+    return [self.searchResults[key] count];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 64;
+    return 22;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return sectionHeaders[section];
 }
 
 #define kCellHeight 58;
@@ -78,20 +118,30 @@
 {
     FlightSearchResultsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FSRC" forIndexPath:indexPath];
     
-    FlightSample *flight = self.searchResults[indexPath.row];
+    FlightSample *flight = self.searchResults[sectionHeaders[indexPath.section]][indexPath.row];
     
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
-    timeFormatter.timeStyle = NSDateFormatterShortStyle;
+    NSString *fromTimeZone = [flight.flightDetails.cityFrom isEqualToString:@"new york"] ? @"America/New_York" : @"Europe/Berlin";
+    NSString *toTimeZone = [flight.flightDetails.cityFrom isEqualToString:@"new york"] ? @"Europe/Berlin" : @"America/New_York";
     
+    NSDateFormatter *fromTimeFormatter = [[NSDateFormatter alloc] init];
+    fromTimeFormatter.timeStyle = NSDateFormatterShortStyle;
+    fromTimeFormatter.timeZone = [NSTimeZone timeZoneWithName:fromTimeZone];
+    
+    NSDateFormatter *toTimeFormatter = [[NSDateFormatter alloc] init];
+    toTimeFormatter.timeStyle = NSDateFormatterShortStyle;
+    toTimeFormatter.timeZone = [NSTimeZone timeZoneWithName:toTimeZone];
 /*
     Use this little helper category on NSDate to handle conversions between NSDate and OData datetime formats
 */
-    NSDate *departTime = [NSDate dateFromODataDurationComponents:flight.flightDetails.departureTime];
+//    NSDate *departTime = [NSDate dateFromODataDurationComponents:flight.flightDetails.departureTime inTimeZone:nil];
+    
     NSInteger flightTime = [flight.flightDetails.flightTime integerValue];
-    NSDate *arriveTime = [departTime dateByAddingTimeInterval:(flightTime * 60)];
+    NSDate *arriveTime = [flight timeZoneVariableArrivalDate];
+    
+    NSInteger period = [flight.flightDetails.period integerValue];
 
-    cell.departureTimeLabel.text = [[timeFormatter stringFromDate:departTime] lowercaseString];
-    cell.arrivalTimeLabel.text = [[timeFormatter stringFromDate:arriveTime] lowercaseString];
+    cell.departureTimeLabel.text = [[fromTimeFormatter stringFromDate:[flight timeZoneAccurateDepartureDate]] lowercaseString];
+    cell.arrivalTimeLabel.text = period < 1 ? [[toTimeFormatter stringFromDate:arriveTime] lowercaseString] : [NSString stringWithFormat:@"%@*", [[toTimeFormatter stringFromDate:arriveTime] lowercaseString]];
     
     int hours = flightTime / 60;
     int minutes = flightTime - (hours * 60);
@@ -110,7 +160,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlightSample *selectedFlight = self.searchResults[indexPath.row];
+    FlightSample *selectedFlight = self.searchResults[sectionHeaders[indexPath.section]][indexPath.row];
     
     if (self.direction == Departing) {
         self.searchForm.selectedDepartureFlight = selectedFlight;
@@ -133,9 +183,9 @@
 /*
         Again, cheat a little here to get a good result set from the sample service.
         
-        Search from departure day +1.
+        Search from departure day +7.
 */
-        NSDictionary *returnSearchParameters = @{@"fromdate" : [[self.searchForm.departureDate dateByAddingTimeInterval:87600] dateToODataString],
+        NSDictionary *returnSearchParameters = @{@"fromdate" : [[self.searchForm.departureDate dateByAddingTimeInterval:613200] dateToODataString],
                                                  @"todate" : [self.searchForm.returnDate dateToODataString],
                                                  @"cityfrom" : self.searchForm.returnAirportCity,
                                                  @"cityto" : self.searchForm.departureAirportCity };

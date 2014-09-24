@@ -15,6 +15,7 @@
 
 +(NSDate *)dateFromODataString:(NSString *)oDataString;
 
-+(NSDate *)dateFromODataDurationComponents:(SODataDuration *)durationComponents;
++(NSDate *)dateFromODataDurationComponents:(SODataDuration *)durationComponents inTimeZone:(NSTimeZone *)timeZone;
+
 
 @end

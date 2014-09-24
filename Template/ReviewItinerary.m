@@ -11,26 +11,22 @@
 #import "FlightSearchForm.h"
 
 #import "FlightSample.h"
-
 #import "FlightDetailsSample.h"
-
-#import "TravelDetailsCell.h"
-
-#import "TotalPriceCell.h"
-
-#import "FlightDetailsCell.h"
-
-#import "MilesExplanationCell.h"
 
 #import "BookingSample.h"
 
-#import "DataController+CUDRequests.h"
+#import "TravelDetailsCell.h"
+#import "TotalPriceCell.h"
+#import "FlightDetailsCell.h"
+#import "MilesExplanationCell.h"
 
+#import "DataController+CUDRequests.h"
 #import "DataController+ConfigureModelsSample.h"
 
 #import "SODataEntityDefault.h"
-
 #import "SODataPropertyDefault.h"
+
+#import <stdlib.h>
 
 
 @implementation ReviewItinerary
@@ -238,30 +234,36 @@
     
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%@ (%@) to %@ (%@)", flight.flightDetails.airportFrom, flight.flightDetails.countryFrom, flight.flightDetails.airportTo, flight.flightDetails.countryTo];
     
-    NSString *fromTimeZone = [flight.flightDetails.cityFrom isEqualToString:@"New York"] ? @"America/New_York" : @"Europe/Berlin";
-    NSString *toTimeZone = [flight.flightDetails.cityFrom isEqualToString:@"New York"] ? @"Europe/Berlin" : @"America/New_York";
+    NSString *fromTimeZone = [flight.flightDetails.cityFrom isEqualToString:@"new york"] ? @"America/New_York" : @"Europe/Berlin";
+    NSString *toTimeZone = [flight.flightDetails.cityFrom isEqualToString:@"new york"] ? @"Europe/Berlin" : @"America/New_York";
     
     NSDateFormatter *fromDateFormatter = [self dateFormatter:fromTimeZone];
     NSDateFormatter *toDateFormatter = [self dateFormatter:toTimeZone];
     
     NSDateFormatter *fromTimeFormatter = [self timeFormatter:fromTimeZone];
     NSDateFormatter *toTimeFormatter = [self timeFormatter:toTimeZone];
+//    
+//    NSInteger flightDuration = [flight.flightDetails.flightTime integerValue];
+//
+//    NSCalendar *cal = [NSCalendar currentCalendar];
+//    
+//    NSDate *departDate = self.searchForm.selectedDepartureFlight.fldate;
+//    NSDate *departTime = [NSDate dateFromODataDurationComponents:flight.flightDetails.departureTime inTimeZone:[NSTimeZone timeZoneWithName:fromTimeZone]];
+//    
+//    NSDateComponents *departDateComponents = [[NSDateComponents alloc] init];
+//    departDateComponents = [cal componentsInTimeZone:[NSTimeZone timeZoneWithName:fromTimeZone] fromDate:departDate];
+//    
+//    NSDateComponents *departTimeComponents = [[NSDateComponents alloc] init];
+//    departTimeComponents = [cal componentsInTimeZone:[NSTimeZone timeZoneWithName:fromTimeZone] fromDate:departTime];
+//    
+    NSDate *fullDepartDate = [flight timeZoneAccurateDepartureDate];
+    NSDate *fullArrivalDate = [flight timeZoneVariableArrivalDate];
 
-    NSDate *departTime = [NSDate dateFromODataDurationComponents:flight.flightDetails.departureTime];
-    NSInteger flightDuration = [flight.flightDetails.flightTime integerValue];
-    NSDate *arrivalTime = [departTime dateByAddingTimeInterval:(flightDuration * 60)];
+    cell.departureTimeLabel.text = [[fromTimeFormatter stringFromDate:fullDepartDate] lowercaseString];
+    cell.arrivalTimeLabel.text = [[toTimeFormatter stringFromDate:fullArrivalDate] lowercaseString];
     
-    cell.departureTimeLabel.text = [[fromTimeFormatter stringFromDate:departTime] lowercaseString];
-    cell.arrivalTimeLabel.text = [[toTimeFormatter stringFromDate:arrivalTime] lowercaseString];
-    
-    
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    
-    NSDate *departDate = self.searchForm.selectedDepartureFlight.fldate;
-    NSDate *arrivalDate = [[cal components:NSHourCalendarUnit fromDate:departTime] hour] < [[cal components:NSHourCalendarUnit fromDate:arrivalTime] hour] ? departDate : [departDate dateByAddingTimeInterval:86400];
-    
-    cell.departureDateLabel.text = [fromDateFormatter stringFromDate:departDate];
-    cell.arrivalDateLabel.text = [toDateFormatter stringFromDate:arrivalDate];
+    cell.departureDateLabel.text = [fromDateFormatter stringFromDate:fullDepartDate];
+    cell.arrivalDateLabel.text = [toDateFormatter stringFromDate:fullArrivalDate];
     
     return cell;
 }
@@ -270,6 +272,7 @@
 {
     if (indexPath.section == 6 && indexPath.row == 0) {
     
+        int generatedCustomerNumber = arc4random_uniform(3900); // need to increment customer number below, should resolve vast majority of conflicts
         // post create booking
         
         SODataEntityDefault *booking = [[SODataEntityDefault alloc] initWithType:@"RMTSAMPLEFLIGHT.Booking"];
@@ -279,7 +282,7 @@
         properties[@"carrid"] = @"AA";
         properties[@"connid"] = @"0017";
         properties[@"fldate"] = [NSDate dateFromODataString:@"2014-11-15T00:00:00"];
-        properties[@"CUSTOMID"] = @"00003984";
+        properties[@"CUSTOMID"] = [NSString stringWithFormat:@"%08d", generatedCustomerNumber];
         properties[@"CUSTTYPE"] = @"P";
         properties[@"WUNIT"] = @"KGM";
         properties[@"LUGGWEIGHT"] = [NSDecimalNumber numberWithDouble:17.4];
@@ -290,10 +293,10 @@
         properties[@"ORDER_DATE"] = [NSDate dateFromODataString:@"2014-11-22T00:00:00"];
         properties[@"COUNTER"] = @"00000000";
         properties[@"AGENCYNUM"] = @"00000114";
-        properties[@"PASSNAME"] = @"Megan Kummer";
+        properties[@"PASSNAME"] = @"Will The-Thrill Clark";
         properties[@"PASSBIRTH"] = [NSDate dateFromODataString:@"1988-02-08T00:00:00"];
         
-        __block SODataEntityDefault * (^setProperties)(SODataEntityDefault *, NSMutableDictionary *) = ^SODataEntityDefault * (SODataEntityDefault *entity, NSMutableDictionary *properties){
+        __block void (^setProperties)(SODataEntityDefault *, NSMutableDictionary *) = ^void (SODataEntityDefault *entity, NSMutableDictionary *properties){
             
             [[properties allKeys] enumerateObjectsUsingBlock:^(NSString *keyName, NSUInteger idx, BOOL *stop) {
                 SODataPropertyDefault *prop = [[SODataPropertyDefault alloc] initWithName:keyName];
@@ -301,7 +304,7 @@
                 [entity.properties setObject:prop forKey:keyName];
             }];
             
-            return entity;
+            return;
         };
         
         setProperties(booking, properties);
@@ -315,7 +318,7 @@
                 [DataController configureBookingSampleModel:newBooking withDictionary:newEntity.properties];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Booking Success"
-                                                                message:[NSString stringWithFormat:@"Thank you for booking for %@", newBooking.PASSNAME]
+                                                                message:[NSString stringWithFormat:@"Thank you for booking, \n%@\nPresident, High-Fives\n& SVP of Good Times", newBooking.PASSNAME]
                                                                 delegate:self.searchForm
                                                                 cancelButtonTitle:@"OK"
                                                                 otherButtonTitles:nil, nil];
@@ -364,4 +367,6 @@
     }
     return formatter;
 }
+
+
 @end

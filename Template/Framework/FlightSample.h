@@ -25,5 +25,8 @@
 @property (nonatomic, strong) NSNumber *SEATSMAX_F;
 @property (nonatomic, strong) NSNumber *SEATSOCC_F;
 
+-(NSDate *)timeZoneAccurateDepartureDate;
+-(NSDate *)timeZoneVariableArrivalDate; // set timeZone through NSDateFormatter
+
 
 @end
