@@ -14,9 +14,23 @@ The template app is a simple customer loyalty flights application, which allows 
 
 Check out the experience:
 
-<iframe width="854" height="510" src="//www.youtube.com/embed/2npfEyhw9nQ" frameborder="0" allowfullscreen></iframe>
-
-[![End user overview](https://raw.githubusercontent.com/sstadelman/sstadelman.github.io/master/media/blog-images/readme%20screenshot1.png)](www.youtube.com/embed/2npfEyhw9nQ)
+[YouTube clip](www.youtube.com/embed/2npfEyhw9nQ)
 
 ##Installation
 
+###Pre-requisites
+There are a few pre-requisites for running the template as it is configured in the repository.
+
+1.  **xCode 6 / iOS8**  The SDK has an official minimum iOS version of iOS7, but this sample makes use of an iOS8-only API when handling date conversions.  
+
+2.  Install **cocoapods** on your development machine.  Cocoapods is an open-source ruby gem tool, which makes cocoa dependency management really easy.  Installation can be accomplished with one line on the terminal:  `$ sudo gem install cocoapods`.  See [cocoapods.org](http://cocoapods.org) for details.
+
+3.  Copy the file **NativeSDK.podspec** from [here](https://github.com/sstadelman/NativeSDK-podspec), into the **NativeSDK** folder in your MobileSDK3 installation directory.  I've recorded a video overview, and documented this [here](http://sstadelman.bull.io/blog/CocoaPods-with-Mobile-SDK-Installer/). 
+
+###Installation and configuration
+
+1.  Clone, or download the repository to your local machine
+
+2.  Navigate to the project directory, and run at the terminal:  `pod update`.  
+
+3.  Once cocoapods is completed, open the project via the **.xcworkspace**, *not* the .xcodeproj.
