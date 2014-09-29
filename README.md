@@ -18,6 +18,8 @@ Check out the experience:
 
 ##Installation
 
-Clone or download the project, then, after installing SDK v3 SP05.1 and copying the podspec into the Native SDK folder (as described [here](http://sstadelman.bull.io/blog/CocoaPods-with-Mobile-SDK-Installer/), run `pod update`.
+Clone or download the project, then, after installing SDK v3 SP05.1 and copying the podspec into the Native SDK folder (as described [here](http://sstadelman.bull.io/blog/CocoaPods-with-Mobile-SDK-Installer/)), run `pod update`.
 
 This will auto-link all the SDK libraries and your project.
+
+The SDK libraries & headers are *not* included in this repository, so you will need to download them directly from SAP.
