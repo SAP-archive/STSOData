@@ -21,11 +21,13 @@ Check out the experience:
 ###Pre-requisites
 There are a few pre-requisites for running the template as it is configured in the repository.
 
-1.  **xCode 6 / iOS8**  The SDK has an official minimum iOS version of iOS7, but this sample makes use of an iOS8-only API when handling date conversions.  
+1.  Install the **SAP Mobile SDK 3 SP05 PL01** or higher.  The SDK libraries & headers are *not* included in this repository, so you will need to download them directly from SAP.
 
-2.  Install **cocoapods** on your development machine.  Cocoapods is an open-source ruby gem tool, which makes cocoa dependency management really easy.  Installation can be accomplished with one line on the terminal:  `$ sudo gem install cocoapods`.  See [cocoapods.org](http://cocoapods.org) for details.
+2.  **xCode 6 / iOS8**  The SDK has an official minimum iOS version of iOS7, but this sample makes use of an iOS8-only API when handling date conversions.  
 
-3.  Copy the file **NativeSDK.podspec** from [here](https://github.com/sstadelman/NativeSDK-podspec), into the **NativeSDK** folder in your MobileSDK3 installation directory.  I've recorded a video overview, and documented this [here](http://sstadelman.bull.io/blog/CocoaPods-with-Mobile-SDK-Installer/). 
+3.  Install **cocoapods** on your development machine.  Cocoapods is an open-source ruby gem tool, which makes cocoa dependency management really easy.  Installation can be accomplished with one line on the terminal:  `$ sudo gem install cocoapods`.  See [cocoapods.org](http://cocoapods.org) for details.
+
+4.  Copy the file **NativeSDK.podspec** from [here](https://github.com/sstadelman/NativeSDK-podspec), into the **NativeSDK** folder in your MobileSDK3 installation directory.  I've recorded a video overview, and documented this [here](http://sstadelman.bull.io/blog/CocoaPods-with-Mobile-SDK-Installer/). 
 
 ###Installation and configuration
 
