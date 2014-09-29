@@ -9,5 +9,8 @@ end
 
 target "TemplateTests" do
 
+pod 'NativeSDK', :path => "~/SAP/MobileSDK3/NativeSDK/"
+
+
 end
 
