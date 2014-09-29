@@ -272,16 +272,16 @@
 {
     if (indexPath.section == 6 && indexPath.row == 0) {
     
-        int generatedCustomerNumber = arc4random_uniform(3900); // need to increment customer number below, should resolve vast majority of conflicts
+        int generatedCustomerNumber = arc4random_uniform(3900); // need to increment customer number below
         // post create booking
         
         SODataEntityDefault *booking = [[SODataEntityDefault alloc] initWithType:@"RMTSAMPLEFLIGHT.Booking"];
         
         NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
 
-        properties[@"carrid"] = @"AA";
-        properties[@"connid"] = @"0017";
-        properties[@"fldate"] = [NSDate dateFromODataString:@"2014-11-15T00:00:00"];
+        properties[@"carrid"] = self.searchForm.selectedDepartureFlight.carrid; //@"DL";
+        properties[@"connid"] = self.searchForm.selectedDepartureFlight.connid; //@"0106";
+        properties[@"fldate"] = self.searchForm.selectedDepartureFlight.flightDetails.period == 0 ? self.searchForm.selectedDepartureFlight.fldate : [self.searchForm.selectedDepartureFlight.fldate dateByAddingTimeInterval:87600];
         properties[@"CUSTOMID"] = [NSString stringWithFormat:@"%08d", generatedCustomerNumber];
         properties[@"CUSTTYPE"] = @"P";
         properties[@"WUNIT"] = @"KGM";

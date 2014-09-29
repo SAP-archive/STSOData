@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LogonHandler.h"
 #import "DataController.h"
-#import "SODataOfflineStore.h"
+//#import "SODataOfflineStore.h"
 
 #define kDefiningRequest1 @"TravelagencyCollection"
 
@@ -28,7 +28,7 @@
     If application will support offline OData, you must initialize SODataOfflineStore here in
     -didFinishLaunchingWithOptions.  Also, call 'finish' method in -applicationWillTerminate:.
 */
-    [SODataOfflineStore GlobalInit];
+//    [SODataOfflineStore GlobalInit];
 
     return YES;
 }
@@ -97,7 +97,7 @@
     If application is supporting offline OData, you must break-down the store, here in 
     -applicationWillTerminate:.
 */
-    [SODataOfflineStore GlobalFini];
+//    [SODataOfflineStore GlobalFini];
 }
 
 @end

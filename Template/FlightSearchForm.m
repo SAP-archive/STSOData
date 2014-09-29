@@ -36,8 +36,8 @@
     Here's some sample data with good results from the sample service.
     It's a really long round-trip, but it returns enough records to be interesting.
 */
-    self.departureDate = [NSDate dateWithTimeIntervalSinceNow:-47304000]; // about a year and a half ago
-    self.returnDate = [NSDate dateWithTimeIntervalSinceNow:-15768000];    // about 6 months ago
+    self.departureDate = [NSDate date]; // about a year and a half ago
+    self.returnDate = [NSDate dateWithTimeIntervalSinceNow:15768000];    // about 6 months ago
     
     self.departureAirportCity = @"new york";
     self.returnAirportCity = @"frankfurt";
@@ -54,6 +54,8 @@
 
 - (void)searchFlights
 {
+    NSLog(@"[self.departure = %@", [self.departureDate dateToODataString]);
+    
     NSDictionary *searchParameters = @{@"fromdate" : [self.departureDate dateToODataString],
                                        @"todate" : [self.returnDate dateToODataString],
                                        @"cityfrom" : self.departureAirportCity,

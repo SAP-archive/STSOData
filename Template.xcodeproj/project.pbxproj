@@ -44,6 +44,7 @@
 		1BB5EA6519CCF2D200AA7BF9 /* TravelDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6419CCF2D200AA7BF9 /* TravelDetailsCell.m */; };
 		1BB5EA6819CCF2EA00AA7BF9 /* TotalPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */; };
 		1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */; };
+		1BFB68DC19D4783E005C104E /* SODataPropertyDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB68DB19D4783E005C104E /* SODataPropertyDictionary.m */; };
 		B625674DCEC5444D969239AD /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalPriceCell.m; sourceTree = "<group>"; };
 		1BB5EA6919CCF2FB00AA7BF9 /* MilesExplanationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilesExplanationCell.h; sourceTree = "<group>"; };
 		1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilesExplanationCell.m; sourceTree = "<group>"; };
+		1BFB68DA19D4783E005C104E /* SODataPropertyDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SODataPropertyDictionary.h; sourceTree = "<group>"; };
+		1BFB68DB19D4783E005C104E /* SODataPropertyDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SODataPropertyDictionary.m; sourceTree = "<group>"; };
 		EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,6 +192,7 @@
 		1B408AD0199033310020E000 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				1BFB690019D61ABB005C104E /* Working Stash */,
 				1B649DBE19A41F52000DA5E9 /* Framework */,
 				1B408AD9199033310020E000 /* AppDelegate.h */,
 				1B408ADA199033310020E000 /* AppDelegate.m */,
@@ -323,6 +327,15 @@
 				1BB5EA5219CCA37E00AA7BF9 /* HomeScreen.m */,
 			);
 			name = HomeScreen;
+			sourceTree = "<group>";
+		};
+		1BFB690019D61ABB005C104E /* Working Stash */ = {
+			isa = PBXGroup;
+			children = (
+				1BFB68DA19D4783E005C104E /* SODataPropertyDictionary.h */,
+				1BFB68DB19D4783E005C104E /* SODataPropertyDictionary.m */,
+			);
+			name = "Working Stash";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +477,7 @@
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
 				1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */,
 				1BADA29119D36C77003F9E61 /* NSDate+STSOData.m in Sources */,
+				1BFB68DC19D4783E005C104E /* SODataPropertyDictionary.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,

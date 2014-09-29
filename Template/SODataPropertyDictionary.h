@@ -10,4 +10,8 @@
 
 @interface SODataPropertyDictionary : NSMutableDictionary
 
+-(instancetype)initWithDictionary:(NSDictionary *)otherDictionary;
+
+-(id)objectForKey:(id)aKey;
+
 @end

@@ -76,7 +76,10 @@
         }];
         
         sectionHeaders = [[groupedRecords allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
-            return [obj1 compare:obj2];
+        
+            NSDate *d1 = [dateFormatter dateFromString:obj1];
+            NSDate *d2 = [dateFormatter dateFromString:obj2];
+            return [d1 compare:d2];
         }];
         
         self.searchResults = groupedRecords;
