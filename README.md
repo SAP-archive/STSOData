@@ -14,9 +14,7 @@ The template app is a simple customer loyalty flights application, which allows 
 
 Check out the experience:
 
-<iframe width="854" height="510" src="//www.youtube.com/embed/2npfEyhw9nQ" frameborder="0" allowfullscreen></iframe>
-
-[![End user overview](https://raw.githubusercontent.com/sstadelman/sstadelman.github.io/master/media/blog-images/readme%20screenshot1.png)](www.youtube.com/embed/2npfEyhw9nQ)
+[YouTube clip](www.youtube.com/embed/2npfEyhw9nQ)
 
 ##Installation
 
