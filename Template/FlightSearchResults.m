@@ -22,14 +22,21 @@
 
 #import "ReviewItinerary.h"
 
+#import "Usage.h"
+#import "Timer.h"
+
 @interface FlightSearchResults () {
     NSArray *sectionHeaders;
+    Timer *t;
 }
 
 @end
 @implementation FlightSearchResults
 
 #pragma mark - Table View data source
+
+
+#define kFlightSearchResultsLoaded @"FSRViewLoaded"
 
 -(void)viewDidLoad
 {
@@ -38,6 +45,9 @@
     [self.tableView registerClass:[FlightSearchResultsCell class] forCellReuseIdentifier:@"FlightSearchResultsCell"];
     
     self.searchResults = [[NSMutableDictionary alloc] init];
+    
+    t = [Usage makeTimer:kFlightSearchResultsLoaded];
+    
 
 }
 
@@ -84,6 +94,8 @@
         
         self.searchResults = groupedRecords;
         [self.tableView reloadData];
+        
+        [Usage stopTimer:t];
     }];
 }
 
