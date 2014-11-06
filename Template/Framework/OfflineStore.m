@@ -14,6 +14,7 @@
 
 @interface OfflineStore() <SODataOfflineStoreDelegate, SODataOfflineStoreRequestErrorDelegate, SODataOfflineStoreRefreshDelegate, SODataOfflineStoreFlushDelegate>
 
+@property (nonatomic, assign) SODataOfflineStoreState state;
 
 @end
 
@@ -98,6 +99,8 @@
 #pragma mark - OfflineStore Delegate methods
 
 - (void) offlineStoreStateChanged:(SODataOfflineStore *)store state:(SODataOfflineStoreState)newState{
+    
+    self.state = newState;
     
     switch (newState)
     {
