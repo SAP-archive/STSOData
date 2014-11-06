@@ -38,6 +38,19 @@
         
         completion(self);
         
+    } else if (self.state > 0 && self.state < SODataOfflineStoreOpen) {
+        
+        /* listen for open-finished notification here */
+        
+        NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+            
+            NSLog(@"%s", __PRETTY_FUNCTION__);
+            
+            completion(YES);
+        }];
+        
     } else {
                 
         /* listen for open-finished notification here */
