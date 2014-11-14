@@ -13,6 +13,7 @@
 #import "HttpConversationManager.h"
 #import "MAFLogonRegistrationData.h"
 #import "SODataOfflineStoreOptions.h"
+#import "NSURL+MobilePlatform.h"
 
 #import "SAPClientLogManager.h"
 
@@ -23,6 +24,9 @@
 @property (strong, nonatomic) HttpConversationManager* httpConvManager;
 
 @property (strong, nonatomic) MAFLogonRegistrationData *data;
+
+@property (strong, nonatomic) NSURL *baseURL;
+
 - (SODataOfflineStoreOptions *)options;
 
 @property (strong, nonatomic) id<SAPClientLogManager>logManager;

@@ -11,9 +11,9 @@
 
 @interface NSDate (STSOData)
 
--(NSString *)dateToODataString;
+-(NSString *)dateToODataStringWithFormat:(NSString *)dateFormat;
 
-+(NSDate *)dateFromODataString:(NSString *)oDataString;
++(NSDate *)dateFromODataString:(NSString *)oDataString dateFormat:(NSString *)dateFormat;
 
 +(NSDate *)dateFromODataDurationComponents:(SODataDuration *)durationComponents inTimeZone:(NSTimeZone *)timeZone;
 

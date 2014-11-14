@@ -5,6 +5,7 @@
 #import "LogonHandler+Usage.h"
 #import "MAFUIStyleParser.h"
 #import "DataController.h"
+#import "NSURL+MobilePlatform.h"
 
 
 @interface LogonHandler ()
@@ -63,6 +64,11 @@
         if (err) {
             NSLog(@"%@ %s", err, __PRETTY_FUNCTION__); 
         }
+        
+        /*
+         Set a baseURL to be used throughout the application, constructed from the MAFLogonRegistrationContext
+         */
+        self.baseURL = [[NSURL alloc] initWithHost:self.data.serverHost port:self.data.serverPort protocol:self.data.isHttps appId:self.data.applicationId];
         
         /*
         Configure the httpConversationManager--in this application, this httpConvManager will be

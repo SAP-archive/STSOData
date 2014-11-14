@@ -10,19 +10,20 @@
 
 @implementation NSDate (STSOData)
 
-- (NSString *)dateToODataString
+- (NSString *)dateToODataStringWithFormat:(NSString *)dateFormat
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    NSString *dateFormat = @"yyyy-MM-dd'T'hh:mm:ss";
+//    NSString *dateFormat = @"yyyy-MM-dd'T'hh:mm:ss";
+    
     dateFormatter.dateFormat = dateFormat;
     
     return [dateFormatter stringFromDate:self];
 }
 
-+(NSDate *)dateFromODataString:(NSString *)oDataString
++(NSDate *)dateFromODataString:(NSString *)oDataString dateFormat:(NSString *)dateFormat
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    NSString *dateFormat = @"yyyy-MM-dd'T'hh:mm:ss";
+//    NSString *dateFormat = @"yyyy-MM-dd'T'hh:mm:ss";
     dateFormatter.dateFormat = dateFormat;
     dateFormatter.locale = [NSLocale currentLocale];
     dateFormatter.formatterBehavior = NSDateFormatterBehaviorDefault;

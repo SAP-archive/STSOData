@@ -22,7 +22,6 @@
 
 +(void)configureBookingSampleModel:(BookingSample *)model withDictionary:(NSDictionary *)dictionary
 {
-
     model.carrid = (NSString *)[(id<SODataProperty>)dictionary[@"carrid"] value];
     model.connid = (NSString *)[(id<SODataProperty>)dictionary[@"connid"] value];
     model.fldate = (NSDate *)[(id<SODataProperty>)dictionary[@"fldate"] value];

@@ -41,9 +41,11 @@
      You ALSO MUST have SAP Solution Manager propery integrated with SAP SMP Server, or uploaded
      logs will be rejected.
      */
-    NSString *logUploadURL = [NSString stringWithFormat:@"%@://%@:%i/clientlogs", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort];
+//    NSString *logUploadURL = [NSString stringWithFormat:@"%@://%@:%i/clientlogs", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort];
+//    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:logUploadURL]];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:logUploadURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self.baseURL clientLogsURL]];
     
     [request setValue:self.data.applicationConnectionId forHTTPHeaderField:@"X-SMP-APPCID"];
     

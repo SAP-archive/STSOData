@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Stan Stadelman. All rights reserved.
 //
 
-
+#import "SODataOfflineStoreOptions.h"
 
 @interface SODataOfflineStoreOptions (READAPI)
 

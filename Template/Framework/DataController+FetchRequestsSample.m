@@ -140,7 +140,7 @@ Example of Option #1, with $expand in the resource path
         
             NSMutableArray *typedEntities = [[NSMutableArray alloc] init];
             
-            for (SODataEntityDefault *obj in entities) {
+            for (id<SODataEntity>obj in entities) {
             
                 FlightSample *entity = [FlightSample new];
                 [DataController configureFlightSampleModel:entity withDictionary:obj.properties];

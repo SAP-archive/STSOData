@@ -136,10 +136,10 @@
     
     __block void (^setupNetworkStore)(void) = ^void() {
         
-        NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
+//        NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
         
-        self.networkStore = [[OnlineStore alloc] initWithURL:baseURL
-                              httpConversationManager:[LogonHandler shared].httpConvManager];
+        self.networkStore = [[OnlineStore alloc] initWithURL:[[LogonHandler shared].baseURL applicationURL]
+                                     httpConversationManager:[LogonHandler shared].httpConvManager];
         
         onlineStoreConfig = YES;
         
@@ -332,7 +332,7 @@
             if ([respSingle payloadType] == SODataTypeEntitySet)
             {
                 // copy and cast the entities from the response payload
-                SODataEntitySetDefault *entities = (id<SODataEntitySet>)p;
+                id<SODataEntitySet>entities = (id<SODataEntitySet>)p;
                 
                 // call completion block, with entities, requestExecution, and no error
                 completion(entities.entities, requestExecution, nil);
@@ -341,8 +341,7 @@
             // if payload is an error, return Error
             else if ([respSingle payloadType] == SODataTypeError)
             {
-                id<SODataPayload>p = respSingle.payload;
-                SODataErrorDefault *e = (SODataErrorDefault *)p;
+                id<SODataError>e = (id<SODataError>)respSingle.payload;
                 
                 NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
                 [errorDetail setValue:e.message forKey:NSLocalizedDescriptionKey];

@@ -26,9 +26,11 @@
     BTX upload endpoint is constant for all applications on a host:port
     */
     
-    NSString *btxUploadURL = self.data.applicationConnectionId ? [NSString stringWithFormat:@"%@://%@:%i/btx", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort] : nil;
+//    NSString *btxUploadURL = self.data.applicationConnectionId ? [NSString stringWithFormat:@"%@://%@:%i/btx", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort] : nil;
+//    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:btxUploadURL]];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:btxUploadURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self.baseURL btxURL]];
     
     /*
     Set the HttpConversationManager and request to the SupportabilityUploader, and return
