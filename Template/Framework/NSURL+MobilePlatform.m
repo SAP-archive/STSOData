@@ -7,11 +7,13 @@
 //
 
 #import "NSURL+MobilePlatform.h"
+#import <objc/runtime.h> 
+
+static const void *baseURLKey = &baseURLKey;
+static const void *appIdKey = &appIdKey;
 
 @implementation NSURL (MobilePlatform)
 
-@dynamic baseURL;
-@dynamic appId;
 
 -(NSURL *)initWithHost:(NSString *)host port:(int)port protocol:(BOOL)isSecure appId:(NSString *)appId
 {
@@ -24,43 +26,50 @@
 {
     NSAssert([appId length] > 0, @"appId should not be null");
     
-    self.appId = appId;
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    url.appId = appId;
     
-    self.baseURL = [[NSURL alloc] initWithString:urlString];
-    
-    return [self.appId length] > 0 ? [self.baseURL URLByAppendingPathComponent:appId] : self.baseURL;
+    return url;
 }
 
 -(NSURL *)applicationURL
 {
-    NSAssert(self.baseURL != nil, @"NSURL must have been initialized with baseURL and appId to use this method");
     NSAssert(self.appId != nil, @"NSURL must have been initialized with baseURL and appId to use this method");
     
-    return [self.baseURL URLByAppendingPathComponent:self.appId isDirectory:YES];
+    return [self URLByAppendingPathComponent:self.appId isDirectory:YES];
 }
 
 -(NSURL *)clientLogsURL
 {
-    NSAssert(self.baseURL != nil, @"NSURL must have been initialized with baseURL to use this method");
     NSAssert(self.appId != nil, @"NSURL must have been initialized with an appId to use this method");
     
-    return [self.baseURL URLByAppendingPathComponent:@"clientlogs"];
+    return [self URLByAppendingPathComponent:@"clientlogs"];
 }
 
 -(NSURL *)btxURL
 {
-    NSAssert(self.baseURL != nil, @"NSURL must have been initialized with baseURL to use this method");
     NSAssert(self.appId != nil, @"NSURL must have been initialized with an appId to use this method");
     
-    return [self.baseURL URLByAppendingPathComponent:@"btx"];
+    return [self URLByAppendingPathComponent:@"btx"];
 }
 
 -(NSURL *)clientUsageURL
 {
-    NSAssert(self.baseURL != nil, @"NSURL must have been initialized with baseURL to use this method");
-    NSAssert(self.appId != nil, @"NSURL must have been initialized with an appId to use this method");
-    
-    return [self.baseURL URLByAppendingPathComponent:@"clientusage"];
+    return [self URLByAppendingPathComponent:@"clientusage"];
+}
+
+/*
+ Association code
+ */
+
+-(void)setAppId:(NSString *)appId
+{
+    objc_setAssociatedObject(self, appIdKey, appId, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+-(NSString *)appId
+{
+    return objc_getAssociatedObject(self, appIdKey);
 }
 
 @end

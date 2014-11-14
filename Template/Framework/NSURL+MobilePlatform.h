@@ -10,8 +10,7 @@
 
 @interface NSURL (MobilePlatform)
 
-@property (nonatomic, strong) NSURL *baseURL;
-@property (nonatomic, strong) NSString *appId;
+@property (nonatomic, copy) NSString *appId;
 
 /* 
  helper constructor for handling the output of MAFLogonRegistrationContext
@@ -20,6 +19,8 @@
 
 /*
  base constructor... could be changed slightly, depending on the interface of how configurations are acquired
+ 
+ BaseURL string should be:  <protocol>://<host>:<port>
  */
 -(NSURL *)initWithBaseURLString:(NSString *)urlString appId:(NSString *)appId;
 
