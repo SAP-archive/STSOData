@@ -13,11 +13,6 @@
 
 -(void)startUsageCollection
 {
-    
-//    NSString *urlString = [NSString stringWithFormat:@"%@://%@:%i/clientusage", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort];
-//
-//    [Usage initUsageWithURL:[NSURL URLWithString:urlString] httpConversationManager:self.httpConvManager];
-    
     [Usage initUsageWithURL:[self.baseURL clientUsageURL] httpConversationManager:self.httpConvManager];
 }
 

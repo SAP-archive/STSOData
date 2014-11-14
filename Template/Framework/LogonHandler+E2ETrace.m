@@ -25,18 +25,13 @@
     /*
     BTX upload endpoint is constant for all applications on a host:port
     */
-    
-//    NSString *btxUploadURL = self.data.applicationConnectionId ? [NSString stringWithFormat:@"%@://%@:%i/btx", self.data.isHttps ? @"https" : @"http", self.data.serverHost, self.data.serverPort] : nil;
-//    
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:btxUploadURL]];
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self.baseURL btxURL]];
     
     /*
-    Set the HttpConversationManager and request to the SupportabilityUploader, and return
+    Set the HttpConversationManager and request to the SupportabilityUploader
     */
-    SupportabilityUploader *uploader = [[SupportabilityUploader alloc] initWithHttpConversationManager:self.httpConvManager urlRequest:request];
-    
+SupportabilityUploader *uploader = [[SupportabilityUploader alloc] initWithHttpConversationManager:self.httpConvManager
+                                                                                        urlRequest:request];
     return uploader;
 }
 
@@ -146,22 +141,14 @@
     NSString* btx = [e2eTraceManager getBTX:&error];
     NSLog(@"btx = \n%@", btx);
 
-    [e2eTraceManager uploadBTX:[self configuredUploader] completion:^(NSError* error) {
-        if (error == nil) {
-            NSLog(@"upload succeeded");
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Upload succeeded" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [alertView show];
-            });
-        }
-        else {
-            NSLog(@"upload failed: %@", [error description]);
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"upload failed: %@", [error description]] message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [alertView show];
-            });
-        }
-    }];
+[e2eTraceManager uploadBTX:[self configuredUploader] completion:^(NSError* error) {
+    if (error == nil) {
+        NSLog(@"upload succeeded");
+    }
+    else {
+        NSLog(@"upload failed: %@", [error description]);
+    }
+}];
             }
     }
     
