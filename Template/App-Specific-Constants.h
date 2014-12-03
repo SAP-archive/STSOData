@@ -20,4 +20,5 @@ static NSString * const kTravelAgencyTelephoneNumber = @"TELEPHONE";
 static NSString * const kTravelAgencyURL = @"URL";
 
 
+#define kODataDateFormat @"yyyy-MM-dd'T'hh:mm:ss"
 

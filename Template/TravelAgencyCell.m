@@ -8,6 +8,7 @@
 
 #import "TravelAgencyCell.h"
 
+
 @implementation TravelAgencyCell
 
 @end

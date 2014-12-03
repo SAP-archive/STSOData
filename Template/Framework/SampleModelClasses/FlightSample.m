@@ -20,6 +20,9 @@
 
 -(NSDate *)timeZoneAccurateDepartureDate
 {
+    /* 
+     This method is hacky, and only works for this particular sample.  But, it could be generalized to handle the correct local time for the dates in-question.
+     */
     if (!_departureDate) {
 
         NSString *fromTimeZone = [self.flightDetails.cityFrom isEqualToString:@"new york"] ? @"America/New_York" : @"Europe/Berlin";
@@ -44,7 +47,6 @@
 
 -(NSDate *)timeZoneVariableArrivalDate
 {
-//    NSString *toTimeZone = [self.flightDetails.cityFrom isEqualToString:@"new york"] ? @"Europe/Berlin" : @"America/New_York";
     
     NSInteger flightDuration = [self.flightDetails.flightTime integerValue];
     

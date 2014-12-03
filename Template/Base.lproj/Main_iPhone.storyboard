@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GRP-8s-HK3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GRP-8s-HK3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -43,9 +44,15 @@
                                 <rect key="frame" x="8" y="196" width="304" height="116"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Azk-WC-wAd" appends="YES" id="Oac-HE-h8P"/>
+                                    <outletCollection property="gestureRecognizers" destination="yPr-ce-4z1" appends="YES" id="5YR-hu-Lo1"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Manage Agencies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJG-cw-IUI">
+                                <rect key="frame" x="16" y="230" width="241" height="48"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="118" image="Color 3" translatesAutoresizingMaskIntoConstraints="NO" id="73E-fC-Rf3">
                                 <rect key="frame" x="8" y="322" width="304" height="116"/>
                             </imageView>
@@ -58,11 +65,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BookAFlight" translatesAutoresizingMaskIntoConstraints="NO" id="J7o-a5-HZM">
-                                <rect key="frame" x="199" y="77" width="105" height="106"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="READ and CREATE on OData service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lc-Ci-hs1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="READ and CREATE on OData service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lc-Ci-hs1">
                                 <rect key="frame" x="16" y="169" width="285" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CRUD on OData service, with Offline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBj-gV-NZL">
+                                <rect key="frame" x="16" y="293" width="285" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,10 +84,13 @@
                             <constraint firstAttribute="centerX" secondItem="SBq-lY-ird" secondAttribute="centerX" id="9GS-7l-b8J"/>
                             <constraint firstItem="0SL-n0-v4m" firstAttribute="top" secondItem="HNc-WK-PIa" secondAttribute="bottom" constant="8" id="DkJ-DV-CGM"/>
                             <constraint firstAttribute="centerX" secondItem="XlM-oM-Fxs" secondAttribute="centerX" id="F7p-VD-Cdo"/>
+                            <constraint firstItem="aJG-cw-IUI" firstAttribute="top" secondItem="XlM-oM-Fxs" secondAttribute="bottom" constant="-82" id="HqM-MN-22a"/>
                             <constraint firstAttribute="centerX" secondItem="0SL-n0-v4m" secondAttribute="centerX" id="MAo-XH-4gI"/>
                             <constraint firstItem="SBq-lY-ird" firstAttribute="width" secondItem="73E-fC-Rf3" secondAttribute="width" id="O29-eg-XD0"/>
+                            <constraint firstItem="7lc-Ci-hs1" firstAttribute="top" secondItem="0SL-n0-v4m" secondAttribute="bottom" constant="-19" id="RZF-UB-hR3"/>
                             <constraint firstItem="SBq-lY-ird" firstAttribute="top" secondItem="73E-fC-Rf3" secondAttribute="bottom" constant="8" id="X4B-QR-h2L"/>
                             <constraint firstAttribute="centerX" secondItem="73E-fC-Rf3" secondAttribute="centerX" id="a0A-tB-Sjm"/>
+                            <constraint firstItem="HBj-gV-NZL" firstAttribute="top" secondItem="XlM-oM-Fxs" secondAttribute="bottom" constant="-19" id="lkO-an-D9Y"/>
                             <constraint firstItem="XlM-oM-Fxs" firstAttribute="top" secondItem="0SL-n0-v4m" secondAttribute="bottom" constant="8" id="uUz-JY-MI8"/>
                             <constraint firstItem="XlM-oM-Fxs" firstAttribute="width" secondItem="73E-fC-Rf3" secondAttribute="width" id="xWB-aT-hRb"/>
                         </constraints>
@@ -85,14 +98,14 @@
                     <navigationItem key="navigationItem" title="My Flights" id="frh-R0-RvM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaC-rs-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="JYZ-ur-lcA">
+                <tapGestureRecognizer id="JYZ-ur-lcA" userLabel="Book Flights Gesture Recognizer">
                     <connections>
                         <action selector="bookFlights:" destination="cFb-d8-kyS" id="3sp-d8-7XH"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="Azk-WC-wAd">
+                <tapGestureRecognizer id="yPr-ce-4z1" userLabel="Manage Agencies Gesture Recognizer">
                     <connections>
-                        <action selector="myAccounts:" destination="cFb-d8-kyS" id="w3h-2k-vfP"/>
+                        <action selector="manageAgencies:" destination="cFb-d8-kyS" id="HeV-eo-H0c"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -176,6 +189,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDS-CO-gKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868" y="789"/>
+        </scene>
+        <!--Travel Agencies List-->
+        <scene sceneID="i55-jl-3Xw">
+            <objects>
+                <tableViewController storyboardIdentifier="TravelAgenciesList" id="OMl-FD-UJq" customClass="TravelAgenciesList" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" id="tOt-e1-VsH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="TravelAgencyCell" rowHeight="130" id="4mK-7Y-urS" customClass="TravelAgencyCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4mK-7Y-urS" id="jnn-QS-Zhd">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street, City, State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttn-5Q-pNT">
+                                            <rect key="frame" x="17" y="61" width="114" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country, Postcode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9t-wD-8M2">
+                                            <rect key="frame" x="17" y="75" width="120" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxQ-uo-f1S">
+                                            <rect key="frame" x="17" y="36" width="54" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4A-og-V2B">
+                                            <rect key="frame" x="17" y="100" width="29" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Travel Agency Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwN-77-bW6">
+                                            <rect key="frame" x="17" y="8" width="275" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="sZL-0x-beq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.13333334029999999" green="0.42352941630000002" blue="0.66274511810000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CwN-77-bW6" firstAttribute="leading" secondItem="jnn-QS-Zhd" secondAttribute="leadingMargin" constant="9" id="7lx-6g-vMb"/>
+                                        <constraint firstItem="ttn-5Q-pNT" firstAttribute="top" secondItem="qxQ-uo-f1S" secondAttribute="bottom" constant="8" id="9gH-Mb-Ht9"/>
+                                        <constraint firstItem="qxQ-uo-f1S" firstAttribute="leading" secondItem="p4A-og-V2B" secondAttribute="leading" id="B3H-1C-uHt"/>
+                                        <constraint firstItem="qxQ-uo-f1S" firstAttribute="leading" secondItem="jnn-QS-Zhd" secondAttribute="leadingMargin" constant="9" id="Dzs-U7-PB3"/>
+                                        <constraint firstItem="CwN-77-bW6" firstAttribute="leading" secondItem="qxQ-uo-f1S" secondAttribute="leading" id="F6a-3N-YjL"/>
+                                        <constraint firstItem="qxQ-uo-f1S" firstAttribute="top" secondItem="CwN-77-bW6" secondAttribute="bottom" constant="7" id="GDp-rj-VHA"/>
+                                        <constraint firstItem="V9t-wD-8M2" firstAttribute="top" secondItem="ttn-5Q-pNT" secondAttribute="bottom" constant="-3" id="JNe-Mu-L7D"/>
+                                        <constraint firstItem="qxQ-uo-f1S" firstAttribute="leading" secondItem="V9t-wD-8M2" secondAttribute="leading" id="KbN-fN-04w"/>
+                                        <constraint firstItem="p4A-og-V2B" firstAttribute="top" secondItem="V9t-wD-8M2" secondAttribute="bottom" constant="8" id="P9t-9s-pTx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CwN-77-bW6" secondAttribute="trailing" constant="-13" id="f0k-BG-ydE"/>
+                                        <constraint firstItem="qxQ-uo-f1S" firstAttribute="leading" secondItem="ttn-5Q-pNT" secondAttribute="leading" id="fna-nC-Hzo"/>
+                                        <constraint firstItem="CwN-77-bW6" firstAttribute="top" secondItem="jnn-QS-Zhd" secondAttribute="topMargin" id="suX-vB-MqC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="agencyCountryPostcode" destination="V9t-wD-8M2" id="SjF-I8-bpL"/>
+                                    <outlet property="agencyName" destination="CwN-77-bW6" id="8OD-NK-Oon"/>
+                                    <outlet property="agencyPhone" destination="qxQ-uo-f1S" id="FTh-Hc-8Qj"/>
+                                    <outlet property="agencyStreetCityState" destination="ttn-5Q-pNT" id="ZHb-4X-N3M"/>
+                                    <outlet property="agencyURL" destination="p4A-og-V2B" id="OG2-zG-Bvx"/>
+                                    <segue destination="Dd7-oP-5f0" kind="modal" identifier="EditTravelAgency" trigger="accessoryAction" modalPresentationStyle="formSheet" id="UM5-Ui-HYG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OMl-FD-UJq" id="U4C-rl-cWf"/>
+                            <outlet property="delegate" destination="OMl-FD-UJq" id="6wX-IM-23y"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6V-5F-Epa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="1449"/>
+        </scene>
+        <!--Edit Travel Agency-->
+        <scene sceneID="lWq-T1-Ulc">
+            <objects>
+                <tableViewController storyboardIdentifier="EditTravelAgency" id="Dd7-oP-5f0" customClass="EditTravelAgency" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pNu-vd-sMO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MbN-su-V7g">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MbN-su-V7g" id="iJL-xF-9gP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dd7-oP-5f0" id="Lcc-nm-aWb"/>
+                            <outlet property="delegate" destination="Dd7-oP-5f0" id="Ycy-0g-EtX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="BQ6-Q6-BaR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcf-tJ-oif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="1429"/>
         </scene>
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -573,7 +696,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BookAFlight" width="256" height="254"/>
         <image name="Color 1" width="304" height="116"/>
         <image name="Color 2" width="304" height="116"/>
         <image name="Color 3" width="304" height="116"/>

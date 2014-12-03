@@ -10,4 +10,10 @@
 
 @interface TravelAgencyCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *agencyName;
+@property (weak, nonatomic) IBOutlet UILabel *agencyPhone;
+@property (weak, nonatomic) IBOutlet UILabel *agencyStreetCityState;
+@property (weak, nonatomic) IBOutlet UILabel *agencyCountryPostcode;
+@property (weak, nonatomic) IBOutlet UILabel *agencyURL;
+
 @end

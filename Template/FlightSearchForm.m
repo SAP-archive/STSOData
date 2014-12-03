@@ -10,6 +10,8 @@
 
 #import "FlightSearchResults.h"
 
+#define kODataDateFormat @"yyyy-MM-dd'T'hh:mm:ss"
+
 @interface FlightSearchForm ()
 
 @property (nonatomic, assign) BOOL minimumSearchParameters;
@@ -49,15 +51,18 @@
 
 -(BOOL)minimumSearchParameters
 {
+    /*
+     These four parameters must have values before the end user can search.
+     */
     return (!!self.departureDate && !!self.returnDate && !!self.departureAirportCity && !!self.returnAirportCity);
 }
 
 - (void)searchFlights
 {
-    NSLog(@"[self.departure = %@", [self.departureDate dateToODataString]);
+    NSLog(@"[self.departure = %@", [self.departureDate dateToODataStringWithFormat:kODataDateFormat]);
     
-    NSDictionary *searchParameters = @{@"fromdate" : [self.departureDate dateToODataString],
-                                       @"todate" : [self.returnDate dateToODataString],
+    NSDictionary *searchParameters = @{@"fromdate" : [self.departureDate dateToODataStringWithFormat:kODataDateFormat],
+                                       @"todate" : [self.returnDate dateToODataStringWithFormat:kODataDateFormat],
                                        @"cityfrom" : self.departureAirportCity,
                                        @"cityto" : self.returnAirportCity };
     

@@ -15,6 +15,8 @@
 
 #import "FlightDetailsSample.h"
 
+#import "TravelAgencySample.h"
+
 #import "SODataProperty.h"
 
 @implementation DataController (ConfigureModelsSample)
@@ -90,6 +92,27 @@
     model.flightType = (NSNumber *)[(id<SODataProperty>)dictionary[@"flightType"] value];
     model.period = (NSNumber *)[(id<SODataProperty>)dictionary[@"period"] value];
 
+}
+
++(void)configureTravelAgencySampleModel:(TravelAgencySample *)model withEntity:(id<SODataEntity>)entity
+{
+    NSDictionary *dictionary = [(id<SODataEntity>)entity properties];
+    
+    model.agencynum = (NSString *)[(id<SODataProperty>)dictionary[@"agencynum"] value];
+    model.NAME = (NSString *)[(id<SODataProperty>)dictionary[@"NAME"] value];
+    model.STREET = (NSString *)[(id<SODataProperty>)dictionary[@"STREET"] value];
+    model.POSTBOX = (NSString *)[(id<SODataProperty>)dictionary[@"POSTBOX"] value];
+    model.POSTCODE = (NSString *)[(id<SODataProperty>)dictionary[@"POSTCODE"] value];
+    model.CITY = (NSString *)[(id<SODataProperty>)dictionary[@"CITY"] value];
+    model.COUNTRY = (NSString *)[(id<SODataProperty>)dictionary[@"COUNTRY"] value];
+    model.REGION = (NSString *)[(id<SODataProperty>)dictionary[@"REGION"] value];
+    model.TELEPHONE = (NSString *)[(id<SODataProperty>)dictionary[@"TELEPHONE"] value];
+    model.URL = (NSString *)[(id<SODataProperty>)dictionary[@"URL"] value];
+    model.LANGU = (NSString *)[(id<SODataProperty>)dictionary[@"LANGU"] value];
+    model.CURRENCY = (NSString *)[(id<SODataProperty>)dictionary[@"CURRENCY"] value];
+    model.mimeType = (NSString *)[(id<SODataProperty>)dictionary[@"mimeType"] value];
+    
+    model.entity = entity;
 }
 
 @end

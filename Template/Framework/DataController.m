@@ -136,8 +136,6 @@
     
     __block void (^setupNetworkStore)(void) = ^void() {
         
-//        NSURL *baseURL = [[NSURL URLWithString:[LogonHandler shared].data.applicationEndpointURL] URLByAppendingPathComponent:@"/"];
-        
         self.networkStore = [[OnlineStore alloc] initWithURL:[[LogonHandler shared].baseURL applicationURL]
                                      httpConversationManager:[LogonHandler shared].httpConvManager];
         

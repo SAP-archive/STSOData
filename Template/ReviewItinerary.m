@@ -290,11 +290,11 @@
         properties[@"FORCURKEY"] = @"EUR";
         properties[@"LOCCURAM"] = [NSDecimalNumber numberWithDouble:1298.38];
         properties[@"LOCCURKEY"] = @"USD";
-        properties[@"ORDER_DATE"] = [NSDate dateFromODataString:@"2014-11-22T00:00:00"];
+        properties[@"ORDER_DATE"] = [NSDate dateFromODataString:@"2014-11-22T00:00:00" dateFormat:kODataDateFormat];
         properties[@"COUNTER"] = @"00000000";
         properties[@"AGENCYNUM"] = @"00000114";
-        properties[@"PASSNAME"] = @"Will The-Thrill Clark";
-        properties[@"PASSBIRTH"] = [NSDate dateFromODataString:@"1988-02-08T00:00:00"];
+        properties[@"PASSNAME"] = @"Awesome Frequent Flyer";
+        properties[@"PASSBIRTH"] = [NSDate dateFromODataString:@"1988-02-08T00:00:00" dateFormat:kODataDateFormat];
         
         __block void (^setProperties)(SODataEntityDefault *, NSMutableDictionary *) = ^void (SODataEntityDefault *entity, NSMutableDictionary *properties){
             
@@ -318,7 +318,7 @@
                 [DataController configureBookingSampleModel:newBooking withDictionary:newEntity.properties];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Booking Success"
-                                                                message:[NSString stringWithFormat:@"Thank you for booking, \n%@\nPresident, Fist-Bumps\n& CEO of Good Times", newBooking.PASSNAME]
+                                                                message:[NSString stringWithFormat:@"Thank you for booking, \n%@", newBooking.PASSNAME]
                                                                 delegate:self.searchForm
                                                                 cancelButtonTitle:@"OK"
                                                                 otherButtonTitles:nil, nil];

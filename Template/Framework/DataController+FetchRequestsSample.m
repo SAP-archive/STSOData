@@ -15,6 +15,7 @@
 #import "SODataEntity.h"
 
 #import "FlightSample.h"
+#import "TravelAgencySample.h"
 
 @implementation DataController (FetchRequests)
 
@@ -69,7 +70,17 @@ This can be really useful in two contexts:
         
         if (entities) {
             
-            completion(entities);
+            NSMutableArray *typedEntities = [[NSMutableArray alloc] init];
+            
+            for (id<SODataEntity>obj in entities) {
+                
+                TravelAgencySample *entity = [TravelAgencySample new];
+                [DataController configureTravelAgencySampleModel:entity withEntity:obj];
+                
+                [typedEntities addObject:entity];
+            }
+            
+            completion(typedEntities);
             
         } else {
             

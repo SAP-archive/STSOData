@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TravelAgencySample.h"
+
 @interface EditTravelAgency : UITableViewController
+
+@property (nonatomic, strong) TravelAgencySample *agency;
 
 @end

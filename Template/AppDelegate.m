@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LogonHandler.h"
 #import "DataController.h"
-//#import "SODataOfflineStore.h"
+#import "SODataOfflineStore.h"
 
 #define kDefiningRequest1 @"TravelagencyCollection"
 
@@ -62,16 +62,17 @@
     Offline mode, or all (*) requests when in Online mode, are sent over the network.
     
     See additional explanation here:  http://sstadelman.bull.io/blog/Should-I-use-Online-or-Offline-store/ 
- 
+
     [DataController shared].workingMode = WorkingModeOnline;
 */
-    [DataController shared].definingRequests = @[kDefiningRequest1];
+//    [DataController shared].definingRequests = @[kDefiningRequest1];
     
 /*
     Set applicationId for the application. This should match the applicationId in the SMP Admin 
     console.  
 */
-    [[LogonHandler shared].logonManager setApplicationId:@"stan.flight.https"];
+//[[LogonHandler shared].logonManager setApplicationId:@"stan.flight.https"];
+[[LogonHandler shared].logonManager setApplicationId:@"sap/opu/odata/IWFND/RMTSAMPLEFLIGHT"];
 
 /*
     Application is designed to collect information on the device, OS, and application, as well as
