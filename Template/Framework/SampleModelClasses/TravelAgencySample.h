@@ -32,4 +32,6 @@
  */
 @property (nonatomic, strong) id<SODataEntity> entity;
 
+-(id<SODataEntity>)modifiedEntity;
+
 @end

@@ -87,7 +87,7 @@
     cell.agencyPhone.text = agency.TELEPHONE;
     
     cell.agencyStreetCityState.text = [NSString stringWithFormat:@"%@%@, %@, %@",
-                                       agency.POSTBOX.length > 0 ? [NSString stringWithFormat:@"%@", agency.POSTBOX] : @"", agency.STREET, agency.CITY, agency.REGION];
+                                       agency.POSTBOX.length > 0 ? [NSString stringWithFormat:@"%@ ", agency.POSTBOX] : @"", agency.STREET, agency.CITY, agency.REGION];
     
     cell.agencyCountryPostcode.text = [NSString stringWithFormat:@"%@%@%@", agency.COUNTRY, (agency.COUNTRY.length > 0 && agency.POSTCODE.length > 0) ? @", " : @"", agency.POSTCODE];
     
