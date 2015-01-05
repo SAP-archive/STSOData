@@ -18,4 +18,5 @@
 
 -(void)fetchAvailableFlightsSampleWithParameters:(NSDictionary *)parameters WithCompletion:(void(^)(NSArray *entities))completion;
 
+
 @end

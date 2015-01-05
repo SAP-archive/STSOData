@@ -75,6 +75,7 @@ This can be really useful in two contexts:
             for (id<SODataEntity>obj in entities) {
                 
                 TravelAgencySample *entity = [TravelAgencySample new];
+                
                 [DataController configureTravelAgencySampleModel:entity withEntity:obj];
                 
                 [typedEntities addObject:entity];

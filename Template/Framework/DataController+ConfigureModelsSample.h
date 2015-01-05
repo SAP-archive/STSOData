@@ -13,6 +13,7 @@
 @class FlightDetailsSample;
 @class TravelAgencySample;
 
+
 @interface DataController (ConfigureModelsSample)
 
 +(void)configureBookingSampleModel:(BookingSample *)model withDictionary:(NSDictionary *)dictionary;

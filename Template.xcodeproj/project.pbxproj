@@ -21,6 +21,7 @@
 		1B408AF2199033310020E000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B408ACE199033310020E000 /* UIKit.framework */; };
 		1B408AFA199033310020E000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B408AF8199033310020E000 /* InfoPlist.strings */; };
 		1B408AFC199033310020E000 /* TemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B408AFB199033310020E000 /* TemplateTests.m */; };
+		1B5EF2341A16931C008D0E31 /* NSURL+MobilePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5EF2331A16931C008D0E31 /* NSURL+MobilePlatform.m */; };
 		1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */; };
 		1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */; };
 		1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */; };
@@ -30,11 +31,8 @@
 		1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4A19B0FFCF001D26AB /* OnlineStore.m */; };
 		1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC4D19B0FFCF001D26AB /* LogonHandler+E2ETrace.m */; };
 		1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7ECC5119B0FFCF001D26AB /* LogonHandler+Usage.m */; };
-		1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */; };
 		1BADA29119D36C77003F9E61 /* NSDate+STSOData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA28C19D36C77003F9E61 /* NSDate+STSOData.m */; };
 		1BADA29219D36C77003F9E61 /* DataController+ConfigureModelsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA28D19D36C77003F9E61 /* DataController+ConfigureModelsSample.m */; };
-		1BADA29319D36C77003F9E61 /* BookingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA28F19D36C77003F9E61 /* BookingSample.m */; };
-		1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */; };
 		1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */; };
 		1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5219CCA37E00AA7BF9 /* HomeScreen.m */; };
 		1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA5519CCA61600AA7BF9 /* FlightSearchForm.m */; };
@@ -44,6 +42,13 @@
 		1BB5EA6519CCF2D200AA7BF9 /* TravelDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6419CCF2D200AA7BF9 /* TravelDetailsCell.m */; };
 		1BB5EA6819CCF2EA00AA7BF9 /* TotalPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */; };
 		1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */; };
+		1BFED4CF1A2E330200B803E4 /* TravelAgenciesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4CE1A2E330200B803E4 /* TravelAgenciesList.m */; };
+		1BFED4D31A2E385E00B803E4 /* TravelAgencyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4D21A2E385E00B803E4 /* TravelAgencyCell.m */; };
+		1BFED4DF1A2E3DD300B803E4 /* TravelAgencySample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4D81A2E3DD300B803E4 /* TravelAgencySample.m */; };
+		1BFED4E01A2E3DD300B803E4 /* BookingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4DA1A2E3DD300B803E4 /* BookingSample.m */; };
+		1BFED4E11A2E3DD300B803E4 /* FlightDetailsSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4DC1A2E3DD300B803E4 /* FlightDetailsSample.m */; };
+		1BFED4E21A2E3DD300B803E4 /* FlightSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4DE1A2E3DD300B803E4 /* FlightSample.m */; };
+		1BFED4E51A2E483900B803E4 /* EditTravelAgency.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFED4E41A2E483900B803E4 /* EditTravelAgency.m */; };
 		B625674DCEC5444D969239AD /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +61,19 @@
 			remoteInfo = Template;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1B2B2A761A3BA32000F7B9EC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1637AB4D33984401AE09C489 /* Pods-Template.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template.xcconfig"; path = "Pods/Pods-Template.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +95,8 @@
 		1B408AF7199033310020E000 /* TemplateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TemplateTests-Info.plist"; sourceTree = "<group>"; };
 		1B408AF9199033310020E000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B408AFB199033310020E000 /* TemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateTests.m; sourceTree = "<group>"; };
+		1B5EF2321A16931C008D0E31 /* NSURL+MobilePlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+MobilePlatform.h"; path = "Framework/NSURL+MobilePlatform.h"; sourceTree = "<group>"; };
+		1B5EF2331A16931C008D0E31 /* NSURL+MobilePlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+MobilePlatform.m"; path = "Framework/NSURL+MobilePlatform.m"; sourceTree = "<group>"; };
 		1B649DC219A42463000DA5E9 /* App-Specific-Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Specific-Constants.h"; sourceTree = "<group>"; };
 		1B7ECC4119B0FFCF001D26AB /* LogonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogonHandler.m; path = Framework/LogonHandler.m; sourceTree = "<group>"; };
 		1B7ECC4219B0FFCF001D26AB /* DataController+FetchRequestsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+FetchRequestsSample.m"; path = "Framework/DataController+FetchRequestsSample.m"; sourceTree = "<group>"; };
@@ -98,16 +118,10 @@
 		1B7ECC5219B0FFCF001D26AB /* LogonHandler+Usage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogonHandler+Usage.h"; path = "Framework/LogonHandler+Usage.h"; sourceTree = "<group>"; };
 		1B7ECC5319B0FFCF001D26AB /* LogonHandler+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogonHandler+Logging.h"; path = "Framework/LogonHandler+Logging.h"; sourceTree = "<group>"; };
 		1B7ECC5D19B10080001D26AB /* Framework-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Framework-Constants.h"; path = "Framework/Framework-Constants.h"; sourceTree = "<group>"; };
-		1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/FlightSample.h; sourceTree = "<group>"; };
-		1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/FlightSample.m; sourceTree = "<group>"; };
 		1BADA28B19D36C77003F9E61 /* NSDate+STSOData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+STSOData.h"; path = "Framework/NSDate+STSOData.h"; sourceTree = "<group>"; };
 		1BADA28C19D36C77003F9E61 /* NSDate+STSOData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+STSOData.m"; path = "Framework/NSDate+STSOData.m"; sourceTree = "<group>"; };
 		1BADA28D19D36C77003F9E61 /* DataController+ConfigureModelsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataController+ConfigureModelsSample.m"; path = "Framework/DataController+ConfigureModelsSample.m"; sourceTree = "<group>"; };
-		1BADA28E19D36C77003F9E61 /* BookingSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingSample.h; path = Framework/BookingSample.h; sourceTree = "<group>"; };
-		1BADA28F19D36C77003F9E61 /* BookingSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingSample.m; path = Framework/BookingSample.m; sourceTree = "<group>"; };
 		1BADA29019D36C77003F9E61 /* DataController+ConfigureModelsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataController+ConfigureModelsSample.h"; path = "Framework/DataController+ConfigureModelsSample.h"; sourceTree = "<group>"; };
-		1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/FlightDetailsSample.m; sourceTree = "<group>"; };
-		1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightDetailsSample.h; path = Framework/FlightDetailsSample.h; sourceTree = "<group>"; };
 		1BB5EA4E19CBB89600AA7BF9 /* FlightDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsCell.h; sourceTree = "<group>"; };
 		1BB5EA4F19CBB89600AA7BF9 /* FlightDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsCell.m; sourceTree = "<group>"; };
 		1BB5EA5119CCA37E00AA7BF9 /* HomeScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreen.h; sourceTree = "<group>"; };
@@ -126,6 +140,20 @@
 		1BB5EA6719CCF2EA00AA7BF9 /* TotalPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalPriceCell.m; sourceTree = "<group>"; };
 		1BB5EA6919CCF2FB00AA7BF9 /* MilesExplanationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilesExplanationCell.h; sourceTree = "<group>"; };
 		1BB5EA6A19CCF2FB00AA7BF9 /* MilesExplanationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilesExplanationCell.m; sourceTree = "<group>"; };
+		1BFED4CD1A2E330200B803E4 /* TravelAgenciesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelAgenciesList.h; sourceTree = "<group>"; };
+		1BFED4CE1A2E330200B803E4 /* TravelAgenciesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelAgenciesList.m; sourceTree = "<group>"; };
+		1BFED4D11A2E385E00B803E4 /* TravelAgencyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelAgencyCell.h; sourceTree = "<group>"; };
+		1BFED4D21A2E385E00B803E4 /* TravelAgencyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelAgencyCell.m; sourceTree = "<group>"; };
+		1BFED4D71A2E3DD300B803E4 /* TravelAgencySample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelAgencySample.h; path = Framework/SampleModelClasses/TravelAgencySample.h; sourceTree = "<group>"; };
+		1BFED4D81A2E3DD300B803E4 /* TravelAgencySample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelAgencySample.m; path = Framework/SampleModelClasses/TravelAgencySample.m; sourceTree = "<group>"; };
+		1BFED4D91A2E3DD300B803E4 /* BookingSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingSample.h; path = Framework/SampleModelClasses/BookingSample.h; sourceTree = "<group>"; };
+		1BFED4DA1A2E3DD300B803E4 /* BookingSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingSample.m; path = Framework/SampleModelClasses/BookingSample.m; sourceTree = "<group>"; };
+		1BFED4DB1A2E3DD300B803E4 /* FlightDetailsSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightDetailsSample.h; path = Framework/SampleModelClasses/FlightDetailsSample.h; sourceTree = "<group>"; };
+		1BFED4DC1A2E3DD300B803E4 /* FlightDetailsSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDetailsSample.m; path = Framework/SampleModelClasses/FlightDetailsSample.m; sourceTree = "<group>"; };
+		1BFED4DD1A2E3DD300B803E4 /* FlightSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightSample.h; path = Framework/SampleModelClasses/FlightSample.h; sourceTree = "<group>"; };
+		1BFED4DE1A2E3DD300B803E4 /* FlightSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightSample.m; path = Framework/SampleModelClasses/FlightSample.m; sourceTree = "<group>"; };
+		1BFED4E31A2E483900B803E4 /* EditTravelAgency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTravelAgency.h; sourceTree = "<group>"; };
+		1BFED4E41A2E483900B803E4 /* EditTravelAgency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTravelAgency.m; sourceTree = "<group>"; };
 		EEA8842F1B2C4BC2B55AB53F /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,6 +227,7 @@
 				1BB5EA6E19CCF37100AA7BF9 /* FlightSearchForm */,
 				1BB5EA6D19CCF35700AA7BF9 /* FlightSearch */,
 				1BB5EA6C19CCF32C00AA7BF9 /* ReviewItinerary */,
+				1BFED4D01A2E330A00B803E4 /* ManageAgencies */,
 				1B408AE8199033310020E000 /* Images.xcassets */,
 				1B408AD1199033310020E000 /* Supporting Files */,
 			);
@@ -260,6 +289,8 @@
 				1B7ECC4B19B0FFCF001D26AB /* OfflineStore.h */,
 				1B7ECC4319B0FFCF001D26AB /* OfflineStore.m */,
 				1B7ECC5D19B10080001D26AB /* Framework-Constants.h */,
+				1B5EF2321A16931C008D0E31 /* NSURL+MobilePlatform.h */,
+				1B5EF2331A16931C008D0E31 /* NSURL+MobilePlatform.m */,
 				1BADA28B19D36C77003F9E61 /* NSDate+STSOData.h */,
 				1BADA28C19D36C77003F9E61 /* NSDate+STSOData.m */,
 				1B7AAE5119D212990028B0A4 /* Sample Model Classes */,
@@ -270,12 +301,14 @@
 		1B7AAE5119D212990028B0A4 /* Sample Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1BA96B7219C8D1F8000BF0B9 /* FlightSample.h */,
-				1BA96B7319C8D1F8000BF0B9 /* FlightSample.m */,
-				1BB5EA4319CB75D500AA7BF9 /* FlightDetailsSample.h */,
-				1BB5EA4219CB75D500AA7BF9 /* FlightDetailsSample.m */,
-				1BADA28E19D36C77003F9E61 /* BookingSample.h */,
-				1BADA28F19D36C77003F9E61 /* BookingSample.m */,
+				1BFED4D71A2E3DD300B803E4 /* TravelAgencySample.h */,
+				1BFED4D81A2E3DD300B803E4 /* TravelAgencySample.m */,
+				1BFED4D91A2E3DD300B803E4 /* BookingSample.h */,
+				1BFED4DA1A2E3DD300B803E4 /* BookingSample.m */,
+				1BFED4DB1A2E3DD300B803E4 /* FlightDetailsSample.h */,
+				1BFED4DC1A2E3DD300B803E4 /* FlightDetailsSample.m */,
+				1BFED4DD1A2E3DD300B803E4 /* FlightSample.h */,
+				1BFED4DE1A2E3DD300B803E4 /* FlightSample.m */,
 			);
 			name = "Sample Model Classes";
 			sourceTree = "<group>";
@@ -333,6 +366,19 @@
 			name = "Working Stash";
 			sourceTree = "<group>";
 		};
+		1BFED4D01A2E330A00B803E4 /* ManageAgencies */ = {
+			isa = PBXGroup;
+			children = (
+				1BFED4CD1A2E330200B803E4 /* TravelAgenciesList.h */,
+				1BFED4CE1A2E330200B803E4 /* TravelAgenciesList.m */,
+				1BFED4D11A2E385E00B803E4 /* TravelAgencyCell.h */,
+				1BFED4D21A2E385E00B803E4 /* TravelAgencyCell.m */,
+				1BFED4E31A2E483900B803E4 /* EditTravelAgency.h */,
+				1BFED4E41A2E483900B803E4 /* EditTravelAgency.m */,
+			);
+			name = ManageAgencies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +391,7 @@
 				1B408AC4199033310020E000 /* Frameworks */,
 				1B408AC5199033310020E000 /* Resources */,
 				BE925ED41D4C4DDBA87F8EA3 /* Copy Pods Resources */,
+				1B2B2A761A3BA32000F7B9EC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,6 +429,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Stan Stadelman";
 				TargetAttributes = {
+					1B408AC6199033310020E000 = {
+						DevelopmentTeam = 6F9SQVL3N2;
+					};
 					1B408AED199033310020E000 = {
 						TestTargetID = 1B408AC6199033310020E000;
 					};
@@ -467,26 +517,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7ECC5919B0FFCF001D26AB /* DataController+CUDRequests.m in Sources */,
-				1BB5EA4419CB75D500AA7BF9 /* FlightDetailsSample.m in Sources */,
 				1BB5EA5019CBB89600AA7BF9 /* FlightDetailsCell.m in Sources */,
+				1BFED4E11A2E3DD300B803E4 /* FlightDetailsSample.m in Sources */,
+				1BFED4E21A2E3DD300B803E4 /* FlightSample.m in Sources */,
+				1BFED4E51A2E483900B803E4 /* EditTravelAgency.m in Sources */,
 				1B7ECC5B19B0FFCF001D26AB /* LogonHandler+E2ETrace.m in Sources */,
 				1BB5EA5C19CCCAC700AA7BF9 /* FlightSearchResultsCell.m in Sources */,
 				1BADA29119D36C77003F9E61 /* NSDate+STSOData.m in Sources */,
+				1BFED4CF1A2E330200B803E4 /* TravelAgenciesList.m in Sources */,
+				1BFED4DF1A2E3DD300B803E4 /* TravelAgencySample.m in Sources */,
 				1B7ECC5519B0FFCF001D26AB /* DataController+FetchRequestsSample.m in Sources */,
+				1B5EF2341A16931C008D0E31 /* NSURL+MobilePlatform.m in Sources */,
 				1B7ECC5C19B0FFCF001D26AB /* LogonHandler+Usage.m in Sources */,
 				1B408ADB199033310020E000 /* AppDelegate.m in Sources */,
 				1B7ECC5719B0FFCF001D26AB /* DataController.m in Sources */,
 				1BB5EA6B19CCF2FB00AA7BF9 /* MilesExplanationCell.m in Sources */,
-				1BADA29319D36C77003F9E61 /* BookingSample.m in Sources */,
 				1B7ECC5419B0FFCF001D26AB /* LogonHandler.m in Sources */,
 				1BB5EA6219CCEED200AA7BF9 /* ReviewItinerary.m in Sources */,
 				1B408AD7199033310020E000 /* main.m in Sources */,
 				1BB5EA5619CCA61600AA7BF9 /* FlightSearchForm.m in Sources */,
+				1BFED4D31A2E385E00B803E4 /* TravelAgencyCell.m in Sources */,
 				1BB5EA5919CCC74600AA7BF9 /* FlightSearchResults.m in Sources */,
 				1BB5EA5319CCA37E00AA7BF9 /* HomeScreen.m in Sources */,
 				1B7ECC5A19B0FFCF001D26AB /* OnlineStore.m in Sources */,
+				1BFED4E01A2E3DD300B803E4 /* BookingSample.m in Sources */,
 				1BADA29219D36C77003F9E61 /* DataController+ConfigureModelsSample.m in Sources */,
-				1BA96B7419C8D1F8000BF0B9 /* FlightSample.m in Sources */,
 				1B7ECC5619B0FFCF001D26AB /* OfflineStore.m in Sources */,
 				1B7ECC5819B0FFCF001D26AB /* LogonHandler+Logging.m in Sources */,
 				1BB5EA6519CCF2D200AA7BF9 /* TravelDetailsCell.m in Sources */,
@@ -580,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -613,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -626,9 +681,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GeneratedProject-ezhtwgoebbflufgdbsfxyheglakn/Build/Products/Debug-iphonesimulator",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ODataModel-aktgteotqwsudadahvwvpwtuvgnz/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Template/Template-Prefix.pch";
 				INFOPLIST_FILE = "Template/Template-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -640,9 +704,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GeneratedProject-ezhtwgoebbflufgdbsfxyheglakn/Build/Products/Debug-iphonesimulator",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ODataModel-aktgteotqwsudadahvwvpwtuvgnz/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Template/Template-Prefix.pch";
 				INFOPLIST_FILE = "Template/Template-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
