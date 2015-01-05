@@ -394,9 +394,11 @@
 {
     NSLog(@"%s\n%@", __PRETTY_FUNCTION__, error);
     
+    // TODO:  correctly set a delegate for UIAlertView
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Request failed"
                                                     message:[NSString stringWithFormat:@"Error with request %@", [error description]]
-                                                   delegate:self
+                                                   delegate:[[[UIApplication sharedApplication] delegate] window]
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil, nil];
     [alert show];

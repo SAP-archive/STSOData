@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GRP-8s-HK3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -71,8 +70,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CRUD on OData service, with Offline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBj-gV-NZL">
-                                <rect key="frame" x="16" y="293" width="285" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CRUD on OData service, enabled for Offline*         *requires SMP 3.x or HCPms" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBj-gV-NZL">
+                                <rect key="frame" x="16" y="276" width="280" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -88,9 +87,12 @@
                             <constraint firstAttribute="centerX" secondItem="0SL-n0-v4m" secondAttribute="centerX" id="MAo-XH-4gI"/>
                             <constraint firstItem="SBq-lY-ird" firstAttribute="width" secondItem="73E-fC-Rf3" secondAttribute="width" id="O29-eg-XD0"/>
                             <constraint firstItem="7lc-Ci-hs1" firstAttribute="top" secondItem="0SL-n0-v4m" secondAttribute="bottom" constant="-19" id="RZF-UB-hR3"/>
+                            <constraint firstItem="73E-fC-Rf3" firstAttribute="top" secondItem="HBj-gV-NZL" secondAttribute="bottom" constant="14" id="Ubo-aY-MRW"/>
+                            <constraint firstItem="HBj-gV-NZL" firstAttribute="leading" secondItem="ghG-vN-iMB" secondAttribute="leadingMargin" id="Vkq-Lf-HTE"/>
                             <constraint firstItem="SBq-lY-ird" firstAttribute="top" secondItem="73E-fC-Rf3" secondAttribute="bottom" constant="8" id="X4B-QR-h2L"/>
                             <constraint firstAttribute="centerX" secondItem="73E-fC-Rf3" secondAttribute="centerX" id="a0A-tB-Sjm"/>
-                            <constraint firstItem="HBj-gV-NZL" firstAttribute="top" secondItem="XlM-oM-Fxs" secondAttribute="bottom" constant="-19" id="lkO-an-D9Y"/>
+                            <constraint firstItem="HBj-gV-NZL" firstAttribute="top" secondItem="XlM-oM-Fxs" secondAttribute="bottom" constant="-36" id="rNF-Tg-kw4"/>
+                            <constraint firstItem="XlM-oM-Fxs" firstAttribute="leading" secondItem="HBj-gV-NZL" secondAttribute="trailing" constant="-288" id="sq2-GI-fOC"/>
                             <constraint firstItem="XlM-oM-Fxs" firstAttribute="top" secondItem="0SL-n0-v4m" secondAttribute="bottom" constant="8" id="uUz-JY-MI8"/>
                             <constraint firstItem="XlM-oM-Fxs" firstAttribute="width" secondItem="73E-fC-Rf3" secondAttribute="width" id="xWB-aT-hRb"/>
                         </constraints>
