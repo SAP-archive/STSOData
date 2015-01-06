@@ -12,9 +12,9 @@ I want to stress that use of this framework is not mandatory with the SP05 versi
 ##Intro to the template app
 The template app is a simple customer loyalty flights application, which allows the end user to search flights, and book a round-trip pair of flights.
 
-Check out the experience:
+Check out the experience: (*updated 1/5/14*)
 
-[YouTube clip](https://www.youtube.com/watch?v=2npfEyhw9nQ)
+[YouTube clip](https://www.youtube.com/watch?v=OrHK5IuAHHA)
 
 ##Installation
 
