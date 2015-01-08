@@ -18,7 +18,7 @@ Check out the experience: (*updated 1/5/14*)
 
 ##Installation
 
-###Pre-requisites
+####Pre-requisites
 There are a few pre-requisites for running the template as it is configured in the repository.
 
 1.  Install the **SAP Mobile SDK 3 SP05 PL01** or higher.  The SDK libraries & headers are *not* included in this repository, so you will need to download them directly from SAP.
@@ -29,7 +29,7 @@ There are a few pre-requisites for running the template as it is configured in t
 
 4.  Copy the file **NativeSDK.podspec** from [here](https://github.com/sstadelman/NativeSDK-podspec), into the **NativeSDK** folder in your MobileSDK3 installation directory.  I've recorded a video overview, and documented this [here](http://sstadelman.bull.io/blog/CocoaPods-with-Mobile-SDK-Installer/). 
 
-###Installation and configuration
+####Installation and configuration
 
 1.  Clone, or download the repository to your local machine
 
@@ -38,11 +38,11 @@ There are a few pre-requisites for running the template as it is configured in t
 3.  Once cocoapods is completed, open the project via the **.xcworkspace**, *not* the .xcodeproj.
 
 ##Connecting to data
-The sample will run against any NW Gateway, SMP3.x, or HANA Cloud Platform Mobile Services endpoint that exposes the standard FLIGHT OData service.  You should set the application ID in the **AppDelegate.m** file to use your own endpoint.
+The sample will run against any NW Gateway, SMP3.x, or HANA Cloud Platform Mobile Services endpoint that exposes the standard FLIGHT OData service.  If using your own endpoint, set the application ID in the **AppDelegate.m** file to reflect your own settings.
 
 However, I have also exposed an endpoint that you can use out of the box, with the application ID that is currently set.  It is available from the public internet.
 
-###Connection Settings
+####Connection Settings
 
     Host:  hcpms-i826181.hanatrial.ondemand.com
     Port:  443
@@ -51,7 +51,7 @@ However, I have also exposed an endpoint that you can use out of the box, with t
     User:  Your SCN Username
     Pass:  Your SCN Password
 
-###Pre-populating these settings, using SAP Discovery Service
+####Pre-populating these settings, using SAP Discovery Service
 As a shortcut to avoid entering any of the above except for username/password, I've uploaded a configuration payload to SAP Discovery Service.  When running the application for the first time, when you click "Log In" on the splash screen, you'll be navigated to an **Acquire Settings** screen, which prompts for an email address.
 
 You may enter ***any*** email address @ bull.io domain, to get the connection settings.  
