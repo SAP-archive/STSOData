@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *airportFrom;
 @property (nonatomic, strong) NSString *countryTo;
 @property (nonatomic, strong) NSString *airportTo;
-@property (nonatomic, assign) NSNumber *flightTime;
+@property (nonatomic, strong) NSNumber *flightTime;
 @property (nonatomic, strong) SODataDuration *departureTime;
 @property (nonatomic, strong) SODataDuration *arrivalTime;
 @property (nonatomic, strong) NSNumber *distance;
