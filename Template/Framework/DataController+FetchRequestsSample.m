@@ -66,6 +66,8 @@ This can be really useful in two contexts:
     
     NSString *resourcePath = @"TravelagencyCollection";
     
+    Timer *fetchTravelAgenciesTime = [Usage makeTimer:@"FetchTravelAgencies"];
+    
     [self scheduleRequestForResource:resourcePath withMode:SODataRequestModeRead withEntity:nil withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
         
         if (entities) {
@@ -81,6 +83,7 @@ This can be really useful in two contexts:
                 [typedEntities addObject:entity];
             }
             
+            [Usage stopTimer:fetchTravelAgenciesTime];
             completion(typedEntities);
             
         } else {

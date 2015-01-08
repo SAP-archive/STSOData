@@ -28,7 +28,7 @@
     If application will support offline OData, you must initialize SODataOfflineStore here in
     -didFinishLaunchingWithOptions.  Also, call 'finish' method in -applicationWillTerminate:.
 */
-//    [SODataOfflineStore GlobalInit];
+    [SODataOfflineStore GlobalInit];
 
     return YES;
 }
@@ -62,17 +62,17 @@
     Offline mode, or all (*) requests when in Online mode, are sent over the network.
     
     See additional explanation here:  http://sstadelman.bull.io/blog/Should-I-use-Online-or-Offline-store/ 
-
-    [DataController shared].workingMode = WorkingModeOnline;
 */
-//    [DataController shared].definingRequests = @[kDefiningRequest1];
+//    [DataController shared].workingMode = WorkingModeOnline;
+
+    [DataController shared].definingRequests = @[kDefiningRequest1];
     
 /*
     Set applicationId for the application. This should match the applicationId in the SMP Admin 
     console.  
 */
-//[[LogonHandler shared].logonManager setApplicationId:@"stan.flight.https"];
-[[LogonHandler shared].logonManager setApplicationId:@"sap/opu/odata/IWFND/RMTSAMPLEFLIGHT"];
+    [[LogonHandler shared].logonManager setApplicationId:@"sapSTSODataFlight"];
+//    [[LogonHandler shared].logonManager setApplicationId:@"sap/opu/odata/IWFND/RMTSAMPLEFLIGHT"];
 
 /*
     Application is designed to collect information on the device, OS, and application, as well as
@@ -80,7 +80,7 @@
 
     Defaults to YES.  Set to NO, to disable usage collection.
 */
-    [LogonHandler shared].collectUsageData = NO;
+//    [LogonHandler shared].collectUsageData = NO;
 
 /*
     Always invoke logonManager logon at application launch.  This unlocks the DataVault, executes 
@@ -98,7 +98,7 @@
     If application is supporting offline OData, you must break-down the store, here in 
     -applicationWillTerminate:.
 */
-//    [SODataOfflineStore GlobalFini];
+    [SODataOfflineStore GlobalFini];
 }
 
 @end
