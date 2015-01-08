@@ -27,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshStore) forControlEvents: UIControlEventValueChanged];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,6 +59,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark UIRefreshControl
+
+- (void)refreshStore
+{
+    [[[DataController shared] localStore] flushAndRefresh:^(BOOL success) {
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - Table view data source

@@ -47,7 +47,7 @@
                             @"properties" : @[@"URL"]}];
 }
 
-- (void)saveEntity
+- (IBAction)saveEntity
 {
     id<SODataEntity>newValuesEntity = [self.agency modifiedEntity];
     
@@ -58,12 +58,15 @@
                                                            delegate:[self parentViewController]
                                                   cancelButtonTitle:@"Ok"
                                                   otherButtonTitles:nil, nil];
+        [(UINavigationController *)self.parentViewController popViewControllerAnimated:YES];
+        
         [alert show];
     }];
     
-    [(UINavigationController *)self.parentViewController popViewControllerAnimated:YES];
+//    [(UINavigationController *)self.parentViewController popViewControllerAnimated:YES];
     
 }
+
 
 #pragma mark UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -170,6 +173,7 @@ void (^RemoveTextView)(UITableViewCell *) = ^void(UITableViewCell *cell) {
     
     cell.textLabel.hidden = NO;
 };
+
 
 
 @end
