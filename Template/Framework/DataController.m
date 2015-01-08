@@ -214,8 +214,26 @@
     expected scope of requests for the user.
     */
     __block NSString * (^collectionName)(NSString *) = ^NSString * (NSString *string){
+        
+        NSString *relativeString = string;
+        
+        /*
+         If the string is a fully-qualified URL, parse out just the relative resource path
+         */
+        if ([[relativeString substringToIndex:4] isEqualToString:@"http"]) {
+            
+            NSURL *url = [NSURL URLWithString:relativeString];
+            relativeString = [url lastPathComponent];
+        }
+        
+        /*
+         Trim parenthesis element from last path component
+         */
+        if ([relativeString rangeOfString:@"("].location != NSNotFound) {
+            relativeString = [relativeString substringToIndex:[relativeString rangeOfString:@"("].location];
+        }
     
-        return [string rangeOfString:@"?"].location != NSNotFound ? [string substringToIndex:[string rangeOfString:@"?"].location] : string;
+        return [relativeString rangeOfString:@"?"].location != NSNotFound ? [relativeString substringToIndex:[relativeString rangeOfString:@"?"].location] : relativeString;
     };
     
     NSString *resourcePathCollectionName = collectionName(resourcePath);
