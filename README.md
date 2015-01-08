@@ -36,3 +36,28 @@ There are a few pre-requisites for running the template as it is configured in t
 2.  Navigate to the project directory, and run at the terminal:  `pod update`.  
 
 3.  Once cocoapods is completed, open the project via the **.xcworkspace**, *not* the .xcodeproj.
+
+##Connecting to data
+The sample will run against any NW Gateway, SMP3.x, or HANA Cloud Platform Mobile Services endpoint that exposes the standard FLIGHT OData service.  You should set the application ID in the **AppDelegate.m** file to use your own endpoint.
+
+However, I have also exposed an endpoint that you can use out of the box, with the application ID that is currently set.  It is available from the public internet.
+
+###Connection Settings
+Host:  hcpms-i826181.hanatrial.ondemand.com
+Port:  443
+Protocol:  https
+
+User:  Your SCN Username
+Pass:  Your SCN Password
+
+###Pre-populating these settings, using SAP Discovery Service
+As a shortcut to avoid entering any of the above except for username/password, I've uploaded a configuration payload to SAP Discovery Service.  When running the application for the first time, when you click "Log In" on the splash screen, you'll be navigated to an **Acquire Settings** screen, which prompts for an email address.
+
+You may enter ***any*** email address @ bull.io domain, to get the connection settings.  
+
+    myName@bull.io
+    stan@bull.io
+    me@bull.io
+    etc.
+
+The Acquire Settings screen only appears on the first use of the app (as of SP06), so if you miss it, you must either enter the settings manually, or, remove and rebuild the app on the device or simulator.
