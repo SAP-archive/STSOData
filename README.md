@@ -43,12 +43,13 @@ The sample will run against any NW Gateway, SMP3.x, or HANA Cloud Platform Mobil
 However, I have also exposed an endpoint that you can use out of the box, with the application ID that is currently set.  It is available from the public internet.
 
 ###Connection Settings
-Host:  hcpms-i826181.hanatrial.ondemand.com
-Port:  443
-Protocol:  https
 
-User:  Your SCN Username
-Pass:  Your SCN Password
+    Host:  hcpms-i826181.hanatrial.ondemand.com
+    Port:  443
+    Protocol:  https
+
+    User:  Your SCN Username
+    Pass:  Your SCN Password
 
 ###Pre-populating these settings, using SAP Discovery Service
 As a shortcut to avoid entering any of the above except for username/password, I've uploaded a configuration payload to SAP Discovery Service.  When running the application for the first time, when you click "Log In" on the splash screen, you'll be navigated to an **Acquire Settings** screen, which prompts for an email address.
