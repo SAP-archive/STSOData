@@ -95,41 +95,53 @@
     }
 }
 
-
 #pragma mark - OfflineStore Delegate methods
 
 - (void) offlineStoreStateChanged:(SODataOfflineStore *)store state:(SODataOfflineStoreState)newState{
     
     self.state = newState;
     
+    NSString *notificationMessage;
+    
     switch (newState)
     {
         case SODataOfflineStoreOpening:
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             NSLog(@"SODataOfflineStoreOpening: The store has started to open\n");
+            notificationMessage = kSODataOfflineStoreOpeningText;
             break;
             
         case SODataOfflineStoreInitializing:
             NSLog(@"SODataOfflineStoreInitializing: Initializing the resources for a new store\n");
+            notificationMessage = kSODataOfflineStoreInitializingText;
             break;
             
         case SODataOfflineStorePopulating:
             NSLog(@"SODataOfflineStorePopulating: Creating and populating the store in the mid-tier\n");
+            notificationMessage = kSODataOfflineStorePopulatingText;
             break;
             
         case SODataOfflineStoreDownloading:
             NSLog(@"SODataOfflineStoreDownloading: Downloading the populated store\n");
+            notificationMessage = kSODataOfflineStoreDownloadingText;
             break;
             
         case SODataOfflineStoreOpen:
             NSLog(@"SODataOfflineStoreOpen: The store has opened successfully\n");
+            notificationMessage = kSODataOfflineStoreOpenText;
             break;
             
         case SODataOfflineStoreClosed:
             NSLog(@"SODataOfflineStoreClosed: The store has been closed by the user while still opening\n");
+            notificationMessage = kSODataOfflineStoreClosedText;
             break;
             
     }
+    
+    /*
+     UI may subscribe to this notification to discover state changes
+     */
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSODataOfflineStoreStateChange object:notificationMessage];
     
 }
 
