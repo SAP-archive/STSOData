@@ -32,12 +32,9 @@
 
 - (void) openStoreWithCompletion:(void(^)(BOOL success))completion
 {
-    
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
     if (self.isOpen) {
         
-        completion(self);
+        completion(YES);
         
     } else if (self.state > 0 && self.state < SODataOfflineStoreOpen) {
         
@@ -46,21 +43,17 @@
         NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
         
         [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-            
-            NSLog(@"%s", __PRETTY_FUNCTION__);
-            
+
             completion(YES);
         }];
         
     } else {
-                
+        
         /* listen for open-finished notification here */
         
         NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
         
         [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-            
-            NSLog(@"%s", __PRETTY_FUNCTION__);
             
             completion(YES);
         }];
@@ -87,7 +80,6 @@
         } else {
         
             [[NSNotificationCenter defaultCenter] addObserverForName:kOfflineStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
-                NSLog(@"%s", __PRETTY_FUNCTION__);
                 
                 openStore();
             }];
@@ -101,61 +93,45 @@
     
     self.state = newState;
     
-    NSString *notificationMessage;
-    
     switch (newState)
     {
         case SODataOfflineStoreOpening:
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             NSLog(@"SODataOfflineStoreOpening: The store has started to open\n");
-            notificationMessage = kSODataOfflineStoreOpeningText;
             break;
             
         case SODataOfflineStoreInitializing:
             NSLog(@"SODataOfflineStoreInitializing: Initializing the resources for a new store\n");
-            notificationMessage = kSODataOfflineStoreInitializingText;
             break;
             
         case SODataOfflineStorePopulating:
             NSLog(@"SODataOfflineStorePopulating: Creating and populating the store in the mid-tier\n");
-            notificationMessage = kSODataOfflineStorePopulatingText;
             break;
             
         case SODataOfflineStoreDownloading:
             NSLog(@"SODataOfflineStoreDownloading: Downloading the populated store\n");
-            notificationMessage = kSODataOfflineStoreDownloadingText;
             break;
             
         case SODataOfflineStoreOpen:
             NSLog(@"SODataOfflineStoreOpen: The store has opened successfully\n");
-            notificationMessage = kSODataOfflineStoreOpenText;
             break;
             
         case SODataOfflineStoreClosed:
             NSLog(@"SODataOfflineStoreClosed: The store has been closed by the user while still opening\n");
-            notificationMessage = kSODataOfflineStoreClosedText;
             break;
             
     }
-    
-    /*
-     UI may subscribe to this notification to discover state changes
-     */
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSODataOfflineStoreStateChange object:notificationMessage];
-    
 }
 
-- (void) offlineStoreOpenFailed:(SODataOfflineStore *)store error:(NSError *)error{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+- (void) offlineStoreOpenFailed:(SODataOfflineStore *)store error:(NSError *)error {
+
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    SAPLOGINFO(LOG_OFFLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
 }
 
 -(void)offlineStoreOpenFinished:(SODataOfflineStore *)store {
     
     NSLog(@"Offline Store Open Finished");
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    SAPLOGINFO(LOG_OFFLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
     
     NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
     
@@ -200,16 +176,12 @@
     NSString *refreshFailedNotification = [NSString stringWithFormat:@"%@.%@", kRefreshDelegateFailed, self.description];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:refreshFinishedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        
-        NSLog(@"%s", __PRETTY_FUNCTION__);
-        
+
         completion(YES);
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:refreshFailedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        
-        NSLog(@"%s", __PRETTY_FUNCTION__);
-        
+
         completion(NO);
     }];
     
@@ -219,28 +191,26 @@
 #pragma mark - OfflineStore Refresh Delegate methods
 
 - (void) offlineStoreRefreshSucceeded:(SODataOfflineStore *)store {
-    
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     NSString *refreshFinishedNotification = [NSString stringWithFormat:@"%@.%@", kRefreshDelegateFinished, self.description];
     [[NSNotificationCenter defaultCenter] postNotificationName:refreshFinishedNotification object:nil];
 
 }
 - (void) offlineStoreRefreshFailed:(SODataOfflineStore *)store error:(NSError *)error{
     
-    NSLog(@"%s", __PRETTY_FUNCTION__);
      NSString *refreshFailedNotification = [NSString stringWithFormat:@"%@.%@", kRefreshDelegateFailed, self.description];
     [[NSNotificationCenter defaultCenter] postNotificationName:refreshFailedNotification object:error];
 }
 
 -(void)offlineStoreRefreshFinished:(SODataOfflineStore *)store {
 
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSODataOfflineStoreFlushRefreshStateChange object:kSODataOfflineStoreRefreshFinishedText];
     
 }
 
 -(void)offlineStoreRefreshStarted:(SODataOfflineStore *)store {
 
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSODataOfflineStoreFlushRefreshStateChange object:kSODataOfflineStoreRefreshStartedText];
 }
 
 #pragma mark - OfflineStoreFlush block wrapper
@@ -251,15 +221,11 @@
     NSString *flushFailedNotification = [NSString stringWithFormat:@"%@.%@", kFlushDelegateFailed, self.description];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:flushFinishedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        
-        NSLog(@"%s", __PRETTY_FUNCTION__);
-        
+
         completion(YES);
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:flushFailedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        
-        NSLog(@"%s", __PRETTY_FUNCTION__);
         
         completion(NO);
     }];
@@ -270,23 +236,21 @@
 #pragma mark - OfflineStore Flush Delegate methods
 - (void) offlineStoreFlushStarted:(SODataOfflineStore*) store
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSODataOfflineStoreFlushRefreshStateChange object:kSODataOfflineStoreFlushStartedText];
 }
 - (void) offlineStoreFlushFinished:(SODataOfflineStore*) store
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSODataOfflineStoreFlushRefreshStateChange object:kSODataOfflineStoreFlushFinishedText];
     
 }
 - (void) offlineStoreFlushSucceeded:(SODataOfflineStore*) store
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     NSString *flushFinishedNotification = [NSString stringWithFormat:@"%@.%@", kFlushDelegateFinished, self.description];
     [[NSNotificationCenter defaultCenter] postNotificationName:flushFinishedNotification object:nil];
     
 }
 - (void) offlineStoreFlushFailed:(SODataOfflineStore*) store error:(NSError*) error
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     NSString *flushFailedNotification = [NSString stringWithFormat:@"%@.%@", kFlushDelegateFailed, self.description];
     [[NSNotificationCenter defaultCenter] postNotificationName:flushFailedNotification object:error];
 }

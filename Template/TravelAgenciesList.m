@@ -19,7 +19,6 @@
 @interface TravelAgenciesList()
 
 @property (nonatomic, strong) NSMutableArray *agencies;
-@property (nonatomic, strong) UILabel *messageLabel;
 
 @end
 
@@ -31,16 +30,14 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshStore) forControlEvents: UIControlEventValueChanged];
 
-    self.messageLabel = [[UILabel alloc] init];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:kSODataOfflineStoreStateChange object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        self.messageLabel.text = (NSString *)note.object;
+    [[NSNotificationCenter defaultCenter] addObserverForName:kSODataOfflineStoreFlushRefreshStateChange object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString: (NSString *)note.object];
     }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     [self loadTravelAgencies];
 }
 
@@ -84,19 +81,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    if (self.agencies) {
-        return 1;
-    } else {
-        [self.messageLabel setFrame:CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
-        self.messageLabel.textColor = [UIColor darkGrayColor];
-        self.messageLabel.numberOfLines = 0;
-        self.messageLabel.textAlignment = NSTextAlignmentCenter;
-        [self.messageLabel sizeToFit];
-        
-        self.tableView.backgroundView = self.messageLabel;
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    }
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
