@@ -37,7 +37,10 @@
 #import "SODataEntitySetDefault.h"
 #import "SODataErrorDefault.h"
 
-@interface DataController() <SODataRequestDelegate>
+#import <FXNotifications/FXNotifications.h>
+
+@interface DataController() <SODataRequestDelegate> {
+}
 
 
 @end
@@ -66,9 +69,10 @@
 {
     if (self == [super init]) {
         
-            self.definingRequests = [[NSArray alloc] init];
-            self.workingMode = WorkingModeMixed;
-            return self;
+        self.definingRequests = [[NSArray alloc] init];
+        self.workingMode = WorkingModeMixed;
+        
+        return self;
     }
     
     return nil;
@@ -101,9 +105,10 @@
         [self setupStores];
         
     } else {
-        [[NSNotificationCenter defaultCenter] addObserverForName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self forName:kLogonFinished object:nil queue:nil usingBlock:^(NSNotification *note, id observer) {
             
-            NSLog(@"%s", __PRETTY_FUNCTION__);
+            [[NSNotificationCenter defaultCenter] removeObserver:observer name:kLogonFinished object:observer];
             
             [self setupStores];
         }];
@@ -182,8 +187,6 @@
 
 -(id<ODataStore>)storeForRequestToResourcePath:(NSString *)resourcePath
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
     /*
     First, test if mode is online- or offline-only anyway.
     */
@@ -260,9 +263,6 @@
     return self.networkStore;
 }
 
-
-
-
 #pragma mark Block Interface for scheduleRequest()
 
 /* 
@@ -272,8 +272,6 @@
 
 -(void)scheduleRequestForResource:(NSString *)resourcePath withMode:(SODataRequestModes)mode withEntity:(id<SODataEntity>)entity withCompletion:(void(^)(NSArray *entities, id<SODataRequestExecution>requestExecution, NSError *error))completion
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
     SODataRequestParamSingleDefault *myRequest = [[SODataRequestParamSingleDefault alloc] initWithMode:mode resourcePath:resourcePath];
     myRequest.payload = entity ? entity : nil;
     
@@ -281,14 +279,19 @@
     
         [store openStoreWithCompletion:^(BOOL success) {
             
-            NSLog(@"%s", __PRETTY_FUNCTION__);
-            
-            [self scheduleRequest:myRequest onStore:store completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+            if (success) {
                 
-                NSLog(@"%s", __PRETTY_FUNCTION__);
+                [self scheduleRequest:myRequest onStore:store completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+                    
+                    completion(entities, requestExecution, error);
+                }];
                 
-                completion(entities, requestExecution, error);
-            }];
+            } else {
+                
+                NSLog(@"Failed to open store, will not schedule request:  %@", [myRequest description]);
+                
+            }
+
         }];
     };
     
@@ -299,17 +302,16 @@
         openStore(storeForRequest);
         
     } else {
-        NSLog(@"waiting for kStoreConfigured %s", __PRETTY_FUNCTION__);
-        [[NSNotificationCenter defaultCenter] addObserverForName:kStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self forName:kStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note, id observer) {
             
-            NSLog(@"%s", __PRETTY_FUNCTION__);
+            [[NSNotificationCenter defaultCenter] removeObserver:observer name:kStoreConfigured object:observer];
             
             id<ODataStore>storeForRequest = [self storeForRequestToResourcePath:resourcePath];
             openStore(storeForRequest);
 
         }];
     }
-
 }
 
 /*
@@ -321,13 +323,11 @@
 - (void) scheduleRequest:(id<SODataRequestParam>)request onStore:(id<SODataStoreAsync>)store completionHandler:(void(^)(NSArray *entities, id<SODataRequestExecution>requestExecution, NSError *error))completion
 {
     
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    NSString *finishedSubscription = [NSString stringWithFormat:@"%@.%@", kRequestDelegateFinished, request];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:finishedSubscription object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+    __block NSString *finishedSubscription = [NSString stringWithFormat:@"%@.%@", kRequestDelegateFinished, request];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self forName:finishedSubscription object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
         
-        NSLog(@"%s", __PRETTY_FUNCTION__);
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:finishedSubscription object:observer];
         
         // this code will handle the <requestExecution> response, and call the completion block.
         id<SODataRequestExecution>requestExecution = note.object;
@@ -375,8 +375,15 @@
             
             // response type == SODataTypeNone for CUD operations
             else if ([respSingle payloadType] == SODataTypeNone) {
-            
-                completion(nil, requestExecution, nil);
+                
+                /*
+                 handle for bug where count = 0, when there are still entities
+                 */
+                if ([(id<SODataEntitySet>)p entities].count > 0) {
+                    completion([(id<SODataEntitySet>)p entities], requestExecution, nil);
+                } else {
+                    completion(nil, requestExecution, nil);
+                }
             }
             
             else if ([respSingle payloadType] == SODataTypeEntity) {
@@ -399,6 +406,7 @@
         }
 
     }];
+
     // then, the original SODataAsynch API is called
     
     [store scheduleRequest:request delegate:self];
@@ -410,21 +418,11 @@
 
 - (void) requestFailed:(id<SODataRequestExecution>)requestExecution error:(NSError *)error
 {
-    NSLog(@"%s\n%@", __PRETTY_FUNCTION__, error);
-    
-    // TODO:  correctly set a delegate for UIAlertView
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Request failed"
-                                                    message:[NSString stringWithFormat:@"Error with request %@", [error description]]
-                                                   delegate:[[[UIApplication sharedApplication] delegate] window]
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil, nil];
-    [alert show];
+
 }
 
 - (void) requestServerResponse:(id<SODataRequestExecution>)requestExecution
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     /*
      You may handle the server response from this callback, or the requestFinished
@@ -435,18 +433,17 @@
 
 - (void) requestStarted:(id<SODataRequestExecution>)requestExecution
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 - (void) requestFinished:(id<SODataRequestExecution>)requestExecution
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     // build notification tag for this request
     NSString *finishedSubscription = [NSString stringWithFormat:@"%@.%@", kRequestDelegateFinished, requestExecution.request];
     
     // send notification for the finished request
     [[NSNotificationCenter defaultCenter] postNotificationName:finishedSubscription object:requestExecution];
+    
 }
 
 

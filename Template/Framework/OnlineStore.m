@@ -9,9 +9,9 @@
 #import "OnlineStore.h"
 #import "LogonHandler.h"
 
-@interface OnlineStore () <SODataOnlineStoreDelegate>
+#import <FXNotifications/FXNotifications.h>
 
-@property (nonatomic, assign) BOOL isOpen;
+@interface OnlineStore () <SODataOnlineStoreDelegate>
 
 @end
 
@@ -21,23 +21,39 @@
 
 - (void) openStoreWithCompletion:(void(^)(BOOL success))completion
 {
-
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    /*
+     Listen for openStoreFailed; invoke completion with false
+     */
+    NSString *openStoreFailed = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFailed, [self description]];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFailed object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFailed object:nil];
+        
+        completion(NO);
+    }];
+    
+    /*
+     respond immediately if already open
+     */
     if (self.isOpen) {
     
         completion(YES);
         
     } else {
         
-        NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
+        /*
+         Listen for openStoreFinished; if store is open, invoke completion() block
+         */
+        __block NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
         
-        [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        
-            NSLog(@"%s", __PRETTY_FUNCTION__);
+        [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
             
             completion(YES);
         }];
+        
         
         [self setOnlineStoreDelegate:self];
         
@@ -48,7 +64,10 @@
             [self openStoreWithError:&error];
             
             if (error) {
-                NSLog(@"error = %@", error);
+                /*
+                 if synchronous error, invoke faiure case immediately
+                 */
+                completion(NO);
             }
         };
         
@@ -61,13 +80,10 @@
         } else {
             
             [[NSNotificationCenter defaultCenter] addObserverForName:kOnlineStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
-                NSLog(@"%s", __PRETTY_FUNCTION__);
                 
                 openStore();
             }];
         }
-
-
     }
 }
 
@@ -75,11 +91,6 @@
 
 - (void) onlineStoreOpenFinished:(SODataOnlineStore *)store
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-
-    SAPLOGINFO(LOG_ONLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
-    
-    self.isOpen = YES;
     NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
     
     // send notification for that openStore is finished
@@ -88,8 +99,10 @@
 
 - (void) onlineStoreOpenFailed:(OnlineStore *)store error:(NSError *)error
 {
-    NSLog(@"%s, %@", __PRETTY_FUNCTION__, error);
-    SAPLOGINFO(LOG_ONLINESTORE, [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
+    NSString *openStoreFailed = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFailed, [self description]];
+    
+    // send notification for that openStore is finished
+    [[NSNotificationCenter defaultCenter] postNotificationName:openStoreFailed object:self];
 }
 
 

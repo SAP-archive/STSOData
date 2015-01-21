@@ -12,6 +12,8 @@
 #import "LogonHandler.h"
 #import "DataController.h"
 
+#import <FXNotifications/FXNotifications.h>
+
 @interface OfflineStore() <SODataOfflineStoreDelegate, SODataOfflineStoreRequestErrorDelegate, SODataOfflineStoreRefreshDelegate, SODataOfflineStoreFlushDelegate>
 
 @property (nonatomic, assign) SODataOfflineStoreState state;
@@ -25,6 +27,7 @@
 - (instancetype)init
 {
     if (self == [super init]) {
+        self.state = SODataOfflineStoreClosed;
         return self;
     }
     return nil;
@@ -32,28 +35,40 @@
 
 - (void) openStoreWithCompletion:(void(^)(BOOL success))completion
 {
+    
+    NSString *openStoreFailed = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFailed, [self description]];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFailed object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        completion(NO);
+    }];
+    
     if (self.isOpen) {
         
         completion(YES);
         
-    } else if (self.state > 0 && self.state < SODataOfflineStoreOpen) {
+    } else if (self.state < SODataOfflineStoreOpen) {
         
         /* listen for open-finished notification here */
         
         NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
         
-        [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-
+        [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
+            
             completion(YES);
         }];
         
-    } else {
+    } else if (self.state == SODataOfflineStoreClosed){
         
         /* listen for open-finished notification here */
         
         NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
         
-        [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
             
             completion(YES);
         }];
@@ -79,7 +94,9 @@
         
         } else {
         
-            [[NSNotificationCenter defaultCenter] addObserverForName:kOfflineStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [[NSNotificationCenter defaultCenter] addObserver:self forName:kOfflineStoreConfigured object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+                
+                [[NSNotificationCenter defaultCenter] removeObserver:observer name:kOfflineStoreConfigured object:observer];
                 
                 openStore();
             }];
@@ -123,20 +140,27 @@
     }
 }
 
-- (void) offlineStoreOpenFailed:(SODataOfflineStore *)store error:(NSError *)error {
+- (void) offlineStoreOpenFailed:(SODataOfflineStore *)store error:(NSError *)error
+{
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    NSString *openStoreFailed = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFailed, [self description]];
+    
+    self.state = SODataOfflineStoreClosed;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:openStoreFailed object:nil];
 }
 
--(void)offlineStoreOpenFinished:(SODataOfflineStore *)store {
-    
-    NSLog(@"Offline Store Open Finished");
+-(void)offlineStoreOpenFinished:(SODataOfflineStore *)store
+{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:openStoreFinished object:nil];
-    
+    if (self.isOpen) {
+        NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:openStoreFinished object:nil];
+    }
 }
 
 #pragma mark - FlushAndRefresh block wrapper
@@ -175,13 +199,17 @@
     NSString *refreshFinishedNotification = [NSString stringWithFormat:@"%@.%@", kRefreshDelegateFinished, self.description];
     NSString *refreshFailedNotification = [NSString stringWithFormat:@"%@.%@", kRefreshDelegateFailed, self.description];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:refreshFinishedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-
+    [[NSNotificationCenter defaultCenter] addObserver:self forName:refreshFinishedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:refreshFinishedNotification object:observer];
+    
         completion(YES);
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:refreshFailedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-
+    [[NSNotificationCenter defaultCenter] addObserver:self forName:refreshFailedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:refreshFailedNotification object:observer];
+    
         completion(NO);
     }];
     
@@ -220,12 +248,16 @@
     NSString *flushFinishedNotification = [NSString stringWithFormat:@"%@.%@", kFlushDelegateFinished, self.description];
     NSString *flushFailedNotification = [NSString stringWithFormat:@"%@.%@", kFlushDelegateFailed, self.description];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:flushFinishedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserver:self forName:flushFinishedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:flushFinishedNotification object:observer];
 
         completion(YES);
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:flushFailedNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserver:self forName:flushFailedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:flushFailedNotification object:observer];
         
         completion(NO);
     }];

@@ -14,8 +14,10 @@
  */
 #define kStoreOpenFinished          @"com.sap.sdk.store.open.finished"
 #define kStoreOpenDelegateFinished  @"com.sap.sdk.store.open.delegate.finished"
+#define kStoreOpenDelegateFailed    @"com.sap.sdk.store.open.delegate.failed"
 #define kRequestFinished            @"com.sap.sdk.request.finished"
 #define kRequestDelegateFinished    @"com.sap.sdk.request.delegate.finished"
+#define kRequestDelegateFailed      @"com.sap.sdk.request.delegate.failed"
 #define kLogonFinished              @"com.sap.sdk.logon.finished"
 
 #define kOnlineStoreConfigured      @"com.sap.sdk.store.online.configured"
