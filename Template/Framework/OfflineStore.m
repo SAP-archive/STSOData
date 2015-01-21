@@ -37,6 +37,7 @@
 {
     
     NSString *openStoreFailed = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFailed, [self description]];
+    NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFailed object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         
@@ -51,8 +52,6 @@
         
         /* listen for open-finished notification here */
         
-        NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
             
             [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
@@ -63,9 +62,7 @@
     } else if (self.state == SODataOfflineStoreClosed){
         
         /* listen for open-finished notification here */
-        
-        NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
-        
+                
         [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
             
             [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];

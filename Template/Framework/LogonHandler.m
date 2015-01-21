@@ -52,9 +52,7 @@
 #pragma mark - MAFLogonNGDelegate implementation
 
 -(void) logonFinishedWithError:(NSError*)anError {
-    
-    NSLog(@"%@ %s", anError, __PRETTY_FUNCTION__);
-    
+        
     if (!anError) {
         
         NSLog(@"cookies on Logon success = %@", [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies);
@@ -62,7 +60,7 @@
         NSError *err;
         self.data = [self.logonManager registrationDataWithError:&err];
         if (err) {
-            NSLog(@"%@ %s", err, __PRETTY_FUNCTION__); 
+            NSLog(@"err = %@", err);
         }
         
         /*
