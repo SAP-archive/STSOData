@@ -71,7 +71,7 @@
     Set applicationId for the application. This should match the applicationId in the SMP Admin 
     console.  
 */
-    [[LogonHandler shared].logonManager setApplicationId:@"sapSTSODataFlight"];
+    [[LogonHandler shared].logonManager setApplicationId:@"sapSTSODataFlight2"];
 //    [[LogonHandler shared].logonManager setApplicationId:@"sap/opu/odata/IWFND/RMTSAMPLEFLIGHT"];
 
 /*

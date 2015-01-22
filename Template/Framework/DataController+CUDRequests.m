@@ -72,20 +72,12 @@
 
 -(void)createEntity:(id<SODataEntity>) entity inCollection:(NSString *)collection withCompletion:(void(^)(BOOL success, SODataEntityDefault *newEntity))completion
 {
-    
     [self scheduleRequestForResource:collection
                             withMode:SODataRequestModeCreate
                           withEntity:entity
                       withCompletion:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
 
-                          NSLog(@"%s", __PRETTY_FUNCTION__);
                           if (error) {
-                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Creating Entity"
-                                                                              message:[NSString stringWithFormat:@"Error creating entity %@", [entity description]]
-                                                                             delegate:self
-                                                                    cancelButtonTitle:@"OK"
-                                                                    otherButtonTitles:nil, nil];
-                              [alert show];
                               completion(NO, nil);
                           } else {
                               completion(YES, entities[0]);

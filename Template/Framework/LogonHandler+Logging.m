@@ -22,10 +22,11 @@
      Add SAPClientLogger.h, and SAPSupportabilityFacade.h to your *.pch file, so that the logger macros are available throughout your app.
      */
     self.logManager = [[SAPSupportabilityFacade sharedManager] getClientLogManager];
-    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_ODATAREQUEST];
-    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_ONLINESTORE];
-    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_OFFLINESTORE];
-    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_LOGUPLOAD];
+//    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_ODATAREQUEST];
+//    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_ONLINESTORE];
+//    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_OFFLINESTORE];
+//    [self.logManager setLogLevel:InfoClientLogLevel forIdentifier:LOG_LOGUPLOAD];
+    [self.logManager setLogLevel:ErrorClientLogLevel];
     [self.logManager setLogDestination:(CONSOLE | FILESYSTEM)];
 }
 

@@ -13,6 +13,10 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+#define SF_OBSERVERS_LOG_ORIGINAL_METHODS 1
+#define SF_OBSERVERS_ALLOW_MULTIPLE_REGISTRATIONS 1
+
 #endif
 
 #import "SAPSupportabilityFacade.h"

@@ -281,7 +281,7 @@
             
             if (success) {
                 
-                [self scheduleRequest:myRequest onStore:store completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
+                [self scheduleRequest:myRequest onStore:(id<SODataStoreAsync>)store completionHandler:^(NSArray *entities, id<SODataRequestExecution> requestExecution, NSError *error) {
                     
                     completion(entities, requestExecution, error);
                 }];
