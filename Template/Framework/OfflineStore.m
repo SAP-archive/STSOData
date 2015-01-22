@@ -39,12 +39,19 @@
     NSString *openStoreFailed = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFailed, [self description]];
     NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
     
+    __block Timer *t = [Usage makeTimer:@"openStore"];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:openStoreFailed object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        [Usage stopTimer:t info:@{@"type": @"offline", @"result" : @"failed"}];
         
         completion(NO);
     }];
     
+    
     if (self.isOpen) {
+        
+        [Usage stopTimer:t info:@{@"type": @"offline", @"case": @"none", @"result" : @"success"}];
         
         completion(YES);
         
@@ -56,6 +63,8 @@
             
             [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
             
+            [Usage stopTimer:t info:@{@"type": @"offline", @"case": @"partial", @"result" : @"success"}];
+            
             completion(YES);
         }];
         
@@ -66,6 +75,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
             
             [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
+            
+            [Usage stopTimer:t info:@{@"type": @"offline", @"case": @"full", @"result" : @"success"}];
             
             completion(YES);
         }];

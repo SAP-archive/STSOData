@@ -21,6 +21,9 @@
 
 - (void) openStoreWithCompletion:(void(^)(BOOL success))completion
 {
+    
+    __block Timer *t = [Usage makeTimer:@"openStore"];
+    
     /*
      Listen for openStoreFailed; invoke completion with false
      */
@@ -30,14 +33,22 @@
         
         [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFailed object:nil];
         
+        [Usage stopTimer:t info:@{@"type": @"online", @"result" : @"failed"}];
+        
         completion(NO);
     }];
     
     /*
      respond immediately if already open
      */
-    if (self.isOpen) {
     
+    if (self.isOpen) {
+        /*
+         bug in library:  open store is never set to isOpen
+         */
+    
+        [Usage stopTimer:t info:@{@"type": @"online", @"case": @"none", @"result" : @"success"}];
+        
         completion(YES);
         
     } else {
@@ -50,6 +61,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFinished object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
             
             [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFinished object:observer];
+            
+            [Usage stopTimer:t info:@{@"type": @"online", @"case": @"full", @"result" : @"success"}];
             
             completion(YES);
         }];
@@ -92,7 +105,7 @@
 - (void) onlineStoreOpenFinished:(SODataOnlineStore *)store
 {
     NSString *openStoreFinished = [NSString stringWithFormat:@"%@.%@", kStoreOpenDelegateFinished, [self description]];
-    
+
     // send notification for that openStore is finished
     [[NSNotificationCenter defaultCenter] postNotificationName:openStoreFinished object:self];
 }
