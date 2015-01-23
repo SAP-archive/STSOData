@@ -31,7 +31,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self forName:openStoreFailed object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
         
-        [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFailed object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:observer name:openStoreFailed object:observer];
         
         [Usage stopTimer:t info:@{@"type": @"online", @"result" : @"failed"}];
         
@@ -43,9 +43,6 @@
      */
     
     if (self.isOpen) {
-        /*
-         bug in library:  open store is never set to isOpen
-         */
     
         [Usage stopTimer:t info:@{@"type": @"online", @"case": @"none", @"result" : @"success"}];
         
@@ -92,7 +89,9 @@
             
         } else {
             
-            [[NSNotificationCenter defaultCenter] addObserverForName:kOnlineStoreConfigured object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [[NSNotificationCenter defaultCenter] addObserver:self forName:kOnlineStoreConfigured object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note, id observer) {
+                
+                [[NSNotificationCenter defaultCenter] removeObserver:observer name:kOnlineStoreConfigured object:observer];
                 
                 openStore();
             }];
